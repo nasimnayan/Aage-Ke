@@ -1,0 +1,43 @@
+{
+  "_note": "Fictional patients for judge mode (docs/01 section 11). Days are relative to today. Labels are read by the model when the demo loads; 'confirm' lists the labels Rina has already confirmed.",
+  "chcp": { "chcpName": "Rina (demo)", "clinic": "Demo community clinic", "myPhone": "" },
+  "patients": [
+    {
+      "code": "P-01 Noor", "union": "Nazirpur Sadar", "illness_day": 5, "fever_dropped_days_ago": 1,
+      "messages": [
+        { "days_ago": 1, "hour": 18, "text": "jor komse", "gloss": "The fever has come down.", "confirm": ["fever_dropped"] },
+        { "days_ago": 0, "hour": 7, "text": "pet e khub betha, 2 bar bomi korse", "gloss": "Very bad stomach pain, vomited twice.", "confirm": ["abdominal_pain", "persistent_vomiting"] }
+      ]
+    },
+    {
+      "code": "P-02", "union": "Sriramkathi", "illness_day": 4, "fever_dropped_days_ago": null,
+      "messages": [
+        { "days_ago": 0, "hour": 8, "text": "pet betha nai, valo achi", "gloss": "No stomach pain, I am well.", "confirm": [] }
+      ]
+    },
+    {
+      "code": "P-03", "union": "Matibhanga", "illness_day": 3, "fever_dropped_days_ago": null,
+      "messages": [
+        { "days_ago": 0, "hour": 8, "text": "kal bomi hoisilo aj nai", "gloss": "Vomited yesterday, not today.", "confirm": [] }
+      ]
+    },
+    {
+      "code": "P-04", "union": "Dirgha", "illness_day": 6, "fever_dropped_days_ago": null,
+      "messages": [
+        { "days_ago": 0, "hour": 9, "text": "dat theke rokto porse", "gloss": "Bleeding from the gums.", "confirm": ["bleeding"] }
+      ]
+    },
+    {
+      "code": "P-05", "union": "Nazirpur Sadar", "illness_day": 4, "fever_dropped_days_ago": null,
+      "messages": [
+        { "days_ago": 0, "hour": 9, "text": "kemon jani kortese", "gloss": "Somehow not right (unclear).", "confirm": [] }
+      ]
+    },
+    {
+      "code": "P-06", "union": "Sriramkathi", "illness_day": 5, "fever_dropped_days_ago": null,
+      "messages": [
+        { "days_ago": 1, "hour": 17, "text": "jor komse", "gloss": "The fever has come down.", "confirm": [] }
+      ]
+    }
+  ]
+}
