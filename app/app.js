@@ -252,7 +252,8 @@
       (back ? '<button class="ghost" data-act="back" data-to="' + back + '">←</button>' : '') +
       '<h1>' + esc(title) + '</h1>' +
       (navigator.onLine ? '' : '<span class="offline-badge">OFFLINE</span>') +
-      '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) + '</div>' +
+      '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) +
+        (S.view !== 'about' ? ' <button class="link" data-act="about">' + esc(t('about_link')) + '</button>' : '') + '</div>' +
         ((S.view === 'inbox' || S.view === 'patient') ? '<div class="facts">' +
           esc(I18N.getLang() === 'en' ? factsLine() : t('facts_short', { kb: Math.round(S.modelBytes / 1024) })) + '</div>' : '') : '');
   }
@@ -270,6 +271,7 @@
       }).join('') + '</div>' +
       '<p class="muted small">' + esc(t('pin_note')) + '</p>' +
       '<button class="judge" data-act="judge">' + esc(t('judge_button')) + '</button>' +
+      '<button class="link" data-act="about">' + esc(t('about_link')) + '</button>' +
       '</div>';
   }
 
@@ -484,8 +486,56 @@
       '<button class="red" data-act="refer-log" data-fac="' + esc(f.id) + '">' + esc(t('log_refer')) + '</button></main>';
   }
 
+  // ---------- About (static text from Nasim, one language at a time) ----------
+  var ABOUT = {
+    en: [
+      ['p', '<b>Aage Ke? (আগে কে?)</b> means "who first?"'],
+      ['lead', 'An offline phone tool that tells a community health worker which of her dengue patients at home needs her first.'],
+      ['h', 'Why we built it'],
+      ['ul', ['256 people died of dengue in Bangladesh in 2026 up to 3 October (DGHS).',
+              'In DGHS\'s 2025 death review, 66 of 114 deaths happened within 24 hours of reaching hospital. Families often arrive too late.',
+              'WHO advises that people with dengue cared for at home are reviewed every day until the critical phase is over. In villages, nobody does that daily check.']],
+      ['h', 'Who it helps'],
+      ['ul', ['<b>The family:</b> they text in their own words, or give a free missed call. No app, no internet.',
+              '<b>The community health worker:</b> one list, sorted by who needs her first, showing why. She confirms every suggestion and decides.',
+              '<b>The hospital:</b> a short referral note with the illness day and the signs already seen, so the family does not repeat everything.',
+              '<b>The health system:</b> home-managed cases leave a DHIS2-shaped record instead of disappearing.']],
+      ['h', 'The journey'],
+      ['ol', ['Fever in the house. The health worker adds the person ("fever, not tested yet") and sends a test reminder and home-care SMS.',
+              'After a test, she switches the status, and the app watches the danger days after the fever falls.',
+              'The family texts, for example "pet e khub betha, 2 bar bomi korse". She shares the SMS into the app.',
+              'A small on-device model suggests signs from a fixed list of 8 warning signs, or says "not sure" or "call them".',
+              'She confirms. The list re-sorts: red, amber, green. Silence in the danger days turns amber.',
+              'On red, she sees the nearest facility that admits dengue patients and a pre-written SMS. She presses send herself.']],
+      ['h', 'What the AI does, and does not'],
+      ['p', 'It reads messy Bangla and Banglish and picks from a fixed list. It never writes advice, never sends anything, never diagnoses. Everything else is plain code. A person decides.'],
+      ['h', 'How we tested it'],
+      ['p', 'On real messages written by volunteers from 5 districts and on 80 real public Bangla health posts, plus a separate synthetic stress test. See the results in the README.'],
+      ['facts', 'Model facts: 443 KB · runs on the phone · no internet · no LLM · 12 fixed labels.']
+    ],
+    bn: [
+      ['p', '<b>আগে কে?</b> মানে "কাকে আগে দেখতে হবে?"'],
+      ['lead', 'এক লাইনে: ইন্টারনেট ছাড়াই চলা একটা ফোন-টুল, যা কমিউনিটি স্বাস্থ্যকর্মীকে বলে দেয় বাসায় থাকা ডেঙ্গু রোগীদের মধ্যে কার কাছে আগে যেতে হবে।'],
+      ['p', '<b>কেন বানালাম:</b> ২০২৬ সালে ৩ অক্টোবর পর্যন্ত ডেঙ্গুতে ২৫৬ জন মারা গেছেন (স্বাস্থ্য অধিদপ্তর)। ২০২৫ সালের মৃত্যু পর্যালোচনায় ১১৪ জনের মধ্যে ৬৬ জন হাসপাতালে পৌঁছানোর ২৪ ঘণ্টার মধ্যে মারা গেছেন। WHO বলে, বাসায় থাকা রোগীকে বিপদের দিনগুলো পার না হওয়া পর্যন্ত প্রতিদিন দেখতে হবে। গ্রামে এই রোজকার খোঁজ কেউ নেয় না।'],
+      ['p', '<b>কার উপকার:</b> পরিবার নিজের ভাষায় SMS বা ফ্রি মিসড কল দেয়। স্বাস্থ্যকর্মী একটা সাজানো তালিকা পান, কারণসহ, আর সিদ্ধান্ত নেন নিজে। হাসপাতাল পায় রোগের দিন আর লক্ষণসহ রেফারেল নোট। আর বাসায় থাকা রোগীরাও রেকর্ডে আসেন।'],
+      ['p', '<b>AI কী করে:</b> এলোমেলো বাংলা আর Banglish পড়ে, ৮টা নির্দিষ্ট সতর্কসংকেতের তালিকা থেকে বাছে। নিজে কোনো পরামর্শ লেখে না, কিছু পাঠায় না, রোগ নির্ণয় করে না। সিদ্ধান্ত মানুষের।'],
+      ['facts', 'অন-ডিভাইস · 443 KB · ইন্টারনেট ছাড়া']
+    ]
+  };
+  // The text above is fixed, trusted copy (no user input), so it is inserted as HTML.
+  function viewAbout() {
+    var blocks = ABOUT[I18N.getLang()] || ABOUT.en;
+    return header(t('about_title'), S.aboutFrom || 'pin') + '<main class="about">' + blocks.map(function (b) {
+      if (b[0] === 'h') return '<h2>' + b[1] + '</h2>';
+      if (b[0] === 'lead') return '<p class="lead">' + b[1] + '</p>';
+      if (b[0] === 'facts') return '<p class="facts">' + b[1] + '</p>';
+      if (b[0] === 'ul' || b[0] === 'ol') return '<' + b[0] + '>' + b[1].map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</' + b[0] + '>';
+      return '<p>' + b[1] + '</p>';
+    }).join('') + '</main>';
+  }
+
   var VIEWS = { pin: viewPin, inbox: viewInbox, add_patient: viewAddPatient, settings: viewSettings, patient: viewPatient,
-    add_message: viewAddMessage, labels: viewLabels, sms: viewSms, refer: viewRefer };
+    add_message: viewAddMessage, labels: viewLabels, sms: viewSms, refer: viewRefer, about: viewAbout };
   function render() { $app.innerHTML = VIEWS[S.view](); renderLang(); }
 
   // ---------- language switch: fixed segmented control, remembered on this device ----------
@@ -550,6 +600,7 @@
     var act = el.dataset.act;
     if (act === 'pin') return pinDigit(el.dataset.d);
     if (act === 'judge') return startJudge();
+    if (act === 'about') { S.aboutFrom = S.view === 'about' ? S.aboutFrom : S.view; return go('about'); }
     if (act === 'info') { S.infoOpen = S.infoOpen === el.dataset.id ? null : el.dataset.id; return render(); }
     if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
     if (act === 'nav' && el.dataset.to === 'sms') S.smsKey = S.current && S.current.untested ? 'test_reminder' : 'daily';
