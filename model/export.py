@@ -2,7 +2,7 @@
 
 {version, labels, vocab: {ngram: index}, idf: [...], coef: [[...]], intercept: [...], thresholds, rules_ref}
 Weights rounded to 4 decimals. Vocab entries whose coefficients are all below 1e-4 are dropped.
-Writes model/model_dengue.json and a copy in app/ for the PWA.
+Writes model/model_dengue.json and copies it, the labels and the facilities into app/ for the PWA.
 """
 import json
 import pickle
@@ -48,6 +48,9 @@ def main():
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(model, f, ensure_ascii=False, separators=(",", ":"))
     shutil.copy(OUT, ROOT / "app" / "model_dengue.json")
+    # The app reads the same label list and rules, and the facility list (docs/03 CC6).
+    shutil.copy(ROOT / "data" / "labels_dengue.json", ROOT / "app" / "labels_dengue.json")
+    shutil.copy(ROOT / "data" / "facilities_nazirpur.json", ROOT / "app" / "facilities.json")
     size = OUT.stat().st_size
     print(f"Exported {len(keep)} of {coef.shape[1]} n-grams, {len(keys)} labels")
     print(f"model_dengue.json size: {size:,} bytes ({size / 1024:.1f} KB), target < 500 KB")
