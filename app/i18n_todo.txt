@@ -1,2 +1,4 @@
 # UI strings still in English. Format: key | English. Send back as key | Bangla.
-
+maybe_these | Maybe one of these?
+add_yourself | Add a sign yourself
+added_by_you | Added by you

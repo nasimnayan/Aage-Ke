@@ -141,6 +141,14 @@
     .why-key { color: var(--muted); }
     .chip-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .chip-actions button { font-size: .95rem; }
+    .chip.manual { border-color: var(--brand); background: var(--brand-soft); }
+    .chip.manual .band-badge { background: var(--brand); }
+    .chip.manual .chip-label { color: var(--brand); }
+    .picker { margin-top: 12px; display: grid; gap: 8px; }
+    .picker h2 { margin: 6px 0 0; }
+    .pick-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    button.pick { background: var(--card); color: var(--brand); border: 1px dashed var(--brand); font-weight: 600; min-height: 44px; }
+    .pick-toggle { width: 100%; }
     button[data-act="labels-done"] { width: 100%; margin-top: 8px; }
     .chip .yes { background: var(--brand); color: #fff; }
     .chip .no { background: var(--card); color: var(--ink); border: 1px solid var(--line); }

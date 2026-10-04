@@ -323,7 +323,8 @@
   function outcomeLine(m) {
     if (m.type === 'missed_call') return '<span class="pill amber">' + esc(t('missed_call')) + '</span>';
     if (m.type === 'note') return '<span class="pill">' + esc(t('own_note')) + '</span>';
-    if (m.outcome === 'not_understood') return '<span class="pill amber">' + esc(t('not_understood')) + '</span>';
+    var hasLabels = Object.keys(m.bands || {}).length > 0;
+    if (m.outcome === 'not_understood' && !hasLabels) return '<span class="pill amber">' + esc(t('not_understood')) + '</span>';
     if (m.outcome === 'no_warning_sign') return '<span class="pill green">' + esc(t('no_warning')) + '</span>';
     return Object.keys(m.bands || {}).map(function (k) {
       var d = (m.decisions || {})[k];
@@ -395,7 +396,7 @@
     var m = S.draft, keys = Object.keys(m.bands);
     var chips = keys.map(function (k) {
       var d = m.decisions[k], b = m.bands[k];
-      var badge = d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
+      var badge = b === 'manual' ? t('added_by_you') : d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
       return '<div class="chip ' + b + (d ? ' ' + d : '') + '">' +
         '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
         '<span class="band-badge">' + esc(badge) + '</span></div>' +
@@ -412,7 +413,28 @@
       (m.unfamiliar ? '<p class="pill amber big">' + esc(t('unfamiliar')) + '</p>' : '') +
       note + (keys.length ? '<p class="muted small">' + esc(t('tap_to_confirm')) + '</p>' : '') + chips +
       (S.judge && m.isNew && S.lastMs != null && I18N.getLang() === 'en' ? '<p class="facts">Read on this phone in ' + S.lastMs.toFixed(1) + ' ms</p>' : '') +
+      pickLabels(m) +
       '<button data-act="labels-done">' + esc(t('done')) + '</button></main>';
+  }
+
+  // When the model is unsure or misses, Rina can still pick: the next 2 most likely labels from the
+  // fixed list (shown without numbers), or any label from the full list. Picked labels count as confirmed.
+  var MAYBE_MIN = 0.15;
+  function pickLabels(m) {
+    var probs = AageModel.predict(S.model, m.text);
+    var all = S.labels.warning_signs.concat(S.labels.status_labels).map(function (l) { return l.key; });
+    var rest = all.filter(function (k) { return !m.bands[k]; });
+    var maybe = rest.slice().sort(function (a, b) { return probs[b] - probs[a]; })
+      .filter(function (k) { return probs[k] >= MAYBE_MIN; }).slice(0, 2);
+    var btn = function (k) {
+      return '<button class="pick" data-act="add-label" data-k="' + k + '">+ ' + esc(labelName(k)) + '</button>';
+    };
+    return '<div class="picker">' +
+      (maybe.length ? '<h2>' + esc(t('maybe_these')) + '</h2><div class="pick-list">' + maybe.map(btn).join('') + '</div>' : '') +
+      '<button class="ghost pick-toggle" data-act="toggle-all" aria-expanded="' + !!S.showAllLabels + '">' +
+      esc(t('add_yourself')) + (S.showAllLabels ? ' ▲' : ' ▼') + '</button>' +
+      (S.showAllLabels ? '<div class="pick-list">' + rest.filter(function (k) { return maybe.indexOf(k) === -1; }).map(btn).join('') + '</div>' : '') +
+      '</div>';
   }
 
   function viewSms() {
@@ -536,6 +558,7 @@
       if (!text) return;
       var a = analyse(text);
       S.sharedText = null;
+      S.showAllLabels = false;
       S.draft = { id: uid(), ts: Date.now(), type: 'sms', text: text, bands: a.bands, outcome: a.outcome, unfamiliar: a.unfamiliar, decisions: {}, isNew: true };
       return go('labels');
     }
@@ -551,6 +574,17 @@
       S.draft = JSON.parse(JSON.stringify(m));
       S.draft.decisions = S.draft.decisions || {};
       return go('labels');
+    }
+    if (act === 'add-label') {
+      S.draft.bands[el.dataset.k] = 'manual';
+      S.draft.decisions[el.dataset.k] = 'confirmed';
+      return render();
+    }
+    if (act === 'toggle-all') { S.showAllLabels = !S.showAllLabels; return render(); }
+    if (act === 'decide' && S.draft.bands[el.dataset.k] === 'manual' && el.dataset.v === 'rejected') {
+      delete S.draft.bands[el.dataset.k];
+      delete S.draft.decisions[el.dataset.k];
+      return render();
     }
     if (act === 'decide') {
       var k = el.dataset.k, v = el.dataset.v;
