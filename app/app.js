@@ -217,7 +217,7 @@
   function startJudge() {
     S.judge = true;
     Store.use('memory');
-    I18N.setLang('en');
+    if (!savedLang()) I18N.setLang('en');
     fetch('demo_data.json').then(function (r) { return r.json(); }).then(function (demo) {
       S.settings = demo.chcp;
       var now = Date.now();
@@ -245,7 +245,6 @@
     return '<header class="bar">' +
       (back ? '<button class="ghost" data-act="back" data-to="' + back + '">←</button>' : '') +
       '<h1>' + esc(title) + '</h1>' +
-      '<button class="ghost small" data-act="lang">' + esc(t('lang_toggle')) + '</button>' +
       '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) + '</div>' +
         (S.view === 'inbox' ? '<div class="facts">' + esc(factsLine()) + '</div>' : '') : '');
   }
@@ -263,7 +262,6 @@
       }).join('') + '</div>' +
       '<p class="muted small">' + esc(t('pin_note')) + '</p>' +
       '<button class="judge" data-act="judge">' + esc(t('judge_button')) + '</button>' +
-      '<button class="ghost small" data-act="lang">' + esc(t('lang_toggle')) + '</button>' +
       '</div>';
   }
 
@@ -333,6 +331,22 @@
     }).join(' ');
   }
 
+  // Small context tags under a message, for judges: script and area. Never a dialect name,
+  // because the demo messages are not dialect samples.
+  var DIVISION = { Pirojpur: 'Barishal division' };
+  function messageTags(p, m) {
+    if (m.type !== 'sms' || !m.text) return '';
+    var script = AageModel.detectScript(m.text);
+    var scriptTag = script === 'banglish' ? 'Banglish · Bangla in Latin letters'
+      : script === 'bn' ? 'বাংলা হরফ · Bangla script' : 'Mixed';
+    var area = S.fac.upazila + ', ' + S.fac.district + (DIVISION[S.fac.district] ? ' (' + DIVISION[S.fac.district] + ')' : '');
+    var open = S.infoOpen === m.id;
+    return '<div class="tags"><span class="tag">' + esc(scriptTag) + '</span>' +
+      (script === 'banglish' ? '<button class="info" data-act="info" data-id="' + esc(m.id) + '" aria-expanded="' + open + '" aria-label="' + esc(t('about_banglish')) + '">ⓘ</button>' : '') +
+      '<span class="tag">' + esc(area) + '</span>' +
+      (open ? '<p class="info-line">' + esc(t('banglish_info')) + '</p>' : '') + '</div>';
+  }
+
   function viewPatient() {
     var p = S.current, u = urgency(p), day = illnessDay(p), signs = confirmedSigns(p);
     var tel = p.phone ? '<a class="btn red" href="tel:' + esc(p.phone) + '" data-act="log" data-type="call">' + esc(t('call_now')) + '</a>'
@@ -342,7 +356,7 @@
         '<span class="time">' + esc(when(m.ts)) + '</span>' +
         (m.text ? '<span class="text">' + esc(m.text) + '</span>' : '') +
         (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') +
-        '<span class="outcome">' + outcomeLine(m) + '</span></button></li>';
+        '<span class="outcome">' + outcomeLine(m) + '</span></button>' + messageTags(p, m) + '</li>';
     }).join('');
     return header(p.code, 'inbox') + '<main>' +
       '<div class="card tier-' + u.tier + '"><div class="big">' + esc(p.code) + '</div>' +
@@ -432,7 +446,27 @@
 
   var VIEWS = { pin: viewPin, inbox: viewInbox, add_patient: viewAddPatient, settings: viewSettings, patient: viewPatient,
     add_message: viewAddMessage, labels: viewLabels, sms: viewSms, refer: viewRefer };
-  function render() { $app.innerHTML = VIEWS[S.view](); }
+  function render() { $app.innerHTML = VIEWS[S.view](); renderLang(); }
+
+  // ---------- language switch: fixed segmented control, remembered on this device ----------
+  var $lang = document.getElementById('lang-switch');
+  function savedLang() { try { return localStorage.getItem('aageke-lang'); } catch (e) { return null; } }
+  function setLanguage(l) {
+    I18N.setLang(l);
+    try { localStorage.setItem('aageke-lang', l); } catch (e) { /* private mode: choice lasts this session */ }
+  }
+  function renderLang() {
+    var cur = I18N.getLang();
+    $lang.innerHTML = [['bn', 'বাংলা'], ['en', 'English']].map(function (o) {
+      return '<button data-act="lang" data-lang="' + o[0] + '" aria-pressed="' + (cur === o[0]) + '"' +
+        (o[0] === 'bn' ? ' lang="bn"' : ' lang="en"') + '>' + o[1] + '</button>';
+    }).join('');
+  }
+  $lang.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-lang]');
+    if (b && b.dataset.lang !== I18N.getLang()) { setLanguage(b.dataset.lang); render(); }
+  });
+  if (savedLang()) I18N.setLang(savedLang());
 
   // ---------- export (DHIS2-shaped, docs/01 §9) ----------
   function exportEvents() {
@@ -476,7 +510,7 @@
     var act = el.dataset.act;
     if (act === 'pin') return pinDigit(el.dataset.d);
     if (act === 'judge') return startJudge();
-    if (act === 'lang') { I18N.setLang(I18N.getLang() === 'bn' ? 'en' : 'bn'); return render(); }
+    if (act === 'info') { S.infoOpen = S.infoOpen === el.dataset.id ? null : el.dataset.id; return render(); }
     if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
     if (act === 'nav' && el.dataset.to === 'sms') S.smsKey = S.current && S.current.untested ? 'test_reminder' : 'daily';
     if (act === 'back' || act === 'nav') return go(el.dataset.to);

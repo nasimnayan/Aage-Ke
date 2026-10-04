@@ -28,14 +28,29 @@
     button.red, .btn.red { background: var(--red); }
     button.amber { background: var(--amber); }
     button.green { background: var(--green); }
-    .bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--brand); color: #fff;
-      position: sticky; top: 0; z-index: 2; }
+    .bar { display: flex; align-items: center; gap: 8px; padding: 10px 172px 10px 12px; min-height: 56px;
+      background: var(--brand); color: #fff; position: sticky; top: 0; z-index: 2; }
+    .bar h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .bar button.ghost { color: #fff; border-color: rgba(255,255,255,.4); min-height: 40px; padding: 6px 10px; }
     .banner { background: #fff8d6; color: #5a4a00; padding: 8px 16px; font-size: .9rem; text-align: center; }
     .facts { background: #eef3f6; color: var(--brand); padding: 6px 16px; font-size: .8rem; text-align: center; }
     .muted { color: var(--muted); } .center { text-align: center; }
     .err { color: var(--red); font-weight: 600; }
-    .pin { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 32px 16px; max-width: 360px; margin: 0 auto; }
+    .pin { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 72px 16px 32px; max-width: 360px; margin: 0 auto; }
+    /* Language switch: fixed top right on every screen, segmented, 44px targets */
+    .lang-switch { position: fixed; top: max(8px, env(safe-area-inset-top)); right: 12px; z-index: 10; display: flex;
+      background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+    .lang-switch button { min-height: 36px; padding: 4px 12px; border-radius: 999px; background: transparent; color: var(--ink);
+      font-size: .85rem; font-weight: 600; }
+    .lang-switch button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+    /* Context tags under messages (judges): script and area */
+    .tags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 14px 10px; border-top: 1px dashed var(--line); }
+    .tag { font-size: .75rem; color: var(--muted); background: #eef1f2; border-radius: 6px; padding: 2px 8px; }
+    button.info { min-height: 28px; width: 28px; padding: 0; border-radius: 50%; background: transparent; color: var(--brand);
+      border: 1px solid var(--line); font-size: .9rem; line-height: 1; }
+    .info-line { flex-basis: 100%; margin: 2px 0 0; font-size: .82rem; color: var(--ink); background: #f7f9fa;
+      border-left: 3px solid var(--brand); padding: 6px 10px; border-radius: 4px; }
+    :focus-visible { outline: 3px solid #f2b600; outline-offset: 2px; }
     .brand { font-size: 2rem; font-weight: 700; color: var(--brand); }
     .dots { display: flex; gap: 14px; }
     .dots span { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--brand); }
@@ -63,8 +78,12 @@
     .big { font-size: 1.25rem; font-weight: 700; }
     .why { font-weight: 600; }
     .msgs { list-style: none; padding: 0; margin: 0; }
-    .msg { width: 100%; text-align: left; background: var(--card); color: var(--ink); border: 1px solid var(--line);
-      display: grid; gap: 4px; margin: 6px 0; }
+    /* Each message is one card: the tappable message, then its context tags */
+    .msgs li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin: 8px 0; overflow: hidden; }
+    .msg { width: 100%; text-align: left; background: transparent; color: var(--ink); border: 0; border-radius: 0;
+      display: grid; gap: 4px; margin: 0; padding: 12px 14px 8px; }
+    .msg:active { background: #f7f9fa; }
+    .msg .text { font-size: 1.05rem; }
     .time { font-size: .8rem; color: var(--muted); }
     .gloss { display: block; font-size: .85rem; color: var(--muted); font-style: italic; }
     .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .85rem; background: #eef1f2; margin: 2px 0; }
@@ -94,6 +113,7 @@
   </style>
 </head>
 <body>
+  <div id="lang-switch" class="lang-switch" role="group" aria-label="Language"></div>
   <div id="app"><p class="center muted">…</p></div>
   <script src="model.js"></script>
   <script src="rules.js"></script>
