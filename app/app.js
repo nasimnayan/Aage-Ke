@@ -48,7 +48,9 @@
     var probs = AageModel.predict(S.model, text);
     var bands = AageRules.applyRules(probs, S.rules.analyse(text), S.labels.bands);
     S.lastMs = performance.now() - t0;
-    return { bands: bands, outcome: AageRules.outcome(bands, warningKeys()) };
+    var th = S.model.coverage_threshold;
+    return { bands: bands, outcome: AageRules.outcome(bands, warningKeys()),
+      unfamiliar: th != null && AageModel.coverage(S.model, text) < th };
   }
 
   // Judge mode only: what the model is, in one line (English; numbers come from model_dengue.json).
@@ -231,7 +233,7 @@
           if (ts > now) ts = now - 60000;
           var a = analyse(m.text), decisions = {};
           (m.confirm || []).forEach(function (k) { if (a.bands[k]) decisions[k] = 'confirmed'; });
-          p.messages.push({ id: uid(), ts: ts, type: 'sms', text: m.text, gloss: m.gloss, bands: a.bands, outcome: a.outcome, decisions: decisions });
+          p.messages.push({ id: uid(), ts: ts, type: 'sms', text: m.text, gloss: m.gloss, bands: a.bands, outcome: a.outcome, unfamiliar: a.unfamiliar, decisions: decisions });
         });
         return Store.put(p);
       }));
@@ -382,6 +384,7 @@
       : m.outcome === 'no_warning_sign' ? '<p class="pill green big">' + esc(t('no_warning')) + '</p>' : '';
     return header(S.current.code, 'patient') + '<main>' +
       '<blockquote>' + esc(m.text) + (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') + '</blockquote>' +
+      (m.unfamiliar ? '<p class="pill amber big">' + esc(t('unfamiliar')) + '</p>' : '') +
       note + (keys.length ? '<p class="muted small">' + esc(t('tap_to_confirm')) + '</p>' : '') + chips +
       (S.judge && m.isNew && S.lastMs != null ? '<p class="facts">Read on this phone in ' + S.lastMs.toFixed(1) + ' ms</p>' : '') +
       '<button data-act="labels-done">' + esc(t('done')) + '</button></main>';
@@ -487,7 +490,7 @@
       if (!text) return;
       var a = analyse(text);
       S.sharedText = null;
-      S.draft = { id: uid(), ts: Date.now(), type: 'sms', text: text, bands: a.bands, outcome: a.outcome, decisions: {}, isNew: true };
+      S.draft = { id: uid(), ts: Date.now(), type: 'sms', text: text, bands: a.bands, outcome: a.outcome, unfamiliar: a.unfamiliar, decisions: {}, isNew: true };
       return go('labels');
     }
     if (act === 'missed') return addMessage({ id: uid(), ts: Date.now(), type: 'missed_call', text: '', decisions: {} }).then(function () { go('patient'); });

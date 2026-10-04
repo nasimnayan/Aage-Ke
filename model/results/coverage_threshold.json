@@ -1,0 +1,10 @@
+{
+  "method": "dev minimum of char n-gram vocabulary coverage; vectoriser fitted on the 80% train split",
+  "dev_rows": 116,
+  "threshold": 0.674,
+  "dev_min": 0.674,
+  "dev_p1": 0.696,
+  "dev_p5": 1.0,
+  "dev_median": 1.0,
+  "dev_share_flagged": 0.0
+}

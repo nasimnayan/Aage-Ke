@@ -37,6 +37,12 @@ def facts():
     return out
 
 
+def coverage_threshold():
+    """Unfamiliar-wording flag threshold from coverage.py (dev split only), or None if not run."""
+    p = HERE / "results" / "coverage_threshold.json"
+    return json.load(open(p, encoding="utf-8"))["threshold"] if p.exists() else None
+
+
 def main():
     with open(HERE / "model.pkl", "rb") as f:
         m = pickle.load(f)
@@ -63,6 +69,7 @@ def main():
         "rules_ref": "data/labels_dengue.json version " + labels_json["version"],
         "C": m["C"],
         "facts": facts(),
+        "coverage_threshold": coverage_threshold(),
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(model, f, ensure_ascii=False, separators=(",", ":"))

@@ -82,6 +82,7 @@
       arrived: 'Reached hospital',
       status_tested: 'Tested',
       why_prefix: 'Why',
+      unfamiliar: 'This wording may be unfamiliar to the model. Read it yourself.',
       status_untested: 'Fever, not tested yet',
       mark_tested: 'Tested now',
       details_needed: 'Fill in your name, clinic and phone first. The referral note needs them.',
@@ -167,6 +168,7 @@
       call_today: 'আজ ফোন করুন',
       status_tested: 'পরীক্ষা হয়েছে',
       why_prefix: 'কেন',
+      unfamiliar: 'এই লেখার ভাষা হয়তো চেনা নয় — নিজে পড়ে দেখুন',
       status_untested: 'জ্বর, পরীক্ষা হয়নি',
       mark_tested: 'পরীক্ষা হয়েছে',
       arrived: 'হাসপাতালে পৌঁছেছে'
