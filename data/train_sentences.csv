@@ -1,0 +1,581 @@
+text,labels,script,dialect,is_negated,is_past,source,verified
+আব্বার পেটে খুব ব্যথা,abdominal_pain,bn,standard,0,0,claude_draft,false
+আমার স্বামীর পেটে খুব ব্যথা,abdominal_pain,bn,standard,0,0,claude_draft,false
+রোগীর পেটে খুব ব্যথা,abdominal_pain,bn,standard,0,0,claude_draft,false
+আপা আব্বার পেটে প্রচণ্ড ব্যথা হচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+নানির পেটে প্রচণ্ড ব্যথা হচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+"আপা, দাদির পেটে প্রচণ্ড ব্যথা হচ্ছে",abdominal_pain,bn,standard,0,0,claude_draft,false
+আম্মার পেট ব্যথা কমছে না,abdominal_pain,bn,standard,0,0,claude_draft,false
+আব্বার পেট ব্যথা কমছে না,abdominal_pain,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, রোগীর পেট ব্যথা কমছে না",abdominal_pain,bn,standard,0,0,claude_draft,false
+সকাল থেকে দাদির পেটে একটানা ব্যথা,abdominal_pain,bn,standard,0,0,claude_draft,false
+সকাল থেকে নানির পেটে একটানা ব্যথা,abdominal_pain,bn,standard,0,0,claude_draft,false
+"আপা, সকাল থেকে নানির পেটে একটানা ব্যথা",abdominal_pain,bn,standard,0,0,claude_draft,false
+"আপা, রোগীর পেট কামড়াচ্ছে",abdominal_pain,bn,standard,0,0,claude_draft,false
+দাদির পেট কামড়াচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+আম্মার পেট কামড়াচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+ভাই পেটের ব্যথায় কাতরাচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+আমার স্বামী পেটের ব্যথায় কাতরাচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+রোগী পেটের ব্যথায় কাতরাচ্ছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+আব্বার পেটের ডান দিকে ব্যথা করছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+ভাইয়ের পেটের ডান দিকে ব্যথা করছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+আমার বউয়ের পেটের ডান দিকে ব্যথা করছে,abdominal_pain,bn,standard,0,0,claude_draft,false
+"দাদি পেট ধরে বসে আছে, খুব ব্যথা",abdominal_pain,bn,standard,0,0,claude_draft,false
+"আপা আম্মা পেট ধরে বসে আছে, খুব ব্যথা",abdominal_pain,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, বোন পেট ধরে বসে আছে, খুব ব্যথা",abdominal_pain,bn,standard,0,0,claude_draft,false
+"apa, abbar pete khub bytha",abdominal_pain,banglish,standard,0,0,claude_draft,false
+dadir pete kub betha,abdominal_pain,banglish,standard,0,0,claude_draft,false
+apa ammar pete kub bytha,abdominal_pain,banglish,standard,0,0,claude_draft,false
+abbar pet betha kortesay,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"apa, shamir pet bytha korteche",abdominal_pain,banglish,standard,0,0,claude_draft,false
+bouer pet batha kortase,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, abbar pete onek batha",abdominal_pain,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, amar pete onek batha",abdominal_pain,banglish,standard,0,0,claude_draft,false
+rogir pete onek batha,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"apa, sokal theke boner pet bytha kome na",abdominal_pain,banglish,standard,0,0,claude_draft,false
+sokal theke nanir pet bytha kome na,abdominal_pain,banglish,standard,0,0,claude_draft,false
+sokal theke ammar pet betha kome na,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"apa, bouer pet kamrai",abdominal_pain,banglish,standard,0,0,claude_draft,false
+shamir pet kamrai,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, rogir pet kamrai",abdominal_pain,banglish,standard,0,0,claude_draft,false
+pete onek bedona,abdominal_pain,banglish,standard,0,0,claude_draft,false
+apa pete onek bedona,abdominal_pain,banglish,standard,0,0,claude_draft,false
+pete kub bedona,abdominal_pain,banglish,standard,0,0,claude_draft,false
+apa rogir peter dan dike bytha,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"apa, dadir peter dan dike beta",abdominal_pain,banglish,standard,0,0,claude_draft,false
+bouer peter dan dike batha,abdominal_pain,banglish,standard,0,0,claude_draft,false
+"apa, nani pet dhore bose ase, khub betha",abdominal_pain,banglish,standard,0,0,claude_draft,false
+"abbu pet dhore bose ase, kub beta",abdominal_pain,banglish,standard,0,0,claude_draft,false
+"dadi pet dhore bose ase, onek beta",abdominal_pain,banglish,standard,0,0,claude_draft,false
+"আপা, দাদি বারবার বমি করছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+নানি বারবার বমি করছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+আপা আব্বা আজ ৩ বার বমি করেছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+নানি আজ ৩ বার বমি করেছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+আমার বউ আজ ৩ বার বমি করেছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আপা, আমার স্বামীর বমি থামছে না",persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আপা, আমার বমি থামছে না",persistent_vomiting,bn,standard,0,0,claude_draft,false
+আপা আম্মার বমি থামছে না,persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, যা খায় তাই বমি করে দেয়",persistent_vomiting,bn,standard,0,0,claude_draft,false
+আপা যা খায় তাই বমি করে দেয়,persistent_vomiting,bn,standard,0,0,claude_draft,false
+আপা আমার স্বামী সকাল থেকে বমি করছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, নানি সকাল থেকে বমি করছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+রোগী সকাল থেকে বমি করছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+আমার বউয়ের বারবার বমি হচ্ছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, নানির বারবার বমি হচ্ছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আম্মার বারবার বমি হচ্ছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আপা, আমার বউ উল্টি করছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+আম্মা উল্টি করছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+আমার বউ উল্টি করছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+রোগী বমি করেই যাচ্ছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, রোগী বমি করেই যাচ্ছে",persistent_vomiting,bn,standard,0,0,claude_draft,false
+আব্বা বমি করেই যাচ্ছে,persistent_vomiting,bn,standard,0,0,claude_draft,false
+bon barbar bomi korteche,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, bon barbar bomii korteche",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, nani barbar bomi kortesay",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+apa aj 3 bar vomi korche,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, aj 3 bar bomii korce",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, aj 3 bar bomi korse",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+rogir bomii thamtese na,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, ammar vomi thamtese na",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, rogir bomi thamtese na",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+ja khay tai vomi kore dey,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+ja khay tai bomi kore dey,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+sokal theke nani vomi kortase,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+sokal theke bon vomi korteche,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, sokal theke dadi bomi kortesay",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, boner bomi hoitese barbar",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+apa abbar bomii hoche barbar,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, bhaiyer vomi hoche barbar",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+apa ammu ulti kortese,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, ammu ulti kortase",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+abbu ulti korteche,persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, bomii korei jacche",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, bomi korei jacche",persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আপা, আব্বার দাঁতের মাড়ি দিয়ে রক্ত পড়ছে",bleeding,bn,standard,0,0,claude_draft,false
+নানির দাঁতের মাড়ি দিয়ে রক্ত পড়ছে,bleeding,bn,standard,0,0,claude_draft,false
+আপা আম্মার দাঁতের মাড়ি দিয়ে রক্ত পড়ছে,bleeding,bn,standard,0,0,claude_draft,false
+নানির নাক দিয়ে রক্ত পড়ছে,bleeding,bn,standard,0,0,claude_draft,false
+আব্বার নাক দিয়ে রক্ত পড়ছে,bleeding,bn,standard,0,0,claude_draft,false
+"আপা, আমার নাক দিয়ে রক্ত পড়ছে",bleeding,bn,standard,0,0,claude_draft,false
+"আপা, বমির সাথে রক্ত এসেছে",bleeding,bn,standard,0,0,claude_draft,false
+বমির সাথে রক্ত এসেছে,bleeding,bn,standard,0,0,claude_draft,false
+ভাইয়ের পায়খানা কালো হয়ে গেছে,bleeding,bn,standard,0,0,claude_draft,false
+বোনের পায়খানা কালো হয়ে গেছে,bleeding,bn,standard,0,0,claude_draft,false
+আপা পায়খানার সাথে রক্ত যাচ্ছে,bleeding,bn,standard,0,0,claude_draft,false
+পায়খানার সাথে রক্ত যাচ্ছে,bleeding,bn,standard,0,0,claude_draft,false
+রোগীর মাড়ি থেকে রক্ত বের হচ্ছে,bleeding,bn,standard,0,0,claude_draft,false
+আপা দাদির মাড়ি থেকে রক্ত বের হচ্ছে,bleeding,bn,standard,0,0,claude_draft,false
+দাঁত ব্রাশ করার সময় রক্ত পড়ছে,bleeding,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, দাঁত ব্রাশ করার সময় রক্ত পড়ছে",bleeding,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, বোনের নাক থেকে রক্ত আসছে",bleeding,bn,standard,0,0,claude_draft,false
+নানির নাক থেকে রক্ত আসছে,bleeding,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আম্মার নাক থেকে রক্ত আসছে",bleeding,bn,standard,0,0,claude_draft,false
+abbar dat theke rokto porse,bleeding,banglish,standard,0,0,claude_draft,false
+dadir dat theke roktto porse,bleeding,banglish,standard,0,0,claude_draft,false
+"apa, rogir dat theke rokto porse",bleeding,banglish,standard,0,0,claude_draft,false
+dadir nak diye roktto porche,bleeding,banglish,standard,0,0,claude_draft,false
+"apa, abbar nak diye roktto porche",bleeding,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, bomir sathe roktto ashche",bleeding,banglish,standard,0,0,claude_draft,false
+bomir sathe rokto ashche,bleeding,banglish,standard,0,0,claude_draft,false
+bomir sathe rokkto ashche,bleeding,banglish,standard,0,0,claude_draft,false
+bhaiyer paikhana kalo hoye gece,bleeding,banglish,standard,0,0,claude_draft,false
+"apa, shamir paikhana kalo hoye geche",bleeding,banglish,standard,0,0,claude_draft,false
+abbar paikhana kalo hoye geche,bleeding,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, paykhanar sathe rokto jacche",bleeding,banglish,standard,0,0,claude_draft,false
+paykhanar sathe rokto jacche,bleeding,banglish,standard,0,0,claude_draft,false
+maari theke rokkto ber hoitese,bleeding,banglish,standard,0,0,claude_draft,false
+maari theke roktto ber hoche,bleeding,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, maari theke roktto ber hocche",bleeding,banglish,standard,0,0,claude_draft,false
+brush korte gele roktto pore,bleeding,banglish,standard,0,0,claude_draft,false
+brush korte gele rokkto pore,bleeding,banglish,standard,0,0,claude_draft,false
+nanir nak theke rokkto ashtese,bleeding,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, shamir nak theke rokto ashtese",bleeding,banglish,standard,0,0,claude_draft,false
+bouer nak theke roktto ashtese,bleeding,banglish,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার স্বামী খুব দুর্বল হয়ে গেছে",lethargy_restless,bn,standard,0,0,claude_draft,false
+বোন খুব দুর্বল হয়ে গেছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+আম্মা খুব দুর্বল হয়ে গেছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+ভাই একদম নেতিয়ে পড়েছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+আম্মা একদম নেতিয়ে পড়েছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+আমার বউ একদম নেতিয়ে পড়েছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+আমার স্বামী সারাদিন ঝিমাচ্ছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, বোন সারাদিন ঝিমাচ্ছে",lethargy_restless,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, ভাই সারাদিন ঝিমাচ্ছে",lethargy_restless,bn,standard,0,0,claude_draft,false
+আম্মা খুব অস্থির করছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+আপা আব্বা খুব অস্থির করছে,lethargy_restless,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, শাশুড়ি খুব অস্থির করছে",lethargy_restless,bn,standard,0,0,claude_draft,false
+ডাকলে ঠিকমতো সাড়া দিচ্ছে না,lethargy_restless,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, ডাকলে ঠিকমতো সাড়া দিচ্ছে না",lethargy_restless,bn,standard,0,0,claude_draft,false
+"আপা, ডাকলে ঠিকমতো সাড়া দিচ্ছে না",lethargy_restless,bn,standard,0,0,claude_draft,false
+শাশুড়ি বিছানা থেকে উঠতে পারছে না,lethargy_restless,bn,standard,0,0,claude_draft,false
+আমার স্বামী বিছানা থেকে উঠতে পারছে না,lethargy_restless,bn,standard,0,0,claude_draft,false
+আম্মা বিছানা থেকে উঠতে পারছে না,lethargy_restless,bn,standard,0,0,claude_draft,false
+"আপা রোগী ঘুম ঘুম ভাব, কথা বলছে না",lethargy_restless,bn,standard,0,0,claude_draft,false
+"আব্বা ঘুম ঘুম ভাব, কথা বলছে না",lethargy_restless,bn,standard,0,0,claude_draft,false
+"apa, nani kub durbol hoye gese",lethargy_restless,banglish,standard,0,0,claude_draft,false
+shashuri onek durbol hoye gese,lethargy_restless,banglish,standard,0,0,claude_draft,false
+apa shashuri khoob durbol hoye geche,lethargy_restless,banglish,standard,0,0,claude_draft,false
+rogi ekdom netiye porse,lethargy_restless,banglish,standard,0,0,claude_draft,false
+apa shashuri ekdom netiye porse,lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, abbu ekdom netiye porse",lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, ammu sharadin jhimacche",lethargy_restless,banglish,standard,0,0,claude_draft,false
+rogi sharadin jhimacche,lethargy_restless,banglish,standard,0,0,claude_draft,false
+bon sharadin jhimacche,lethargy_restless,banglish,standard,0,0,claude_draft,false
+amar shami kub osthir kortese,lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, rogi khoob osthir kortase",lethargy_restless,banglish,standard,0,0,claude_draft,false
+abbu khoob osthir kortesay,lethargy_restless,banglish,standard,0,0,claude_draft,false
+dakle thikmoto shara dey na,lethargy_restless,banglish,standard,0,0,claude_draft,false
+dadi bichana theke uthte pare na,lethargy_restless,banglish,standard,0,0,claude_draft,false
+ammu bichana theke uthte pare na,lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, dadi bichana theke uthte pare na",lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa ghum ghum vab, kotha bole na",lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, ghum ghum vab, kotha bole na",lethargy_restless,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, ghum ghum vab, kotha bole na",lethargy_restless,banglish,standard,0,0,claude_draft,false
+"আপা, আব্বার প্রস্রাব খুব কম হচ্ছে",low_urine,bn,standard,0,0,claude_draft,false
+দাদির প্রস্রাব খুব কম হচ্ছে,low_urine,bn,standard,0,0,claude_draft,false
+আমার স্বামীর প্রস্রাব খুব কম হচ্ছে,low_urine,bn,standard,0,0,claude_draft,false
+সকাল থেকে একবারও প্রস্রাব হয়নি,low_urine,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, সকাল থেকে একবারও প্রস্রাব হয়নি",low_urine,bn,standard,0,0,claude_draft,false
+ভাইয়ের পেশাব কমে গেছে,low_urine,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার বউয়ের পেশাব কমে গেছে",low_urine,bn,standard,0,0,claude_draft,false
+আপা আমার বউয়ের পেশাব কমে গেছে,low_urine,bn,standard,0,0,claude_draft,false
+আপা সারাদিনে মাত্র একবার প্রস্রাব করেছে,low_urine,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, সারাদিনে মাত্র একবার প্রস্রাব করেছে",low_urine,bn,standard,0,0,claude_draft,false
+ভাইয়ের প্রস্রাব হচ্ছে না,low_urine,bn,standard,0,0,claude_draft,false
+আপা ভাইয়ের প্রস্রাব হচ্ছে না,low_urine,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার স্বামীর প্রস্রাব হচ্ছে না",low_urine,bn,standard,0,0,claude_draft,false
+"প্রস্রাব খুব অল্প, রং গাঢ়",low_urine,bn,standard,0,0,claude_draft,false
+"আপা প্রস্রাব খুব অল্প, রং গাঢ়",low_urine,bn,standard,0,0,claude_draft,false
+"assalamualaikum apa, amar prosrab khoob kom hoche",low_urine,banglish,standard,0,0,claude_draft,false
+nanir prosrab khoob kom hosse,low_urine,banglish,standard,0,0,claude_draft,false
+"apa, rogir prosrab khoob kom hoche",low_urine,banglish,standard,0,0,claude_draft,false
+"apa, sokal theke ekbaro prosrab hoy nai re",low_urine,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, sokal theke ekbaro prosrab hoy nei",low_urine,banglish,standard,0,0,claude_draft,false
+apa sokal theke ekbaro prosrab hoy nai,low_urine,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, shamir peshab kome gece",low_urine,banglish,standard,0,0,claude_draft,false
+dadir peshab kome gese,low_urine,banglish,standard,0,0,claude_draft,false
+apa rogir peshab kome geche,low_urine,banglish,standard,0,0,claude_draft,false
+sharadine matro ekbar peshab korche,low_urine,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, sharadine matro ekbar peshab korse",low_urine,banglish,standard,0,0,claude_draft,false
+"apa, boner prosrab hoitese na",low_urine,banglish,standard,0,0,claude_draft,false
+"apa, bhaiyer prosrab hoche na",low_urine,banglish,standard,0,0,claude_draft,false
+rogir prosrab hocche na,low_urine,banglish,standard,0,0,claude_draft,false
+"apa, urine kub kom, rong ghoro",low_urine,banglish,standard,0,0,claude_draft,false
+"apa urine onek kom, rong ghoro",low_urine,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, urine kub kom, rong ghoro",low_urine,banglish,standard,0,0,claude_draft,false
+"আপা, আব্বার হাত পা ঠান্ডা হয়ে গেছে",cold_clammy,bn,standard,0,0,claude_draft,false
+"আপা, আমার হাত পা ঠান্ডা হয়ে গেছে",cold_clammy,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, নানির হাত পা ঠান্ডা হয়ে গেছে",cold_clammy,bn,standard,0,0,claude_draft,false
+দাদির শরীর ঠান্ডা আর ঘামছে,cold_clammy,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, বোনের শরীর ঠান্ডা আর ঘামছে",cold_clammy,bn,standard,0,0,claude_draft,false
+"আপা, নানির শরীর ঠান্ডা আর ঘামছে",cold_clammy,bn,standard,0,0,claude_draft,false
+"আপা, নানির হাত-পা বরফের মতো ঠান্ডা",cold_clammy,bn,standard,0,0,claude_draft,false
+আপা আমার হাত-পা বরফের মতো ঠান্ডা,cold_clammy,bn,standard,0,0,claude_draft,false
+"আপা, বোনের হাত-পা বরফের মতো ঠান্ডা",cold_clammy,bn,standard,0,0,claude_draft,false
+আমার স্বামী ঠান্ডা ঘাম দিচ্ছে,cold_clammy,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার স্বামী ঠান্ডা ঘাম দিচ্ছে",cold_clammy,bn,standard,0,0,claude_draft,false
+আপা বোন ঠান্ডা ঘাম দিচ্ছে,cold_clammy,bn,standard,0,0,claude_draft,false
+"রোগীর হাত পা ঠান্ডা, গা ঘামে ভেজা",cold_clammy,bn,standard,0,0,claude_draft,false
+"বোনের হাত পা ঠান্ডা, গা ঘামে ভেজা",cold_clammy,bn,standard,0,0,claude_draft,false
+"আমার স্বামীর হাত পা ঠান্ডা, গা ঘামে ভেজা",cold_clammy,bn,standard,0,0,claude_draft,false
+shamir hat pa thanda hoye geche,cold_clammy,banglish,standard,0,0,claude_draft,false
+nanir hat pa thanda hoye gese,cold_clammy,banglish,standard,0,0,claude_draft,false
+amar hat pa thanda hoye geche,cold_clammy,banglish,standard,0,0,claude_draft,false
+apa amar shorir thanda ar ghamtese,cold_clammy,banglish,standard,0,0,claude_draft,false
+rogir shorir thanda ar ghamtese,cold_clammy,banglish,standard,0,0,claude_draft,false
+"apa, bhaiyer shorir thanda ar ghamtese",cold_clammy,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, hat pa borofer moto thanda",cold_clammy,banglish,standard,0,0,claude_draft,false
+"apa, hat pa borofer moto thanda",cold_clammy,banglish,standard,0,0,claude_draft,false
+hat pa borofer moto thanda,cold_clammy,banglish,standard,0,0,claude_draft,false
+"apa, bhai thanda gham dicche",cold_clammy,banglish,standard,0,0,claude_draft,false
+apa dadi thanda gham dicche,cold_clammy,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, ammu thanda gham dicche",cold_clammy,banglish,standard,0,0,claude_draft,false
+"apa, bhaiyer hat-pa thanda, gham e bheja",cold_clammy,banglish,standard,0,0,claude_draft,false
+"ammar hat-pa thanda, gham e bheja",cold_clammy,banglish,standard,0,0,claude_draft,false
+"apa, shamir hat-pa thanda, gham e bheja",cold_clammy,banglish,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, ভাইয়ের শ্বাস নিতে কষ্ট হচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, নানির শ্বাস নিতে কষ্ট হচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আপা, রোগীর শ্বাস নিতে কষ্ট হচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+রোগী হাঁপাচ্ছে,breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আপা, ভাই হাঁপাচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আপা, আম্মা হাঁপাচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+আপা আমার বউয়ের শ্বাসকষ্ট হচ্ছে,breathing_difficulty,bn,standard,0,0,claude_draft,false
+আপা ভাইয়ের শ্বাসকষ্ট হচ্ছে,breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আপা, আমার শ্বাসকষ্ট হচ্ছে",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, শাশুড়ি দম নিতে পারছে না",breathing_difficulty,bn,standard,0,0,claude_draft,false
+নানি দম নিতে পারছে না,breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, ভাই দম নিতে পারছে না",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"আপা বুক ভারী লাগছে, শ্বাস নিতে কষ্ট",breathing_difficulty,bn,standard,0,0,claude_draft,false
+"বুক ভারী লাগছে, শ্বাস নিতে কষ্ট",breathing_difficulty,bn,standard,0,0,claude_draft,false
+boner shash nite kosto hocche,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa, shamir shash nite kosto hosse",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa, rogir shash nite kosto hosse",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa, amar bou hapacche",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa, amar shami hapacche",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+amar shami hapacche,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+boner shashkosto hocche,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+bouer shashkosto hocche,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+ammar shashkosto hoitese,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+rogi dom nite partese na,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+dadi dom nite partese na,breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa buk bhari, shash nite kosto",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, buk bhari, shash nite kosto",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"apa, buk bhari, shash nite kosto",breathing_difficulty,banglish,standard,0,0,claude_draft,false
+আমার স্বামী কিছুই খেতে পারছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, শাশুড়ি কিছুই খেতে পারছে না",cannot_drink,bn,standard,0,0,claude_draft,false
+আপা দাদি কিছুই খেতে পারছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+পানিও খেতে পারছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, মুখে কিছু দিলেই ফেলে দেয়",cannot_drink,bn,standard,0,0,claude_draft,false
+"আপা, মুখে কিছু দিলেই ফেলে দেয়",cannot_drink,bn,standard,0,0,claude_draft,false
+মুখে কিছু দিলেই ফেলে দেয়,cannot_drink,bn,standard,0,0,claude_draft,false
+আপা দাদি দুইদিন ধরে কিছু খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+রোগী দুইদিন ধরে কিছু খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+আপা আমার স্বামী দুইদিন ধরে কিছু খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+স্যালাইন খাওয়াতে পারছি না,cannot_drink,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, স্যালাইন খাওয়াতে পারছি না",cannot_drink,bn,standard,0,0,claude_draft,false
+আপা ভাই পানি খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+আমার বউ পানি খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+আপা নানি পানি খাচ্ছে না,cannot_drink,bn,standard,0,0,claude_draft,false
+amar bou kichui khete parche na,cannot_drink,banglish,standard,0,0,claude_draft,false
+"apa, bhai kichui khete parche na",cannot_drink,banglish,standard,0,0,claude_draft,false
+"apa, abbu kichui khete parche na",cannot_drink,banglish,standard,0,0,claude_draft,false
+apa pani o khete pare na,cannot_drink,banglish,standard,0,0,claude_draft,false
+"apa, pani o khete pare na",cannot_drink,banglish,standard,0,0,claude_draft,false
+apa mukhe kichu dile fele dey,cannot_drink,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, mukhe kichu dile fele dey",cannot_drink,banglish,standard,0,0,claude_draft,false
+"apa, nani duidin dhore kichu khay na",cannot_drink,banglish,standard,0,0,claude_draft,false
+"apa, bon duidin dhore kichu khay na",cannot_drink,banglish,standard,0,0,claude_draft,false
+dadi duidin dhore kichu khay na,cannot_drink,banglish,standard,0,0,claude_draft,false
+saline khawate partesi na,cannot_drink,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, bon pani khay na",cannot_drink,banglish,standard,0,0,claude_draft,false
+apa dadi pani khay na,cannot_drink,banglish,standard,0,0,claude_draft,false
+bhai pani khay na,cannot_drink,banglish,standard,0,0,claude_draft,false
+"আপা, জ্বর কমেছে",fever_dropped,bn,standard,0,0,claude_draft,false
+জ্বর কমেছে,fever_dropped,bn,standard,0,0,claude_draft,false
+আজ জ্বর নেই,fever_dropped,bn,standard,0,0,claude_draft,false
+আপা আজ জ্বর নেই,fever_dropped,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, জ্বর ছেড়ে গেছে",fever_dropped,bn,standard,0,0,claude_draft,false
+জ্বর ছেড়ে গেছে,fever_dropped,bn,standard,0,0,claude_draft,false
+আপা রোগীর জ্বর নেমে গেছে,fever_dropped,bn,standard,0,0,claude_draft,false
+"আপা, ভাইয়ের জ্বর নেমে গেছে",fever_dropped,bn,standard,0,0,claude_draft,false
+নানির জ্বর নেমে গেছে,fever_dropped,bn,standard,0,0,claude_draft,false
+আপা গতরাত থেকে জ্বর নাই,fever_dropped,bn,standard,0,0,claude_draft,false
+"আপা, গতরাত থেকে জ্বর নাই",fever_dropped,bn,standard,0,0,claude_draft,false
+গতরাত থেকে জ্বর নাই,fever_dropped,bn,standard,0,0,claude_draft,false
+jor komse,fever_dropped,banglish,standard,0,0,claude_draft,false
+apa jor komse,fever_dropped,banglish,standard,0,0,claude_draft,false
+aj jor nei,fever_dropped,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, aj jor nei",fever_dropped,banglish,standard,0,0,claude_draft,false
+apa aj jor nai re,fever_dropped,banglish,standard,0,0,claude_draft,false
+jor chere gece,fever_dropped,banglish,standard,0,0,claude_draft,false
+jor chere geche,fever_dropped,banglish,standard,0,0,claude_draft,false
+jor chere gese,fever_dropped,banglish,standard,0,0,claude_draft,false
+rogir jor neme gese,fever_dropped,banglish,standard,0,0,claude_draft,false
+apa nanir jor neme gese,fever_dropped,banglish,standard,0,0,claude_draft,false
+rogir jor neme gece,fever_dropped,banglish,standard,0,0,claude_draft,false
+jor ar ase nai re,fever_dropped,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, jor ar ase nai re",fever_dropped,banglish,standard,0,0,claude_draft,false
+jor ar ase nai,fever_dropped,banglish,standard,0,0,claude_draft,false
+এখনো জ্বর আছে,fever_present,bn,standard,0,0,claude_draft,false
+জ্বর ১০৩,fever_present,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, জ্বর ১০৩",fever_present,bn,standard,0,0,claude_draft,false
+আপা আমার স্বামীর জ্বর বাড়ছে,fever_present,bn,standard,0,0,claude_draft,false
+আপা আমার জ্বর বাড়ছে,fever_present,bn,standard,0,0,claude_draft,false
+বোনের জ্বর বাড়ছে,fever_present,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, গায়ে অনেক জ্বর",fever_present,bn,standard,0,0,claude_draft,false
+"আপা, গায়ে অনেক জ্বর",fever_present,bn,standard,0,0,claude_draft,false
+ekhono jor ase,fever_present,banglish,standard,0,0,claude_draft,false
+"apa, jor 103",fever_present,banglish,standard,0,0,claude_draft,false
+jor 103,fever_present,banglish,standard,0,0,claude_draft,false
+apa jor 103,fever_present,banglish,standard,0,0,claude_draft,false
+ammar jor bartese,fever_present,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, amar jor bartese",fever_present,banglish,standard,0,0,claude_draft,false
+shamir jor bartese,fever_present,banglish,standard,0,0,claude_draft,false
+gaye onek jor,fever_present,banglish,standard,0,0,claude_draft,false
+"apa, gaye onek jor",fever_present,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, gaye onek jor",fever_present,banglish,standard,0,0,claude_draft,false
+আলহামদুলিল্লাহ ভালো আছি,feeling_better,bn,standard,0,0,claude_draft,false
+"আপা, আলহামদুলিল্লাহ ভালো আছি",feeling_better,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আজ একটু ভালো",feeling_better,bn,standard,0,0,claude_draft,false
+আজ একটু ভালো,feeling_better,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আগের চেয়ে ভালো",feeling_better,bn,standard,0,0,claude_draft,false
+আগের চেয়ে ভালো,feeling_better,bn,standard,0,0,claude_draft,false
+"আব্বা ভালো আছে, চিন্তা করবেন না",feeling_better,bn,standard,0,0,claude_draft,false
+"রোগী ভালো আছে, চিন্তা করবেন না",feeling_better,bn,standard,0,0,claude_draft,false
+"নানি ভালো আছে, চিন্তা করবেন না",feeling_better,bn,standard,0,0,claude_draft,false
+শাশুড়ি এখন সুস্থ লাগছে,feeling_better,bn,standard,0,0,claude_draft,false
+"আপা, ভাই এখন সুস্থ লাগছে",feeling_better,bn,standard,0,0,claude_draft,false
+"আপা, দাদি এখন সুস্থ লাগছে",feeling_better,bn,standard,0,0,claude_draft,false
+সব ঠিক আছে আপা,feeling_better,bn,standard,0,0,claude_draft,false
+আপা সব ঠিক আছে আপা,feeling_better,bn,standard,0,0,claude_draft,false
+alhamdulillah valo achi,feeling_better,banglish,standard,0,0,claude_draft,false
+apa alhamdulillah valo achi,feeling_better,banglish,standard,0,0,claude_draft,false
+"apa, aj ektu bhalo",feeling_better,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, aj ektu bhalo",feeling_better,banglish,standard,0,0,claude_draft,false
+apa aj ektu bhalo,feeling_better,banglish,standard,0,0,claude_draft,false
+ager cheye valo,feeling_better,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, amar shami valo ase, chinta korben na",feeling_better,banglish,standard,0,0,claude_draft,false
+"dadi valo ase, chinta korben na",feeling_better,banglish,standard,0,0,claude_draft,false
+"bon valo ase, chinta korben na",feeling_better,banglish,standard,0,0,claude_draft,false
+apa bon ekhon sustho lagtese,feeling_better,banglish,standard,0,0,claude_draft,false
+apa amar shami ekhon sustho lagtese,feeling_better,banglish,standard,0,0,claude_draft,false
+bhai ekhon sustho lagtese,feeling_better,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, sob thik ase apa",feeling_better,banglish,standard,0,0,claude_draft,false
+"apa, sob thik ase apa",feeling_better,banglish,standard,0,0,claude_draft,false
+"আপা, প্লাটিলেট ৮০ হাজার",test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, প্লাটিলেট ৮০ হাজার",test_result_mentioned,bn,standard,0,0,claude_draft,false
+প্লাটিলেট ৮০ হাজার,test_result_mentioned,bn,standard,0,0,claude_draft,false
+আজ রক্ত পরীক্ষা করেছি,test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আজ রক্ত পরীক্ষা করেছি",test_result_mentioned,bn,standard,0,0,claude_draft,false
+আপা আজ রক্ত পরীক্ষা করেছি,test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, রিপোর্ট এসেছে, প্লাটিলেট কম",test_result_mentioned,bn,standard,0,0,claude_draft,false
+"রিপোর্ট এসেছে, প্লাটিলেট কম",test_result_mentioned,bn,standard,0,0,claude_draft,false
+"সিবিসি করাইছি, রিপোর্ট কাল দিবে",test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, সিবিসি করাইছি, রিপোর্ট কাল দিবে",test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আপা সিবিসি করাইছি, রিপোর্ট কাল দিবে",test_result_mentioned,bn,standard,0,0,claude_draft,false
+বোনের প্লেটলেট কমে গেছে,test_result_mentioned,bn,standard,0,0,claude_draft,false
+ভাইয়ের প্লেটলেট কমে গেছে,test_result_mentioned,bn,standard,0,0,claude_draft,false
+আপা রক্তের রিপোর্ট হাতে পেয়েছি,test_result_mentioned,bn,standard,0,0,claude_draft,false
+রক্তের রিপোর্ট হাতে পেয়েছি,test_result_mentioned,bn,standard,0,0,claude_draft,false
+"আপা, রক্তের রিপোর্ট হাতে পেয়েছি",test_result_mentioned,bn,standard,0,0,claude_draft,false
+platelet 80 hajar,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, platelet 80 hajar",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"apa, platelet 80 hajar",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+aj rokkto porikkha korsi,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+aj roktto porikkha korsi,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"apa, report aise, platelet kom",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"report aise, platelet kom",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, report aise, platelet kom",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, cbc korailam, report kal dibe",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"apa cbc korailam, report kal dibe",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"cbc korailam, report kal dibe",test_result_mentioned,banglish,standard,0,0,claude_draft,false
+rogir platelet kome gece,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+amar platelet kome geche,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+boner platelet kome gese,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+blood test er report paisi,test_result_mentioned,banglish,standard,0,0,claude_draft,false
+"আপা, বমি বমি লাগছে",,bn,standard,0,0,claude_draft,false
+বমি বমি লাগছে,,bn,standard,0,0,claude_draft,false
+"আপা, মাথা ব্যথা করছে",,bn,standard,0,0,claude_draft,false
+আপা মাথা ব্যথা করছে,,bn,standard,0,0,claude_draft,false
+"আপা, আমার সারা শরীর ব্যথা",,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার স্বামীর সারা শরীর ব্যথা",,bn,standard,0,0,claude_draft,false
+"আপা, চোখের পিছনে ব্যথা",,bn,standard,0,0,claude_draft,false
+"আপা, গায়ে ব্যথা আছে, আর কিছু না",,bn,standard,0,0,claude_draft,false
+"গায়ে ব্যথা আছে, আর কিছু না",,bn,standard,0,0,claude_draft,false
+কাল হাসপাতালে যাব,,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, কাল হাসপাতালে যাব",,bn,standard,0,0,claude_draft,false
+ডাব খাওয়াচ্ছি,,bn,standard,0,0,claude_draft,false
+"আপা, ডাব খাওয়াচ্ছি",,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, রক্ত পরীক্ষা করাতে যাব কাল",,bn,standard,0,0,claude_draft,false
+রক্ত পরীক্ষা করাতে যাব কাল,,bn,standard,0,0,claude_draft,false
+আপা আপা কেমন আছেন,,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আপা কেমন আছেন",,bn,standard,0,0,claude_draft,false
+আপা ঔষধ শেষ হয়ে গেছে,,bn,standard,0,0,claude_draft,false
+ঔষধ শেষ হয়ে গেছে,,bn,standard,0,0,claude_draft,false
+"assalamualaikum apa, bomii bomii lage",,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, vomi bomii lage",,banglish,standard,0,0,claude_draft,false
+matha batha korteche,,banglish,standard,0,0,claude_draft,false
+"apa, matha batha kortesay",,banglish,standard,0,0,claude_draft,false
+ammar shara shorir beta,,banglish,standard,0,0,claude_draft,false
+"apa, bhaiyer shara shorir batha",,banglish,standard,0,0,claude_draft,false
+chokher pichone batha,,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, chokher pichone bytha",,banglish,standard,0,0,claude_draft,false
+"apa, gaye betha ase, ar kichu na",,banglish,standard,0,0,claude_draft,false
+"apa, kal hospital e jabo",,banglish,standard,0,0,claude_draft,false
+kal hospital e jabo,,banglish,standard,0,0,claude_draft,false
+dab khawacchi,,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, dab khawacchi",,banglish,standard,0,0,claude_draft,false
+apa rokto porikkha korate jabo,,banglish,standard,0,0,claude_draft,false
+apa roktto porikkha korate jabo,,banglish,standard,0,0,claude_draft,false
+apa kemon achen,,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, apa kemon achen",,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, oshudh shesh hoye gese",,banglish,standard,0,0,claude_draft,false
+apa oshudh shesh hoye gece,,banglish,standard,0,0,claude_draft,false
+পেটে ব্যথা নাই,,bn,standard,1,0,claude_draft,false
+পেটে ব্যথা নাই।,,bn,standard,1,0,claude_draft,false
+আজ আর বমি হয়নি,,bn,standard,1,0,claude_draft,false
+আজ আর বমি হয়নি।,,bn,standard,1,0,claude_draft,false
+রক্ত পড়ে নাই,,bn,standard,1,0,claude_draft,false
+রক্ত পড়ে নাই।,,bn,standard,1,0,claude_draft,false
+শ্বাসকষ্ট নেই,,bn,standard,1,0,claude_draft,false
+শ্বাসকষ্ট নেই।,,bn,standard,1,0,claude_draft,false
+"দুর্বল না, ভালো আছে",feeling_better,bn,standard,1,0,claude_draft,false
+"দুর্বল না, ভালো আছে।",feeling_better,bn,standard,1,0,claude_draft,false
+হাত পা ঠান্ডা না,,bn,standard,1,0,claude_draft,false
+হাত পা ঠান্ডা না।,,bn,standard,1,0,claude_draft,false
+"পেট ব্যথা নেই, ভালো আছি",feeling_better,bn,standard,1,0,claude_draft,false
+"পেট ব্যথা নেই, ভালো আছি।",feeling_better,bn,standard,1,0,claude_draft,false
+বমি করে নাই আজ,,bn,standard,1,0,claude_draft,false
+বমি করে নাই আজ।,,bn,standard,1,0,claude_draft,false
+জ্বর নাই,fever_dropped,bn,standard,1,0,claude_draft,false
+জ্বর নাই।,fever_dropped,bn,standard,1,0,claude_draft,false
+pet betha nai,,banglish,standard,1,0,claude_draft,false
+pet bytha nai,,banglish,standard,1,0,claude_draft,false
+aj ar bomi hoyni,,banglish,standard,1,0,claude_draft,false
+aj ar vomi hoyni,,banglish,standard,1,0,claude_draft,false
+rokto pore nai,,banglish,standard,1,0,claude_draft,false
+rokto pore nei,,banglish,standard,1,0,claude_draft,false
+shash kosto nai,,banglish,standard,1,0,claude_draft,false
+"durbol na, valo ase",feeling_better,banglish,standard,1,0,claude_draft,false
+hat pa thanda na,,banglish,standard,1,0,claude_draft,false
+"pet betha nei, valo achi",feeling_better,banglish,standard,1,0,claude_draft,false
+bomi kore nai aj,,banglish,standard,1,0,claude_draft,false
+bomi kore nei aj,,banglish,standard,1,0,claude_draft,false
+jor nai,fever_dropped,banglish,standard,1,0,claude_draft,false
+jor nai re,fever_dropped,banglish,standard,1,0,claude_draft,false
+nak diye rokto pore nai,,banglish,standard,1,0,claude_draft,false
+nak diye rokkto pore nai,,banglish,standard,1,0,claude_draft,false
+pete kono betha nai,,banglish,standard,1,0,claude_draft,false
+pete kono betha nei,,banglish,standard,1,0,claude_draft,false
+jor ase nai,fever_dropped,banglish,standard,1,0,claude_draft,false
+"কাল বমি হয়েছিল, আজ হয়নি",persistent_vomiting,bn,standard,0,1,claude_draft,false
+গতকাল পেটে ব্যথা ছিল,abdominal_pain,bn,standard,0,1,claude_draft,false
+কাল রাতে নাক দিয়ে রক্ত পড়েছিল,bleeding,bn,standard,0,1,claude_draft,false
+গতকাল খুব দুর্বল ছিল,lethargy_restless,bn,standard,0,1,claude_draft,false
+কাল প্রস্রাব কম হয়েছিল,low_urine,bn,standard,0,1,claude_draft,false
+"kal bomi hoisilo, aj hoy nai",persistent_vomiting,banglish,standard,0,1,claude_draft,false
+gotokal pete betha chilo,abdominal_pain,banglish,standard,0,1,claude_draft,false
+kal rate nak diye rokto porsilo,bleeding,banglish,standard,0,1,claude_draft,false
+gotokal khub durbol chilo,lethargy_restless,banglish,standard,0,1,claude_draft,false
+kal prosrab kom hoisilo,low_urine,banglish,standard,0,1,claude_draft,false
+kal shash nite kosto hoisilo,breathing_difficulty,banglish,standard,0,1,claude_draft,false
+gotokal kichu khete pare nai,cannot_drink,banglish,standard,0,1,claude_draft,false
+আপা সকাল থেকে একবারও প্রস্রাব হয়নি আর দাঁত ব্রাশ করার সময় রক্ত পড়ছে,bleeding|low_urine,bn,standard,0,0,claude_draft,false
+ভাইয়ের পায়খানা কালো হয়ে গেছে আর ভাই বমি করেই যাচ্ছে,bleeding|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আমার স্বামী পানি খাচ্ছে না, আর আমার স্বামীর হাত পা ঠান্ডা হয়ে গেছে",cannot_drink|cold_clammy,bn,standard,0,0,claude_draft,false
+পায়খানার সাথে রক্ত যাচ্ছে আর আমার বউয়ের পেটের ডান দিকে ব্যথা করছে,abdominal_pain|bleeding,bn,standard,0,0,claude_draft,false
+"assalamualaikum apa, boner prosrab khoob kom hosse, ar ja khay tai bomii kore dey",low_urine|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa shamir pete khub beta ar buk bhari, shash nite kosto",abdominal_pain|breathing_difficulty,banglish,standard,0,0,claude_draft,false
+rogi bichana theke uthte pare na ar sokal theke ekbaro prosrab hoy nai re,lethargy_restless|low_urine,banglish,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, পায়খানার সাথে রক্ত যাচ্ছে, আম্মা ঠান্ডা ঘাম দিচ্ছে",bleeding|cold_clammy,bn,standard,0,0,claude_draft,false
+"brush korte gele roktto pore, bouer pete onek batha",abdominal_pain|bleeding,banglish,standard,0,0,claude_draft,false
+"আপা, বোনের পেশাব কমে গেছে, বোনের শ্বাসকষ্ট হচ্ছে",breathing_difficulty|low_urine,bn,standard,0,0,claude_draft,false
+"maari theke roktto ber hosse, ar bhaiyer shash nite kosto hoche",bleeding|breathing_difficulty,banglish,standard,0,0,claude_draft,false
+"shamir hat-pa thanda, gham e bheja ar amar shami duidin dhore kichu khay na",cannot_drink|cold_clammy,banglish,standard,0,0,claude_draft,false
+"আপা নানি সারাদিন ঝিমাচ্ছে, স্যালাইন খাওয়াতে পারছি না",cannot_drink|lethargy_restless,bn,standard,0,0,claude_draft,false
+"ভাই কিছুই খেতে পারছে না, ভাইয়ের শরীর ঠান্ডা আর ঘামছে",cannot_drink|cold_clammy,bn,standard,0,0,claude_draft,false
+"পানিও খেতে পারছে না, আর নানির পেটের ডান দিকে ব্যথা করছে",abdominal_pain|cannot_drink,bn,standard,0,0,claude_draft,false
+"apa, shashuri dom nite partese na, urine onek kom, rong ghoro",breathing_difficulty|low_urine,banglish,standard,0,0,claude_draft,false
+"sharadine matro ekbar peshab korse, rogi pet dhore bose ase, khoob bytha",abdominal_pain|low_urine,banglish,standard,0,0,claude_draft,false
+"আব্বা পেট ধরে বসে আছে, খুব ব্যথা আর আব্বা খুব দুর্বল হয়ে গেছে",abdominal_pain|lethargy_restless,bn,standard,0,0,claude_draft,false
+"rogir pete onek batha, saline khawate partesi na",abdominal_pain|cannot_drink,banglish,standard,0,0,claude_draft,false
+রোগী সারাদিন ঝিমাচ্ছে আর সকাল থেকে একবারও প্রস্রাব হয়নি,lethargy_restless|low_urine,bn,standard,0,0,claude_draft,false
+"amar nak diye rokkto porche, shashuri barbar bomi kortase",bleeding|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আপা, ভাইয়ের নাক দিয়ে রক্ত পড়ছে, ভাই পানি খাচ্ছে না",bleeding|cannot_drink,bn,standard,0,0,claude_draft,false
+"boner hat-pa thanda, gham e bheja ar sokal theke ekbaro prosrab hoy nai re",cold_clammy|low_urine,banglish,standard,0,0,claude_draft,false
+"apa, ammar prosrab khub kom hoche, ar ammu onek osthir kortese",lethargy_restless|low_urine,banglish,standard,0,0,claude_draft,false
+apa abbar vomi thamtese na ar paykhanar sathe roktto jacche,bleeding|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, hat pa borofer moto thanda ar nani khub osthir kortese",cold_clammy|lethargy_restless,banglish,standard,0,0,claude_draft,false
+"আপা, রোগী খুব অস্থির করছে, আর মুখে কিছু দিলেই ফেলে দেয়",cannot_drink|lethargy_restless,bn,standard,0,0,claude_draft,false
+"আপা, আমার স্বামীর বারবার বমি হচ্ছে আর বমির সাথে রক্ত এসেছে",bleeding|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, ভাই আজ ৩ বার বমি করেছে, ভাইয়ের শ্বাসকষ্ট হচ্ছে",breathing_difficulty|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আমার বউ ঠান্ডা ঘাম দিচ্ছে, আমার বউ পানি খাচ্ছে না",cannot_drink|cold_clammy,bn,standard,0,0,claude_draft,false
+"আপা, সকাল থেকে একবারও প্রস্রাব হয়নি আর বমির সাথে রক্ত এসেছে",bleeding|low_urine,bn,standard,0,0,claude_draft,false
+aj 3 bar vomi korsey ar paykhanar sathe roktto jacche,bleeding|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa shamir pete khoob bytha, ar sokal theke ekbaro prosrab hoy nai",abdominal_pain|low_urine,banglish,standard,0,0,claude_draft,false
+আপা ভাইয়ের নাক দিয়ে রক্ত পড়ছে আর ভাই হাঁপাচ্ছে,bleeding|breathing_difficulty,bn,standard,0,0,claude_draft,false
+"bhai ulti kortase, ar bhai thanda gham dicche",cold_clammy|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"dadir hat pa thanda hoye gece, dadir shash nite kosto hocche",breathing_difficulty|cold_clammy,banglish,standard,0,0,claude_draft,false
+"boner prosrab hoitese na, ar bon khub osthir kortase",lethargy_restless|low_urine,banglish,standard,0,0,claude_draft,false
+"দাদি দম নিতে পারছে না, দাদির পেট কামড়াচ্ছে",abdominal_pain|breathing_difficulty,bn,standard,0,0,claude_draft,false
+"রোগীর পেট ব্যথা কমছে না, আর মুখে কিছু দিলেই ফেলে দেয়",abdominal_pain|cannot_drink,bn,standard,0,0,claude_draft,false
+apa amar pete onek batha ar shashuri khoob osthir kortese,abdominal_pain|lethargy_restless,banglish,standard,0,0,claude_draft,false
+"bhaiyer shash nite kosto hoche, bhai duidin dhore kichu khay na",breathing_difficulty|cannot_drink,banglish,standard,0,0,claude_draft,false
+"shamir shash nite kosto hoitese, amar shami thanda gham dicche",breathing_difficulty|cold_clammy,banglish,standard,0,0,claude_draft,false
+"amar bou kichui khete parche na, amar bou dom nite partese na",breathing_difficulty|cannot_drink,banglish,standard,0,0,claude_draft,false
+"আমার স্বামীর শ্বাসকষ্ট হচ্ছে, আর সকাল থেকে একবারও প্রস্রাব হয়নি",breathing_difficulty|low_urine,bn,standard,0,0,claude_draft,false
+"bouer bomi hoitese barbar ar urine khoob kom, rong ghoro",low_urine|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, abbu ekdom netiye porse, ar bomii korei jacche",lethargy_restless|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"apa, bouer shorir thanda ar ghamtese, amar bou dom nite partese na",breathing_difficulty|cold_clammy,banglish,standard,0,0,claude_draft,false
+"আম্মার পেশাব কমে গেছে, বুক ভারী লাগছে, শ্বাস নিতে কষ্ট",breathing_difficulty|low_urine,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার স্বামী কিছুই খেতে পারছে না আর আমার স্বামীর পেটে প্রচণ্ড ব্যথা হচ্ছে",abdominal_pain|cannot_drink,bn,standard,0,0,claude_draft,false
+"apa ammu dom nite partese na ar ghum ghum vab, kotha bole na",breathing_difficulty|lethargy_restless,banglish,standard,0,0,claude_draft,false
+"আমার হাত পা ঠান্ডা হয়ে গেছে, সারাদিনে মাত্র একবার প্রস্রাব করেছে",cold_clammy|low_urine,bn,standard,0,0,claude_draft,false
+"apa, ja khay tai vomi kore dey, ar urine kub kom, rong ghoro",low_urine|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, bhai thanda gham dicche ar maari theke rokto ber hosse",bleeding|cold_clammy,banglish,standard,0,0,claude_draft,false
+apa hat pa borofer moto thanda ar bhaiyer pet kamrai,abdominal_pain|cold_clammy,banglish,standard,0,0,claude_draft,false
+আপা আমার মাড়ি থেকে রক্ত বের হচ্ছে আর মুখে কিছু দিলেই ফেলে দেয়,bleeding|cannot_drink,bn,standard,0,0,claude_draft,false
+abbar shashkosto hoitese ar abbu ulti kortese,breathing_difficulty|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আমার বউয়ের শ্বাসকষ্ট হচ্ছে, সকাল থেকে একবারও প্রস্রাব হয়নি",breathing_difficulty|low_urine,bn,standard,0,0,claude_draft,false
+"assalamualaikum apa, shashuri khub durbol hoye gece, sokal theke shashuri vomi korteche",lethargy_restless|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আপা, দাদি হাঁপাচ্ছে, দাদি বমি করেই যাচ্ছে",breathing_difficulty|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"bon ekdom netiye porse, saline khawate partesi na",cannot_drink|lethargy_restless,banglish,standard,0,0,claude_draft,false
+"apa, dadi onek osthir korteche, ar dadir nak theke roktto ashtese",bleeding|lethargy_restless,banglish,standard,0,0,claude_draft,false
+"আপা বোনের মাড়ি থেকে রক্ত বের হচ্ছে, বুক ভারী লাগছে, শ্বাস নিতে কষ্ট",bleeding|breathing_difficulty,bn,standard,0,0,claude_draft,false
+শাশুড়ি সকাল থেকে বমি করছে আর আমার নাক থেকে রক্ত আসছে,bleeding|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"apa, amar bou barbar bomi kortase, amar bou duidin dhore kichu khay na",cannot_drink|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আমার বউ আজ ৩ বার বমি করেছে, আমার বউয়ের মাড়ি থেকে রক্ত বের হচ্ছে",bleeding|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, প্রস্রাব খুব অল্প, রং গাঢ়, আর শাশুড়ি দম নিতে পারছে না",breathing_difficulty|low_urine,bn,standard,0,0,claude_draft,false
+"শাশুড়ি উল্টি করছে, আর আমার পেটে প্রচণ্ড ব্যথা হচ্ছে",abdominal_pain|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"আপা, দাদি বমি করেই যাচ্ছে, দাদির পেটে প্রচণ্ড ব্যথা হচ্ছে",abdominal_pain|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"rogir pete onek batha, ar hat pa borofer moto thanda",abdominal_pain|cold_clammy,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, amar hat pa thanda hoye gece, amar bomii hocche barbar",cold_clammy|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"আপা আমার বউয়ের জ্বর বাড়ছে, আমার বউ কিছুই খেতে পারছে না",cannot_drink|fever_present,bn,standard,0,0,claude_draft,false
+"জ্বর ছেড়ে গেছে, দাদি বারবার বমি করছে",fever_dropped|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"apa boner jor neme gese, boner shorir thanda ar ghamtese",cold_clammy|fever_dropped,banglish,standard,0,0,claude_draft,false
+"আজ জ্বর নেই, মুখে কিছু দিলেই ফেলে দেয়",cannot_drink|fever_dropped,bn,standard,0,0,claude_draft,false
+"apa ekhono jor ase, amar shami hapacche",breathing_difficulty|fever_present,banglish,standard,0,0,claude_draft,false
+"jor chere geche, amar bou thanda gham dicche",cold_clammy|fever_dropped,banglish,standard,0,0,claude_draft,false
+"apa, jor 103, amar bou pani khay na",cannot_drink|fever_present,banglish,standard,0,0,claude_draft,false
+"gaye onek jor, abbu thanda gham dicche",cold_clammy|fever_present,banglish,standard,0,0,claude_draft,false
+"ekhono jor ase, paykhanar sathe rokkto jacche",bleeding|fever_present,banglish,standard,0,0,claude_draft,false
+"গায়ে অনেক জ্বর, আমার বউয়ের শ্বাসকষ্ট হচ্ছে",breathing_difficulty|fever_present,bn,standard,0,0,claude_draft,false
+"আব্বার জ্বর নেমে গেছে, বুক ভারী লাগছে, শ্বাস নিতে কষ্ট",breathing_difficulty|fever_dropped,bn,standard,0,0,claude_draft,false
+"dadir jor neme gese, dadir nak diye roktto porche",bleeding|fever_dropped,banglish,standard,0,0,claude_draft,false
+"আপা আজ জ্বর নেই, দাদি ঠান্ডা ঘাম দিচ্ছে",cold_clammy|fever_dropped,bn,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আজ জ্বর নেই, দাদির হাত-পা বরফের মতো ঠান্ডা",cold_clammy|fever_dropped,bn,standard,0,0,claude_draft,false
+"apa jor komse, abbar shorir thanda ar ghamtese",cold_clammy|fever_dropped,banglish,standard,0,0,claude_draft,false
+"apa jor chere geche, amar shami hapacche",breathing_difficulty|fever_dropped,banglish,standard,0,0,claude_draft,false
+"ekhono jor ase, rogir prosrab kub kom hoche",fever_present|low_urine,banglish,standard,0,0,claude_draft,false
+"assalamualaikum apa, ekhono jor ase, sokal theke amar bou vomi korteche",fever_present|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"aj jor nai, abbar nak theke rokkto ashtese",bleeding|fever_dropped,banglish,standard,0,0,claude_draft,false
+"জ্বর কমেছে, দাদির হাত-পা বরফের মতো ঠান্ডা",cold_clammy|fever_dropped,bn,standard,0,0,claude_draft,false
+"ekhono jor ase, mukhe kichu dile fele dey",cannot_drink|fever_present,banglish,standard,0,0,claude_draft,false
+"জ্বর ১০৩, শাশুড়ি উল্টি করছে",fever_present|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"aj jor nei, sokal theke shamir pet bytha kome na",abdominal_pain|fever_dropped,banglish,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, আমার জ্বর বাড়ছে, শাশুড়ি আজ ৩ বার বমি করেছে",fever_present|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"apa jor ar ase nai re, maari theke rokto ber hocche",bleeding|fever_dropped,banglish,standard,0,0,claude_draft,false
+"আসসালামু আলাইকুম আপা, গায়ে অনেক জ্বর, রোগী বারবার বমি করছে",fever_present|persistent_vomiting,bn,standard,0,0,claude_draft,false
+"apa jor 103, sharadine matro ekbar peshab korsey",fever_present|low_urine,banglish,standard,0,0,claude_draft,false
+"apa, boner jor neme geche, ja khay tai vomi kore dey",fever_dropped|persistent_vomiting,banglish,standard,0,0,claude_draft,false
+"গায়ে অনেক জ্বর, আমার বউয়ের মাড়ি থেকে রক্ত বের হচ্ছে",bleeding|fever_present,bn,standard,0,0,claude_draft,false
+"আপা, আব্বার জ্বর বাড়ছে, যা খায় তাই বমি করে দেয়",fever_present|persistent_vomiting,bn,standard,0,0,claude_draft,false

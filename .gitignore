@@ -1,0 +1,7 @@
+data/incoming/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.venv/
+data/raw/

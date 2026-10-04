@@ -1,0 +1,389 @@
+{
+  "version": "0.3-draft",
+  "verified_by_nasim": false,
+  "note": "Draft by Claude. Warning signs follow the home-observable WHO 2009 / CDC 2024 dengue warning signs. Nasim verifies every Bangla string and cue before training. Regional cues stay empty unless Nasim adds them from his own knowledge. NEVER take cues or sentences from T2 or T3 (test sets).",
+  "warning_signs": [
+    {
+      "key": "abdominal_pain",
+      "bn": "পেটে তীব্র বা একটানা ব্যথা",
+      "en": "Severe or continuous abdominal pain",
+      "cues_bn": [
+        "পেটে ব্যথা",
+        "পেট ব্যথা",
+        "পেটে খুব ব্যথা",
+        "পেট কামড়",
+        "পেটে কামড়",
+        "পেট মোচড়"
+      ],
+      "cues_banglish": [
+        "pet betha",
+        "pete betha",
+        "pet batha",
+        "pete batha",
+        "pet bytha",
+        "pet bedona",
+        "pet kamra",
+        "pete kamra",
+        "pet mochra"
+      ],
+      "cues_regional": []
+    },
+    {
+      "key": "persistent_vomiting",
+      "bn": "বারবার বমি",
+      "en": "Persistent vomiting",
+      "cues_bn": [
+        "বমি",
+        "উল্টি",
+        "বমি করছে",
+        "বমি হচ্ছে"
+      ],
+      "cues_banglish": [
+        "bomi",
+        "bomii",
+        "vomi",
+        "ulti",
+        "vomit",
+        "bomi korse",
+        "bomi hocche",
+        "bomi hoise"
+      ],
+      "cues_regional": [],
+      "caution": "বমি বমি ভাব / bomi bomi lage means nausea, not vomiting. Include it in training as none, and in tests."
+    },
+    {
+      "key": "bleeding",
+      "bn": "মাড়ি বা নাক দিয়ে রক্ত, বমি বা পায়খানায় রক্ত, কালো পায়খানা",
+      "en": "Bleeding from gums or nose, blood in vomit or stool, black stool",
+      "cues_bn": [
+        "মাড়ি দিয়ে রক্ত",
+        "দাঁত দিয়ে রক্ত",
+        "নাক দিয়ে রক্ত",
+        "রক্ত পড়ছে",
+        "রক্ত বমি",
+        "পায়খানায় রক্ত",
+        "কালো পায়খানা"
+      ],
+      "cues_banglish": [
+        "rokto porse",
+        "rokto porche",
+        "dat theke rokto",
+        "dat diye rokto",
+        "nak diye rokto",
+        "nak theke rokto",
+        "rokto bomi",
+        "kalo paikhana",
+        "kalo paykhana",
+        "blood ashche"
+      ],
+      "cues_regional": [],
+      "exclude_phrases": [
+        "রক্ত পরীক্ষা",
+        "রক্তের পরীক্ষা",
+        "rokto porikkha",
+        "rokto test",
+        "blood test",
+        "রক্ত দিতে",
+        "rokto dite"
+      ],
+      "caution": "Blood test messages are common in dengue. They must not fire bleeding. Put them in training as test_result_mentioned."
+    },
+    {
+      "key": "lethargy_restless",
+      "bn": "খুব দুর্বল, ঝিমিয়ে পড়া, বা অস্থির",
+      "en": "Lethargy or restlessness",
+      "cues_bn": [
+        "খুব দুর্বল",
+        "নেতিয়ে",
+        "ঝিমিয়ে",
+        "ঝিমাচ্ছে",
+        "অস্থির",
+        "ঘুম ঘুম",
+        "সাড়া দিচ্ছে না"
+      ],
+      "cues_banglish": [
+        "khub durbol",
+        "onek durbol",
+        "netiye",
+        "jhimay",
+        "jhimacche",
+        "osthir",
+        "ghum ghum",
+        "shara dicche na"
+      ],
+      "cues_regional": []
+    },
+    {
+      "key": "low_urine",
+      "bn": "প্রস্রাব কমে যাওয়া",
+      "en": "Reduced urine",
+      "cues_bn": [
+        "প্রস্রাব কম",
+        "প্রস্রাব হচ্ছে না",
+        "পেশাব কম",
+        "পেশাব হয় না",
+        "প্রস্রাব কমে",
+        "প্রস্রাব হয়নি",
+        "পেশাব হয়নি"
+      ],
+      "cues_banglish": [
+        "prosrab kom",
+        "prosrab hocche na",
+        "peshab kom",
+        "peshab hoy na",
+        "prosab kom",
+        "urine kom",
+        "prosrab hoy nai",
+        "prosrab hoyni",
+        "peshab hoyni",
+        "peshab hoy nai"
+      ],
+      "cues_regional": []
+    },
+    {
+      "key": "cold_clammy",
+      "bn": "হাত-পা ঠান্ডা, ঘামে ভেজা",
+      "en": "Cold, clammy hands and feet",
+      "cues_bn": [
+        "হাত পা ঠান্ডা",
+        "হাত-পা ঠান্ডা",
+        "ঠান্ডা ঘাম",
+        "শরীর ঠান্ডা"
+      ],
+      "cues_banglish": [
+        "hat pa thanda",
+        "hat-pa thanda",
+        "thanda gham",
+        "shorir thanda"
+      ],
+      "cues_regional": []
+    },
+    {
+      "key": "breathing_difficulty",
+      "bn": "শ্বাসকষ্ট",
+      "en": "Difficulty breathing",
+      "cues_bn": [
+        "শ্বাসকষ্ট",
+        "শ্বাস নিতে কষ্ট",
+        "দম বন্ধ",
+        "হাঁপাচ্ছে",
+        "নিঃশ্বাস নিতে পারছে না"
+      ],
+      "cues_banglish": [
+        "shash kosto",
+        "shas kosto",
+        "shash nite kosto",
+        "dom bondho",
+        "hapacche",
+        "nisshash nite parche na"
+      ],
+      "cues_regional": []
+    },
+    {
+      "key": "cannot_drink",
+      "bn": "পানি বা খাবার খেতে পারছে না",
+      "en": "Cannot drink or eat",
+      "cues_bn": [
+        "খেতে পারছে না",
+        "পানি খেতে পারছে না",
+        "কিছু খাচ্ছে না",
+        "মুখে কিছু নিচ্ছে না",
+        "পানি খাচ্ছে না",
+        "কিছুই খেতে পারছে না"
+      ],
+      "cues_banglish": [
+        "khete parche na",
+        "khaite pare na",
+        "pani khete parche na",
+        "kichu khacche na",
+        "kichui khay na",
+        "pani khay na",
+        "kichui khete parche na"
+      ],
+      "cues_regional": []
+    }
+  ],
+  "status_labels": [
+    {
+      "key": "fever_dropped",
+      "bn": "জ্বর কমেছে",
+      "en": "Fever has come down",
+      "cues_bn": [
+        "জ্বর কমেছে",
+        "জ্বর কমছে",
+        "জ্বর ছেড়েছে",
+        "জ্বর নেমেছে",
+        "জ্বর নেই",
+        "জ্বর নাই"
+      ],
+      "cues_banglish": [
+        "jor komse",
+        "jor kome geche",
+        "jor chere geche",
+        "jor nemese",
+        "jor nai",
+        "jor nei",
+        "jwor nai"
+      ],
+      "tier_effect": "starts or confirms the critical-phase window for the silence rule"
+    },
+    {
+      "key": "fever_present",
+      "bn": "জ্বর আছে",
+      "en": "Fever present",
+      "cues_bn": [
+        "জ্বর আছে",
+        "জ্বর বেশি",
+        "জ্বর উঠছে",
+        "অনেক জ্বর"
+      ],
+      "cues_banglish": [
+        "jor ase",
+        "jor ache",
+        "jor beshi",
+        "onek jor",
+        "jwor"
+      ],
+      "tier_effect": "none"
+    },
+    {
+      "key": "feeling_better",
+      "bn": "ভালো আছে",
+      "en": "Feeling better",
+      "cues_bn": [
+        "ভালো আছি",
+        "ভালো আছে",
+        "আলহামদুলিল্লাহ ভালো",
+        "সুস্থ"
+      ],
+      "cues_banglish": [
+        "valo achi",
+        "bhalo achi",
+        "valo ase",
+        "alhamdulillah valo",
+        "fine"
+      ],
+      "tier_effect": "green, shown as 'no warning sign found'"
+    },
+    {
+      "key": "test_result_mentioned",
+      "bn": "পরীক্ষার ফল বা রিপোর্টের কথা",
+      "en": "Mentions a test result or report",
+      "cues_bn": [
+        "প্লাটিলেট",
+        "প্লেটলেট",
+        "রিপোর্ট",
+        "রক্ত পরীক্ষা",
+        "পরীক্ষা করেছি"
+      ],
+      "cues_banglish": [
+        "platelet",
+        "report",
+        "cbc",
+        "rokto porikkha",
+        "test korsi",
+        "blood test"
+      ],
+      "tier_effect": "amber, call today and ask about the report. The tool never reads or judges the number."
+    }
+  ],
+  "rules": {
+    "clause_breaks": [
+      ",",
+      "।",
+      ".",
+      "?",
+      "!",
+      ";",
+      "\n",
+      "কিন্তু",
+      "আর",
+      "kintu",
+      "ar",
+      "তবে",
+      "tobe"
+    ],
+    "negation_cues_bn": [
+      "না",
+      "নাই",
+      "নেই",
+      "নি",
+      "নাহ",
+      "হয়নি",
+      "হয়নাই",
+      "করেনি",
+      "যায়নি"
+    ],
+    "negation_cues_banglish": [
+      "na",
+      "nai",
+      "nei",
+      "nah",
+      "ni",
+      "hoyni",
+      "hoini",
+      "hoy nai",
+      "koreni",
+      "kore nai",
+      "jayni"
+    ],
+    "negation_window_tokens": 3,
+    "negation_logic": "Split raw text into clauses on clause_breaks before removing punctuation. Within a clause, if a negation token sits within 3 tokens (either side) of a matched cue for a label, and the negation token is outside the matched cue span, suppress that label. A negated fever_present becomes fever_dropped. cannot_drink and low_urine cues already contain a negation; that negation is inside the span and does not count. Exception: if a stop_word (stop, decrease) sits between the cue and the negation, the phrase means 'not stopping' or 'not decreasing' and the label is KEPT: 'bomi bondho hocche na', 'বমি থামছে না', 'pet betha kome na'.",
+    "past_cues_bn": [
+      "কাল",
+      "কালকে",
+      "গতকাল",
+      "গত রাতে",
+      "আগে",
+      "পরশু",
+      "গতকালকে"
+    ],
+    "past_cues_banglish": [
+      "kal",
+      "kalke",
+      "gotokal",
+      "gotokaal",
+      "goto rate",
+      "age",
+      "porshu",
+      "gotokalke"
+    ],
+    "past_logic": "If a past cue appears in the same clause as a matched cue, cap that label at the 'not sure' band. Past takes precedence over negation: 'kal bomi hoisilo aj nai' gives persistent_vomiting as not sure, never dropped. Ambiguity goes to a person. A token ending in any past_verb_ending (হয়েছিল, hoyechilo, hoisilo) also counts as a past cue.",
+    "no_label_outcome": "If no warning sign and no status label clears 0.45, show 'বুঝতে পারিনি — ফোন করুন' (amber).",
+    "fine_outcome": "If the only labels are feeling_better and/or fever_dropped, show 'কোনো সতর্কসংকেত পাওয়া যায়নি' (green).",
+    "past_scope": "warning_signs only. Status labels (fever_dropped, feeling_better, etc.) are never capped by past cues.",
+    "stop_words": [
+      "থাম",
+      "থামছে",
+      "থামে",
+      "বন্ধ",
+      "কমছে",
+      "কমে",
+      "tham",
+      "thame",
+      "thamche",
+      "thamtese",
+      "bondho",
+      "bondo",
+      "kome",
+      "komche",
+      "komtese"
+    ],
+    "past_verb_endings": [
+      "ছিল",
+      "ছিলো",
+      "chilo",
+      "silo",
+      "cilo",
+      "chhilo"
+    ],
+    "aggregation": "A message can mention one label in several clauses. Suppress the label only if every clause that mentions it is negated. If the remaining mentions are all past, the label is 'not sure'. Otherwise use the model band."
+  },
+  "bands": {
+    "suggest": 0.75,
+    "unsure_low": 0.45
+  },
+  "changelog": [
+    "v0.3: stop_words exception, past verb endings, তবে/tobe clause breaks, aggregation rule. Made after reading contributors C01 to C04 of T2; their rows carry seen_before_rule_fix=1 and T2 results are reported with and without them."
+  ]
+}
