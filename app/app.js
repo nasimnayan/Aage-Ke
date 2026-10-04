@@ -153,11 +153,12 @@
       return Array.from(new Uint8Array(bits)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
     });
   }
+  // PIN of 4 to 6 digits: ✓ submits, the sixth digit submits by itself.
   function pinDigit(d) {
     if (d === 'del') S.pinEntry = S.pinEntry.slice(0, -1);
-    else if (S.pinEntry.length < 4) S.pinEntry += d;
+    else if (d !== 'ok' && S.pinEntry.length < 6) S.pinEntry += d;
     S.pinError = false;
-    if (S.pinEntry.length < 4) return render();
+    if (!(S.pinEntry.length === 6 || (d === 'ok' && S.pinEntry.length >= 4))) return render();
     var entered = S.pinEntry; S.pinEntry = '';
     Store.getSetting('lock').then(function (lock) {
       if (lock) return Store.openLock(entered, lock);
@@ -231,14 +232,15 @@
   }
 
   function viewPin() {
-    var keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'del'];
+    var keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'del', '0', 'ok'];
     return '<div class="pin">' +
       '<div class="brand">' + esc(t('app_name')) + '</div>' +
       '<p class="muted" id="pin-title">' + esc(S.hasPin ? t('pin_title') : t('pin_set_title')) + '</p>' +
-      '<div class="dots">' + [0, 1, 2, 3].map(function (i) { return '<span class="' + (i < S.pinEntry.length ? 'on' : '') + '"></span>'; }).join('') + '</div>' +
+      '<div class="dots">' + [0, 1, 2, 3, 4, 5].map(function (i) { return '<span class="' + (i < S.pinEntry.length ? 'on' : '') + (i > 3 ? ' opt' : '') + '"></span>'; }).join('') + '</div>' +
       (S.pinError ? '<p class="err">' + esc(t('pin_wrong')) + '</p>' : '') +
       '<div class="keys">' + keys.map(function (k) {
-        return k ? '<button data-act="pin" data-d="' + k + '">' + (k === 'del' ? '⌫' : k) + '</button>' : '<span></span>';
+        var label = k === 'del' ? '⌫' : k === 'ok' ? '✓' : k;
+        return '<button data-act="pin" data-d="' + k + '"' + (k === 'ok' ? ' class="ok"' + (S.pinEntry.length < 4 ? ' disabled' : '') : '') + '>' + label + '</button>';
       }).join('') + '</div>' +
       '<p class="muted small">' + esc(t('pin_note')) + '</p>' +
       '<button class="judge" data-act="judge">' + esc(t('judge_button')) + '</button>' +

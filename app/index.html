@@ -39,6 +39,8 @@
     .dots { display: flex; gap: 14px; }
     .dots span { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--brand); }
     .dots span.on { background: var(--brand); }
+    .dots span.opt:not(.on) { opacity: .35; }
+    .keys button.ok { background: var(--brand); color: #fff; }
     .keys { display: grid; grid-template-columns: repeat(3, 72px); gap: 12px; }
     .keys button { font-size: 1.4rem; background: var(--card); color: var(--ink); border: 1px solid var(--line); min-height: 64px; }
     .judge { width: 100%; background: var(--amber); font-weight: 600; }
