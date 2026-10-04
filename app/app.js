@@ -44,9 +44,25 @@
 
   // ---------- AI + rules ----------
   function analyse(text) {
+    var t0 = performance.now();
     var probs = AageModel.predict(S.model, text);
     var bands = AageRules.applyRules(probs, S.rules.analyse(text), S.labels.bands);
+    S.lastMs = performance.now() - t0;
     return { bands: bands, outcome: AageRules.outcome(bands, warningKeys()) };
+  }
+
+  // Judge mode only: what the model is, in one line (English; numbers come from model_dengue.json).
+  function factsLine() {
+    var f = S.model.facts || {}, g = f.gate1 || {}, mf = g.micro_f1 || {};
+    var parts = [
+      'Model ' + Math.round(S.modelBytes / 1024) + ' KB',
+      S.model.labels.length + ' fixed labels, no free text',
+      f.train_rows ? 'trained on ' + f.train_rows + ' ' + f.train_source : null,
+      mf['model+rules'] ? 'Gate 1 (' + g.rows + ' synthetic stress-test messages, model trained on ' + g.model_rows + ' rows): micro-F1 ' + mf['model+rules'].toFixed(2) +
+        ' vs ' + mf['keyword+neg'].toFixed(2) + ' keyword+negation' : null,
+      'runs on this phone, no network, no LLM'
+    ];
+    return parts.filter(Boolean).join(' · ');
   }
 
   // ---------- urgency (confirmed labels only, docs/01 §6) ----------
@@ -228,7 +244,8 @@
       (back ? '<button class="ghost" data-act="back" data-to="' + back + '">←</button>' : '') +
       '<h1>' + esc(title) + '</h1>' +
       '<button class="ghost small" data-act="lang">' + esc(t('lang_toggle')) + '</button>' +
-      '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) + '</div>' : '');
+      '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) + '</div>' +
+        (S.view === 'inbox' ? '<div class="facts">' + esc(factsLine()) + '</div>' : '') : '');
   }
 
   function viewPin() {
@@ -366,6 +383,7 @@
     return header(S.current.code, 'patient') + '<main>' +
       '<blockquote>' + esc(m.text) + (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') + '</blockquote>' +
       note + (keys.length ? '<p class="muted small">' + esc(t('tap_to_confirm')) + '</p>' : '') + chips +
+      (S.judge && m.isNew && S.lastMs != null ? '<p class="facts">Read on this phone in ' + S.lastMs.toFixed(1) + ' ms</p>' : '') +
       '<button data-act="labels-done">' + esc(t('done')) + '</button></main>';
   }
 
@@ -547,7 +565,11 @@
     if (shared) { S.sharedText = shared.trim(); history.replaceState(null, '', location.pathname); }
   })();
   function getJSON(u) { return fetch(u).then(function (r) { return r.json(); }); }
-  Promise.all([getJSON('model_dengue.json'), getJSON('labels_dengue.json'), getJSON('templates.json'), getJSON('facilities.json')])
+  var modelText = fetch('model_dengue.json').then(function (r) { return r.text(); }).then(function (txt) {
+    S.modelBytes = new Blob([txt]).size;
+    return JSON.parse(txt);
+  });
+  Promise.all([modelText, getJSON('labels_dengue.json'), getJSON('templates.json'), getJSON('facilities.json')])
     .then(function (r) {
       S.model = r[0]; S.labels = r[1]; S.templates = r[2]; S.fac = r[3];
       S.rules = new AageRules.Rules(S.labels);

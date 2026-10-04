@@ -19,6 +19,24 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "model_dengue.json"
 
 
+def facts():
+    """Numbers shown in judge mode, read from the training and Gate 1 reports."""
+    out = {}
+    tr = HERE / "results" / "train_report.json"
+    if tr.exists():
+        r = json.load(open(tr, encoding="utf-8"))
+        out["train_rows"] = r.get("final_model", {}).get("rows")
+        out["train_source"] = "synthetic sentences (claude_draft)"
+    g1 = HERE / "results" / "gate1.json"
+    if g1.exists():
+        g = json.load(open(g1, encoding="utf-8"))
+        # Gate 1 ran on the model trained on the 80% split, before the shipped model was refitted on all rows.
+        split_rows = json.load(open(tr, encoding="utf-8")).get("train_rows") if tr.exists() else None
+        out["gate1"] = {"set": g.get("file"), "rows": g.get("rows"), "micro_f1": g.get("micro_f1"),
+                        "model_rows": split_rows}
+    return out
+
+
 def main():
     with open(HERE / "model.pkl", "rb") as f:
         m = pickle.load(f)
@@ -44,6 +62,7 @@ def main():
         "thresholds": labels_json["bands"],
         "rules_ref": "data/labels_dengue.json version " + labels_json["version"],
         "C": m["C"],
+        "facts": facts(),
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(model, f, ensure_ascii=False, separators=(",", ":"))
