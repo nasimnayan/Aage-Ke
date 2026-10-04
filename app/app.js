@@ -248,7 +248,8 @@
 
   function viewInbox() {
     var rows = S.patients.map(function (p) { return { p: p, u: urgency(p) }; });
-    var html = header(t('app_name')) + '<main>';
+    var html = header(t('app_name')) + '<main>' +
+      (S.sharedText ? '<p class="muted">' + esc(t('shared_pick')) + '</p><blockquote>' + esc(S.sharedText) + '</blockquote>' : '');
     ['red', 'amber', 'green'].forEach(function (tier) {
       var list = rows.filter(function (r) { return r.u.tier === tier; }).sort(function (a, b) { return a.u.ts - b.u.ts; });
       html += '<section class="tier ' + tier + '"><h2>' + esc(t('tier_' + tier)) + ' <span class="count">' + list.length + '</span></h2>';
@@ -333,7 +334,7 @@
 
   function viewAddMessage() {
     return header(t('add_message'), 'patient') + '<main class="form">' +
-      '<label>' + esc(t('paste_here')) + '<textarea id="sms-text" rows="4"></textarea></label>' +
+      '<label>' + esc(t('paste_here')) + '<textarea id="sms-text" rows="4">' + esc(S.sharedText || '') + '</textarea></label>' +
       '<button data-act="read">' + esc(t('read_message')) + '</button>' +
       '<button class="amber" data-act="missed">' + esc(t('missed_call')) + '</button>' +
       '<label>' + esc(t('own_note')) + '<textarea id="note-text" rows="3"></textarea></label>' +
@@ -444,7 +445,10 @@
     if (act === 'lang') { I18N.setLang(I18N.getLang() === 'bn' ? 'en' : 'bn'); return render(); }
     if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
     if (act === 'back' || act === 'nav') return go(el.dataset.to);
-    if (act === 'open') { S.current = S.patients.filter(function (p) { return p.id === el.dataset.id; })[0]; return go('patient'); }
+    if (act === 'open') {
+      S.current = S.patients.filter(function (p) { return p.id === el.dataset.id; })[0];
+      return go(S.sharedText ? 'add_message' : 'patient');
+    }
     if (act === 'export') return exportEvents();
     if (act === 'log') {
       if (el.dataset.type === 'visit') { logAction('visit').then(render); return alertNote(t('visit_logged')); }
@@ -454,6 +458,7 @@
       var text = document.getElementById('sms-text').value.trim();
       if (!text) return;
       var a = analyse(text);
+      S.sharedText = null;
       S.draft = { id: uid(), ts: Date.now(), type: 'sms', text: text, bands: a.bands, outcome: a.outcome, decisions: {}, isNew: true };
       return go('labels');
     }
@@ -524,6 +529,11 @@
   }
 
   // ---------- boot ----------
+  // Web Share Target: an SMS shared into the app arrives as ?text=... (manifest share_target).
+  (function () {
+    var q = new URLSearchParams(location.search), shared = q.get('text') || q.get('title');
+    if (shared) { S.sharedText = shared.trim(); history.replaceState(null, '', location.pathname); }
+  })();
   function getJSON(u) { return fetch(u).then(function (r) { return r.json(); }); }
   Promise.all([getJSON('model_dengue.json'), getJSON('labels_dengue.json'), getJSON('templates.json'), getJSON('facilities.json')])
     .then(function (r) {

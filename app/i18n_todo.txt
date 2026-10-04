@@ -44,3 +44,4 @@ copied | Copied
 sms_to_family | SMS to the family
 log_refer | Mark as referred
 details_needed | Fill in your name, clinic and phone first. The referral note needs them.
+shared_pick | Shared message received. Tap the patient it belongs to.

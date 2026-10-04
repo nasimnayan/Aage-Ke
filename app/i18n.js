@@ -79,7 +79,8 @@
       log_refer: 'Mark as referred',
       referred_pending: 'Referred, check on them',
       arrived: 'Reached hospital',
-      details_needed: 'Fill in your name, clinic and phone first. The referral note needs them.'
+      details_needed: 'Fill in your name, clinic and phone first. The referral note needs them.',
+      shared_pick: 'Shared message received. Tap the patient it belongs to.'
     },
     bn: {
       app_name: 'আগে কে?',
