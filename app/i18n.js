@@ -78,7 +78,8 @@
       sms_to_family: 'SMS to the family',
       log_refer: 'Mark as referred',
       referred_pending: 'Referred, check on them',
-      arrived: 'Reached hospital'
+      arrived: 'Reached hospital',
+      details_needed: 'Fill in your name, clinic and phone first. The referral note needs them.'
     },
     bn: {
       app_name: 'আগে কে?',

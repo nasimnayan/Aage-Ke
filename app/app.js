@@ -173,8 +173,9 @@
     S.hasPin = true;
     return Promise.all(['chcpName', 'clinic', 'myPhone'].map(function (k) { return Store.getSetting(k); }))
       .then(function (v) { S.settings = { chcpName: v[0], clinic: v[1], myPhone: v[2] }; return load(); })
-      .then(function () { go('inbox'); });
+      .then(function () { go(detailsMissing() ? 'settings' : 'inbox'); });
   }
+  function detailsMissing() { return !(S.settings.chcpName && S.settings.clinic && S.settings.myPhone); }
 
   // ---------- judge mode (CC5) ----------
   function startJudge() {
@@ -265,10 +266,11 @@
 
   function viewSettings() {
     var s = S.settings;
-    return header(t('settings'), 'inbox') + '<main><form id="f-settings" class="form">' +
-      '<label>' + esc(t('chcp_name')) + '<input name="chcpName" value="' + esc(s.chcpName) + '"></label>' +
-      '<label>' + esc(t('clinic_name')) + '<input name="clinic" value="' + esc(s.clinic) + '"></label>' +
-      '<label>' + esc(t('my_phone')) + '<input name="myPhone" type="tel" value="' + esc(s.myPhone) + '"></label>' +
+    return header(t('settings'), detailsMissing() ? null : 'inbox') + '<main><form id="f-settings" class="form">' +
+      (detailsMissing() ? '<p class="muted">' + esc(t('details_needed')) + '</p>' : '') +
+      '<label>' + esc(t('chcp_name')) + '<input name="chcpName" required value="' + esc(s.chcpName) + '"></label>' +
+      '<label>' + esc(t('clinic_name')) + '<input name="clinic" required value="' + esc(s.clinic) + '"></label>' +
+      '<label>' + esc(t('my_phone')) + '<input name="myPhone" type="tel" required value="' + esc(s.myPhone) + '"></label>' +
       '<button type="submit">' + esc(t('save')) + '</button></form></main>';
   }
 
@@ -358,7 +360,9 @@
     var p = S.current, n = nearestFacility(p), f = n.f;
     var patientBody = fill('refer', null, f), note = fill('referral_note', p, f);
     var facPhone = f.phone ? (S.judge ? '<span>' + esc(maskPhone(f.phone)) + '</span>' : '<a href="tel:' + esc(f.phone) + '">' + esc(f.phone) + '</a>') : esc(t('number_unverified'));
-    var noteBtn = f.phone && !S.judge
+    var noteBtn = detailsMissing()
+      ? '<p class="err">' + esc(t('details_needed')) + '</p><button data-act="nav" data-to="settings">' + esc(t('settings')) + '</button>'
+      : f.phone && !S.judge
       ? '<a class="btn" href="' + esc(smsHref(f.phone, note)) + '" data-act="log" data-type="sms" data-detail="referral_note">' + esc(t('send_note')) + '</a>'
       : '<button data-act="copy" data-text="' + esc(note) + '">' + esc(t('copy_note')) + '</button>';
     return header(t('refer'), 'patient') + '<main>' +
@@ -368,7 +372,7 @@
       (f.admits_dengue === 'assumed' ? '<div class="muted small">' + esc(t('admission_unverified')) + '</div>' : '') +
       '<div class="links"><a href="geo:' + f.lat + ',' + f.lon + '">geo:</a> · ' +
       '<a href="https://www.google.com/maps?q=' + f.lat + ',' + f.lon + '" target="_blank" rel="noopener">Google Maps</a></div></div>' +
-      '<h2>' + esc(t('referral_note')) + '</h2><blockquote class="sms-body">' + esc(note) + '</blockquote>' + noteBtn +
+      '<h2>' + esc(t('referral_note')) + '</h2>' + (detailsMissing() ? '' : '<blockquote class="sms-body">' + esc(note) + '</blockquote>') + noteBtn +
       '<h2>' + esc(t('sms_to_family')) + '</h2><blockquote class="sms-body">' + esc(patientBody) + '</blockquote>' +
       '<a class="btn" href="' + esc(smsHref(S.judge ? '' : p.phone, patientBody)) + '" data-act="log" data-type="sms" data-detail="refer">' + esc(t('open_sms_app')) + '</a>' +
       '<button class="red" data-act="refer-log" data-fac="' + esc(f.id) + '">' + esc(t('log_refer')) + '</button></main>';
