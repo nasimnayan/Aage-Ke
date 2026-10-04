@@ -22,7 +22,7 @@ Synthetic data is allowed by the brief if labelled. Every constructed row says `
 | File | Rows | Who writes | Columns |
 |---|---|---|---|
 | `data/test_t1_human.csv` | 17 | **Real messages from 4 volunteers in 4 districts** (Chandpur, Satkhira, Munshiganj, Pabna), written in their own words to the WhatsApp prompt below. Text untouched; labels proposed by Claude, checked by Nasim | `text, labels, script, dialect, is_negated, is_past, district` |
-| `data/test_t2_crowd.csv` | 0 so far | Later WhatsApp replies (same prompt), added as they arrive | same + `scenario_id`, `contributor_id` (C01, C02, no names) |
+| `data/test_t2_crowd.csv` | 6 (C05, Dhaka) | Later WhatsApp replies (same prompt), added as they arrive | same + `scenario_id`, `contributor_id` (C01, C02, no names) |
 | `data/test_challenge_synthetic.csv` | 33 | **Synthetic**, written by Claude: misspellings, mixed English, negation, past, hard negatives, 8 dialect probes (Chittagonian, Sylheti, Noakhali, Barishali; `verified=false`). Used for Gate 1 only and reported separately as a stress test, **never as human evidence** | `text, labels, script, dialect, is_negated, is_past, expected_outcome, source, verified, note` |
 | `data/test_t3_real.csv` | 80 | Bangla Healthcare Severity Dataset posts, Claude proposes labels, Nasim verifies | same + `orig_category`, `label_source` = `claude_proposed_nasim_verified` |
 
