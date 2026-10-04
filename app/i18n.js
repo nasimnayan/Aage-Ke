@@ -83,6 +83,7 @@
       status_tested: 'Tested',
       why_prefix: 'Highlighted words',
       confirm_btn: 'Confirm',
+      translation_not_sent: 'English translation (not sent)',
       incoming_sms: 'Incoming SMS',
       model_evaluation: 'Model evaluation',
       about_link: 'What is this?',

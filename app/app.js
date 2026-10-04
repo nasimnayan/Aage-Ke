@@ -164,6 +164,33 @@
     return s;
   }
 
+  // English version of a template, for display only (English mode). The SMS sent stays Bangla.
+  function fillEn(key, p, fac) {
+    var s = (S.templates._en || {})[key];
+    if (!s) return '';
+    var rp = function (a, b) { s = s.split(a).join(b); };
+    rp('[name]', S.settings.chcpNameEn || S.settings.chcpName || '');
+    if (fac) { rp('[hospital phone]', fac.phone ? shownPhone(fac.phone) : ''); rp('[hospital]', fac.name); }
+    if (p) {
+      rp('[code]', p.code); rp('[union]', unionOf(p).name); rp('[N]', String(illnessDay(p) || ''));
+      rp('[signs]', confirmedSigns(p).map(function (k) {
+        return S.labels.warning_signs.filter(function (l) { return l.key === k; })[0].en;
+      }).join(', '));
+    }
+    rp('[clinic]', S.settings.clinicEn || S.settings.clinic || ''); rp('[my number]', S.settings.myPhone || '');
+    return s;
+  }
+  function translationLine(key, p, fac) {
+    if (I18N.getLang() !== 'en') return '';
+    var en = fillEn(key, p, fac);
+    return en ? '<span class="gloss">' + esc(t('translation_not_sent')) + ': ' + esc(en) + '</span>' : '';
+  }
+  // Union name in the current language (Bangla names come from the facilities data).
+  function unionName(p) {
+    var u = unionOf(p);
+    return I18N.getLang() === 'bn' && u.name_bn ? u.name_bn : p.union;
+  }
+
   // ---------- persistence ----------
   function save(p) {
     return Store.put(p).then(load);
@@ -293,7 +320,7 @@
         var p = r.p, day = illnessDay(p);
         html += '<button class="row" data-act="open" data-id="' + esc(p.id) + '">' +
           '<span class="code">' + esc(p.code) + '</span>' +
-          '<span class="meta">' + esc(p.union) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') +
+          '<span class="meta">' + esc(unionName(p)) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') +
           (p.untested ? ' · ' + esc(t('status_untested')) : '') + '</span>' +
           (r.u.why ? '<span class="why">' + esc(r.u.why) + '</span>' : '') + '</button>';
       });
@@ -309,7 +336,7 @@
   }
 
   function viewAddPatient() {
-    var unions = S.fac.unions.map(function (u) { return '<option value="' + esc(u.name) + '">' + esc(u.name) + ' · ' + esc(u.name_bn) + '</option>'; }).join('');
+    var unions = S.fac.unions.map(function (u) { return '<option value="' + esc(u.name) + '">' + esc(I18N.getLang() === 'bn' && u.name_bn ? u.name_bn : u.name) + '</option>'; }).join('');
     return header(t('add_patient'), 'inbox') + '<main><form id="f-patient" class="form">' +
       '<label>' + esc(t('code')) + '<input name="code" required autocomplete="off"></label>' +
       '<div class="radios"><label class="radio"><input type="radio" name="status" value="tested" checked> ' + esc(t('status_tested')) + '</label>' +
@@ -358,7 +385,7 @@
     if (m.type !== 'sms' || !m.text) return '';
     var script = AageModel.detectScript(m.text);
     var scriptTag = script === 'banglish' ? 'Banglish · Bangla in Latin letters'
-      : script === 'bn' ? 'বাংলা হরফ · Bangla script' : 'Mixed';
+      : script === 'bn' ? (I18N.getLang() === 'en' ? 'Bangla script' : 'বাংলা হরফ · Bangla script') : 'Mixed';
     var area = S.fac.upazila + ', ' + S.fac.district + (DIVISION[S.fac.district] ? ' (' + DIVISION[S.fac.district] + ')' : '');
     var open = S.infoOpen === m.id;
     return '<div class="tags"><span class="tag">' + esc(scriptTag) + '</span>' +
@@ -384,10 +411,10 @@
       '<div class="pc-title"><div class="big">' + esc(p.code) + '</div>' +
       (p.feverDroppedOn ? '<div class="muted small">' + esc(t('fever_dropped_badge', { d: p.feverDroppedOn })) + '</div>' : '') + '</div>' +
       (day ? '<span class="day-pill">' + esc(t('illness_day', { n: day })) + '</span>' : '') + '</div>' +
-      '<div class="pc-boxes"><div class="pc-box"><small>' + esc(t('union')) + '</small><b>' + esc(p.union) + '</b></div>' +
+      '<div class="pc-boxes"><div class="pc-box"><small>' + esc(t('union')) + '</small><b>' + esc(unionName(p)) + '</b></div>' +
       '<div class="pc-box tier-box ' + u.tier + '"><small>' + esc(t('tier_' + u.tier)) + '</small><b>' + esc(u.why || t('tier_' + u.tier)) + '</b></div></div>' +
       '<div>' + esc(p.untested ? t('status_untested') : t('status_tested')) + '</div>' +
-      (p.untested ? '<div class="muted small">' + esc(t('suggested')) + ': ' + esc(fill('test_reminder')) + '</div>' : '') +
+      (p.untested ? '<div class="muted small">' + esc(t('suggested')) + ': ' + esc(I18N.getLang() === 'en' ? fillEn('test_reminder') : fill('test_reminder')) + '</div>' : '') +
       '<div class="signs"><b>' + esc(t('confirmed_signs')) + ':</b> ' +
       (signs.length ? signs.map(function (k) { return esc(labelName(k)); }).join(', ') : esc(t('none_yet'))) + '</div></div>' +
       latestEvaluation(p) +
@@ -486,9 +513,10 @@
     var number = S.judge ? '' : p.phone;
     return header(t('send_sms'), 'patient') + '<main class="form">' +
       '<label>' + esc(t('choose_template')) + '<select id="tpl">' + keys.map(function (k) {
-        return '<option value="' + k + '"' + (k === S.smsKey ? ' selected' : '') + '>' + k + '</option>';
+        var label = I18N.getLang() === 'en' && S.templates._names_en ? S.templates._names_en[k] : k;
+        return '<option value="' + k + '"' + (k === S.smsKey ? ' selected' : '') + '>' + esc(label) + '</option>';
       }).join('') + '</select></label>' +
-      '<blockquote class="sms-body">' + esc(body) + '</blockquote>' +
+      '<blockquote class="sms-body">' + esc(body) + translationLine(S.smsKey, null, fac) + '</blockquote>' +
       '<a class="btn" href="' + esc(smsHref(number, body)) + '" data-act="log" data-type="sms" data-detail="' + S.smsKey + '">' + esc(t('open_sms_app')) + '</a>' +
       '<p class="muted small">' + esc(t('sms_note')) + '</p></main>';
   }
@@ -509,8 +537,8 @@
       (f.admits_dengue === 'assumed' ? '<div class="muted small">' + esc(t('admission_unverified')) + '</div>' : '') +
       '<div class="links"><a href="geo:' + f.lat + ',' + f.lon + '">geo:</a> · ' +
       '<a href="https://www.google.com/maps?q=' + f.lat + ',' + f.lon + '" target="_blank" rel="noopener">Google Maps</a></div></div>' +
-      '<h2>' + esc(t('referral_note')) + '</h2>' + (detailsMissing() ? '' : '<blockquote class="sms-body">' + esc(note) + '</blockquote>') + noteBtn +
-      '<h2>' + esc(t('sms_to_family')) + '</h2><blockquote class="sms-body">' + esc(patientBody) + '</blockquote>' +
+      '<h2>' + esc(t('referral_note')) + '</h2>' + (detailsMissing() ? '' : '<blockquote class="sms-body">' + esc(note) + translationLine('referral_note', p, f) + '</blockquote>') + noteBtn +
+      '<h2>' + esc(t('sms_to_family')) + '</h2><blockquote class="sms-body">' + esc(patientBody) + translationLine('refer', null, f) + '</blockquote>' +
       '<a class="btn" href="' + esc(smsHref(S.judge ? '' : p.phone, patientBody)) + '" data-act="log" data-type="sms" data-detail="refer">' + esc(t('open_sms_app')) + '</a>' +
       '<button class="red" data-act="refer-log" data-fac="' + esc(f.id) + '">' + esc(t('log_refer')) + '</button></main>';
   }

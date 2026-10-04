@@ -9,5 +9,29 @@
   "test_reminder": "জ্বর হলে কাছের সরকারি হাসপাতালে রক্ত পরীক্ষা করান। — [আপার নাম]",
   "home_care": "বিশ্রাম নিন, বেশি করে পানি, স্যালাইন ও তরল খান। জ্বর বা ব্যথায় শুধু প্যারাসিটামল; অ্যাসপিরিন বা আইবুপ্রোফেন খাবেন না। রোগী মশারির ভেতরে থাকুন।",
   "water_containers": "জমানো পানির পাত্র ঢেকে রাখুন। বোতল, টব, ডাবের খোসায় পানি জমতে দেবেন না; দুই দিনের বেশি জমে থাকা পানি ফেলে দিন।",
-  "_source": "docs/01_solution_design.md section 8, copied verbatim. Nasim verifies wording."
+  "_source": "docs/01_solution_design.md section 8, copied verbatim. Nasim verifies wording.",
+  "_en": {
+    "enrol": "I am keeping track of your fever. Every day, text me how you are in your own words, or give me a missed call. — [name]",
+    "daily": "How are you today? If there is stomach pain, vomiting, bleeding, or you feel very weak, write and tell me.",
+    "window": "Even if the fever comes down, be careful. If there is severe stomach pain, repeated vomiting, bleeding from the gums or nose, feeling very weak, or less urine, give a missed call straight away.",
+    "callback": "I got your news. I will call you shortly.",
+    "not_understood": "I did not fully understand your message. I am calling you.",
+    "refer": "Go to [hospital] today. Phone: [hospital phone]. I am letting the hospital know. — [name]",
+    "referral_note": "Referral [code] | [union] | fever day [N] | seen: [signs] | sent by: [name], [clinic], [my number]",
+    "test_reminder": "If there is fever, get a blood test at the nearest government hospital. — [name]",
+    "home_care": "Rest, and drink plenty of water, saline and fluids. For fever or pain take only paracetamol; do not take aspirin or ibuprofen. The patient should stay under a mosquito net.",
+    "water_containers": "Keep stored water containers covered. Do not let water collect in bottles, tubs or coconut shells; throw away water that has stood for more than two days."
+  },
+  "_names_en": {
+    "enrol": "Welcome",
+    "daily": "Daily check",
+    "window": "Danger days",
+    "callback": "Calling back",
+    "not_understood": "Did not understand",
+    "refer": "Go to hospital",
+    "test_reminder": "Get tested",
+    "home_care": "Home care",
+    "water_containers": "Cover stored water"
+  },
+  "_source_en": "English translations and names for display in English mode only; never sent."
 }

@@ -3,7 +3,9 @@
   "chcp": {
     "chcpName": "রিনা (কাল্পনিক)",
     "clinic": "উদাহরণ কমিউনিটি ক্লিনিক, নাজিরপুর",
-    "myPhone": "01XXXXXXXXX"
+    "myPhone": "01XXXXXXXXX",
+    "chcpNameEn": "Rina (fictional)",
+    "clinicEn": "Example community clinic, Nazirpur"
   },
   "patients": [
     {
