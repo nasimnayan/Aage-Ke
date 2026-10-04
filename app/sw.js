@@ -1,6 +1,6 @@
 // Service worker: caches every app file and the model on first load, then serves them offline.
-// Bump VERSION whenever any cached file changes.
-var VERSION = 'aageke-v23';
+// Network first when online (so a new version shows at once), cache when offline.
+var VERSION = 'aageke-v24';
 var FILES = [
   './', 'index.html', 'app.js', 'model.js', 'rules.js', 'i18n.js', 'store.js',
   'templates.json', 'facilities.json', 'demo_data.json', 'model_dengue.json', 'labels_dengue.json',
@@ -19,10 +19,16 @@ self.addEventListener('activate', function (e) {
 
 self.addEventListener('fetch', function (e) {
   if (e.request.method !== 'GET') return;
-  e.respondWith(caches.match(e.request, { ignoreSearch: true }).then(function (hit) {
-    if (hit) return hit;
-    return fetch(e.request).catch(function () {
-      if (e.request.mode === 'navigate') return caches.match('index.html');
+  e.respondWith(fetch(e.request).then(function (res) {
+    // Keep the offline copy fresh with whatever the network just returned.
+    if (res.ok && new URL(e.request.url).origin === self.location.origin) {
+      var copy = res.clone();
+      caches.open(VERSION).then(function (c) { c.put(e.request, copy); });
+    }
+    return res;
+  }).catch(function () {
+    return caches.match(e.request, { ignoreSearch: true }).then(function (hit) {
+      return hit || (e.request.mode === 'navigate' ? caches.match('index.html') : undefined);
     });
   }));
 });
