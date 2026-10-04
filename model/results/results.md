@@ -1,5 +1,3 @@
-> **Labels pending final check.** Every number on this page uses test labels proposed by Claude and not yet verified by Nasim. They will be re-run when the labels are verified.
-
 # Evaluation results
 
 **Weak spots first.** On T3, model+rules missed the warning sign in 11 of 42 messages that had one (26%); 1 of those were not routed to a call either. On pooled, model+rules missed the warning sign in 11 of 55 messages that had one (20%); 1 of those were not routed to a call either. Weak labels on the pooled real sets: lethargy_restless (F1 0.48, n=15), fever_present (F1 0.06, n=28).

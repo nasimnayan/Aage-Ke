@@ -137,7 +137,7 @@ SMS wording sources: home care (rest, fluids, paracetamol only, no aspirin or ib
 
 ## 7. Evaluation
 
-> **Labels pending final check.** The test labels were proposed by Claude and are being verified by the team; the numbers below will be re-run when verification is done. Full tables: [`model/results/results.md`](model/results/results.md), raw numbers: [`model/results/metrics.json`](model/results/metrics.json).
+> Test labels were proposed by Claude and checked by the team on 4 October 2026. The message texts were not changed. Full tables: [`model/results/results.md`](model/results/results.md), raw numbers: [`model/results/metrics.json`](model/results/metrics.json).
 
 ### Weak spots first
 
