@@ -159,20 +159,37 @@
     S.pinError = false;
     if (S.pinEntry.length < 4) return render();
     var entered = S.pinEntry; S.pinEntry = '';
-    Store.getSetting('pin').then(function (stored) {
-      if (!stored) {
-        var salt = uid();
-        return hashPin(entered, salt).then(function (h) { return Store.setSetting('pin', { salt: salt, hash: h }); }).then(unlock);
-      }
-      return hashPin(entered, stored.salt).then(function (h) {
-        if (h === stored.hash) unlock(); else { S.pinError = true; render(); }
+    Store.getSetting('lock').then(function (lock) {
+      if (lock) return Store.openLock(entered, lock);
+      return firstLock(entered);
+    }).then(function (ok) {
+      if (ok) unlock(); else { S.pinError = true; render(); }
+    });
+  }
+  // First encrypted lock. Data saved by the earlier screen-lock-only version is migrated:
+  // its PIN is checked against the old hash, then every record is re-saved encrypted.
+  function firstLock(pin) {
+    return Store.getSetting('pin').then(function (legacy) {
+      var check = legacy ? hashPin(pin, legacy.salt).then(function (h) { return h === legacy.hash; }) : Promise.resolve(true);
+      return check.then(function (ok) {
+        if (!ok) return false;
+        return Store.createLock(pin).then(function () {
+          if (!legacy) return true;
+          return Promise.all(['chcpName', 'clinic', 'myPhone'].map(Store.getSetting)).then(function (v) {
+            return Store.setProfile({ chcpName: v[0], clinic: v[1], myPhone: v[2] });
+          }).then(function () { return Store.all(); }).then(function (ps) {
+            return Promise.all(ps.map(Store.put));
+          }).then(function () {
+            return Promise.all(['pin', 'chcpName', 'clinic', 'myPhone'].map(Store.deleteSetting));
+          }).then(function () { return true; });
+        });
       });
     });
   }
   function unlock() {
     S.hasPin = true;
-    return Promise.all(['chcpName', 'clinic', 'myPhone'].map(function (k) { return Store.getSetting(k); }))
-      .then(function (v) { S.settings = { chcpName: v[0], clinic: v[1], myPhone: v[2] }; return load(); })
+    return Store.getProfile()
+      .then(function (v) { S.settings = { chcpName: v.chcpName, clinic: v.clinic, myPhone: v.myPhone }; return load(); })
       .then(function () { go(detailsMissing() ? 'settings' : 'inbox'); });
   }
   function detailsMissing() { return !(S.settings.chcpName && S.settings.clinic && S.settings.myPhone); }
@@ -425,7 +442,7 @@
     if (act === 'pin') return pinDigit(el.dataset.d);
     if (act === 'judge') return startJudge();
     if (act === 'lang') { I18N.setLang(I18N.getLang() === 'bn' ? 'en' : 'bn'); return render(); }
-    if (act === 'lock') { S.current = null; S.judge = false; Store.use('idb'); return go('pin'); }
+    if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
     if (act === 'back' || act === 'nav') return go(el.dataset.to);
     if (act === 'open') { S.current = S.patients.filter(function (p) { return p.id === el.dataset.id; })[0]; return go('patient'); }
     if (act === 'export') return exportEvents();
@@ -495,8 +512,7 @@
     }
     if (e.target.id === 'f-settings') {
       S.settings = { chcpName: f.get('chcpName'), clinic: f.get('clinic'), myPhone: f.get('myPhone') };
-      return Promise.all(Object.keys(S.settings).map(function (k) { return Store.setSetting(k, S.settings[k]); }))
-        .then(function () { go('inbox'); });
+      return Store.setProfile(S.settings).then(function () { go('inbox'); });
     }
   });
 
@@ -513,9 +529,9 @@
     .then(function (r) {
       S.model = r[0]; S.labels = r[1]; S.templates = r[2]; S.fac = r[3];
       S.rules = new AageRules.Rules(S.labels);
-      return Store.getSetting('pin').catch(function () { return null; });
+      return Promise.all([Store.getSetting('lock'), Store.getSetting('pin')]).catch(function () { return []; });
     })
-    .then(function (pin) { S.hasPin = !!pin; render(); });
+    .then(function (v) { S.hasPin = !!(v[0] || v[1]); render(); });
 
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
 

@@ -3,9 +3,9 @@
 pin_title | Enter PIN
 pin_set_title | Set a 4-digit PIN
 pin_wrong | Wrong PIN
-pin_note | The PIN locks the screen. Records stay on this phone only.
+pin_note | Your PIN encrypts the records on this phone. Without the PIN they cannot be read or recovered.
 judge_button | Try the demo (judges)
-demo_banner | Demo: fictional patients. Real facility numbers are masked.
+demo_banner | Demo: fictional patients, kept in memory only and not encrypted. Real facility numbers are masked.
 lock | Lock
 phone | Phone
 fever_dropped_on | Fever came down on
