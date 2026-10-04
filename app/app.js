@@ -68,6 +68,8 @@
       if (m.type === 'missed_call') amber.push([m.ts, t('why_missed')]);
     });
     if (amber.length) return { tier: 'amber', why: amber[0][1], ts: amber[0][0] };
+    var ref = openReferral(p);
+    if (ref) return { tier: 'amber', why: t('referred_pending'), ts: ref.ts };
     var day = illnessDay(p);
     var heardToday = (p.messages || []).some(function (m) { return m.type !== 'note' && isoDate(m.ts) === today(); });
     if (((day >= 3 && day <= 7) || p.feverDroppedOn) && !heardToday) {
@@ -76,6 +78,13 @@
     }
     var lastMsg = (p.messages || []).reduce(function (m, x) { return Math.max(m, x.ts); }, p.added || 0);
     return { tier: 'green', why: '', ts: lastMsg };
+  }
+  // A referral stays open (amber) until Rina marks that the patient reached hospital.
+  function openReferral(p) {
+    var acts = (p.actions || []).filter(function (a) { return a.type === 'refer' || a.type === 'arrived'; })
+      .sort(function (a, b) { return a.ts - b.ts; });
+    var last = acts[acts.length - 1];
+    return last && last.type === 'refer' ? last : null;
   }
   function confirmedSigns(p) {
     var out = {};
@@ -298,7 +307,8 @@
       '<button data-act="log" data-type="visit">' + esc(t('visit_today')) + '</button>' +
       '<button class="red" data-act="nav" data-to="refer">' + esc(t('refer')) + '</button>' +
       '<button data-act="nav" data-to="sms">' + esc(t('send_sms')) + '</button>' +
-      '<button data-act="nav" data-to="add_message">' + esc(t('add_message')) + '</button></div>' +
+      '<button data-act="nav" data-to="add_message">' + esc(t('add_message')) + '</button>' +
+      (openReferral(p) ? '<button class="green" data-act="arrived">' + esc(t('arrived')) + '</button>' : '') + '</div>' +
       '<h2>' + esc(t('messages')) + '</h2><ul class="msgs">' + msgs + '</ul></main>';
   }
 
@@ -452,6 +462,7 @@
       else p.messages = p.messages.map(function (x) { return x.id === d.id ? d : x; });
       return save(p).then(function () { go('patient'); });
     }
+    if (act === 'arrived') return logAction('arrived').then(render);
     if (act === 'refer-log') {
       var pt = S.current;
       return logAction('refer', el.dataset.fac, { illnessDay: illnessDay(pt), signs: confirmedSigns(pt) }).then(function () { go('patient'); });

@@ -76,7 +76,9 @@
       copy_note: 'Copy note',
       copied: 'Copied',
       sms_to_family: 'SMS to the family',
-      log_refer: 'Mark as referred'
+      log_refer: 'Mark as referred',
+      referred_pending: 'Referred, check on them',
+      arrived: 'Reached hospital'
     },
     bn: {
       app_name: 'আগে কে?',
@@ -89,7 +91,9 @@
       no_warning: 'কোনো সতর্কসংকেত পাওয়া যায়নি',
       straight_line: 'সরলরেখায় {km} কিমি',
       number_unverified: 'নম্বর যাচাই হয়নি',
-      admission_unverified: 'ভর্তির তথ্য যাচাই করা হয়নি'
+      admission_unverified: 'ভর্তির তথ্য যাচাই করা হয়নি',
+      referred_pending: 'রেফার করা হয়েছে — খোঁজ নিন',
+      arrived: 'হাসপাতালে পৌঁছেছে'
     }
   };
   var lang = 'bn';
