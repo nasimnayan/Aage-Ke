@@ -59,7 +59,7 @@ Fill the "Status" column of `02_data_and_sources.md §3`:
 - BBC Bangla article, 20 Aug 2026, "ডেঙ্গু নিয়ে ঢাকার বাইরে যে পাঁচ জেলা সবচেয়ে বেশি ঝুঁকিতে" (author: Mariam Sultana)
 - BBS ICT Access and Use Survey 2025-26 report on bbs.gov.bd
 - WHO 2009 dengue guideline PDF; find the Group A "daily review" sentence and its page number
-- Any DGHS primary source for the 2026 death review
+- Any DGHS primary source for the 2025 death review (done: none found)
 
 ## CW4 · Crowd messages (rolling, close at 15:15)
 

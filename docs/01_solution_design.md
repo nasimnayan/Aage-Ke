@@ -2,10 +2,10 @@
 
 ## 1. Problem
 
-Most people with dengue are cared for at home. WHO guidance says a home-managed (Group A) patient should be reviewed every day until the critical phase is over, because warning signs tend to appear around the time the fever falls. In rural Bangladesh nobody does that daily review. The family thinks the patient is recovering and goes quiet. By the time they reach hospital it is often late: in DGHS's 2026 death review, 66 of the deaths reviewed happened within 24 hours of admission.
+Most people with dengue are cared for at home. WHO guidance says a home-managed (Group A) patient should be reviewed every day until the critical phase is over, because warning signs tend to appear around the time the fever falls. In rural Bangladesh nobody does that daily review. The family thinks the patient is recovering and goes quiet. By the time they reach hospital it is often late: in DGHS's 2025 death review, 66 of 114 reviewed deaths happened within 24 hours of admission. In 2026, 256 people had died of dengue by 3 October.
 
 **Problem statement (for the video, verify numbers on the day):**
-> Because of this tool, a community health worker will know the same day which of her dengue patients at home has reported a warning sign after the fever falls, which she would otherwise learn about only when the family reaches hospital too late; we know because WHO advises daily review of home-managed dengue patients until the critical phase ends, and in Bangladesh's 2026 dengue death review, 66 of the deaths reviewed happened within 24 hours of admission.
+> Because of this tool, a community health worker will know the same day which of her dengue patients at home has reported a warning sign after the fever falls, which she would otherwise learn about only when the family reaches hospital too late; we know because WHO advises daily review of home-managed dengue patients until the critical phase ends, and in DGHS's 2025 dengue death review, 66 of 114 reviewed deaths happened within 24 hours of admission.
 
 ## 2. The one user
 
@@ -26,7 +26,7 @@ Most people with dengue are cared for at home. WHO guidance says a home-managed 
 | 3. Home, fever ongoing | Daily review advised, rarely done | Families do not recognise warning signs | **Core:** family writes in own words, AI reads |
 | 4. Fever falls | Family thinks patient is better, goes silent | Critical phase is unwatched | **Core:** silence in the window turns amber |
 | 5. Warning sign | Goes to nearest clinic, gets sent on | Time lost at the wrong facility | **Facility card:** nearest facility that admits dengue |
-| 6. Arrives at hospital | Late, crowded, repeats history | 66 reviewed deaths happened within 24 h of admission | **Core:** referral note with illness day and signs |
+| 6. Arrives at hospital | Late, crowded, repeats history | 2025 review: 66 of 114 deaths within 24 h of admission | **Core:** referral note with illness day and signs |
 | 7. Records | DGHS daily counts show admitted patients | Home-managed patients are invisible | DHIS2-shaped export |
 | 8. After discharge | No follow-up | | Not covered (next step) |
 

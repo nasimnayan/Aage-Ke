@@ -41,22 +41,23 @@ Known bias: the scenario wording may prime contributors. Rows that copy the prom
 
 ## 3. Every number and its link
 
-Status: **P** = primary source opened · **S** = secondary (news citing the source), open the primary before the video.
+Checked by Cowork on 4 Oct 2026 (full notes in `data/incoming/02_sources_filled.md`).
+Status: **P** = primary source opened · **S** = secondary (news citing the source).
 
-| # | Claim | Link | Status |
+| # | Claim (use this wording) | Link | Status |
 |---|---|---|---|
-| 1 | 84,369 admitted, 256 deaths in 2026 to 3 Oct; 64,954 admissions and 153 deaths outside city corporations; women 37.6% of admissions, 51.2% of deaths; September 43,774 admissions, 148 deaths | DGHS HEOC daily dengue press release, 3 Oct 2026: https://dashboard.dghs.gov.bd/pages/heoc_dengue_v1.php (PDF in project files) | P |
-| 2 | DGHS 2026 death review: 66 died within 24 h of admission, 18 within 24 to 48 h, 5 within 48 to 72 h, 25 after 72 h. Officials blame late arrival | https://bdnews24.com/health/38962c12a083 and https://asianews.network/late-admission-leading-cause-of-dengue-deaths-in-bangladesh | S. **Mismatch:** 124 reviewed, breakdown sums to 114. Use "66 within 24 hours" only. |
-| 3 | Group A patients managed at home need daily review until out of the critical phase | WHO 2009 guideline https://www.who.int/publications/i/item/9789241547871 · CDC Dengue Pocket Guide 2024 https://cdc.gov/dengue/media/pdfs/342849-A_Dengue_PocketGuide_UPDATE_2024.pdf | CDC P, WHO open before video |
-| 4 | DengueAid (Malaysia) patient self-monitoring app: 63% of approached patients refused to join | https://eprints.um.edu.my/47100 (Digital Health 2024, doi 10.1177/20552076241277710) | P (abstract) |
-| 5 | Outpatients' knowledge of warning signs was inadequate even after physicians explained them | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10168551/ | P |
-| 6 | 98.9% of households own a mobile; 63.2% of men and 52.8% of women own one themselves (BBS ICT Access and Use Survey 2025-26, Q1) | https://www.bssnews.net/news/343905 | S, Cowork finds the BBS report |
-| 7 | One CHCP per community clinic, about 6,000 people within half an hour's walk; about 38 visits per clinic per day | https://refworks.reference-global.com/article/10.5334/ijic.3693 · https://unsouthsouth.org/?p=2947 | S |
-| 8 | DHIS2 used in more than 14,000 community clinics; Bangladesh the largest DHIS2 implementer | https://dhis2.org/?p=23395 | P |
-| 9 | Informal providers were the most common first contact (46.2%) in a 2026 study | https://banglajol.info/index.php/JBCPS/article/view/91557 | P (abstract) |
-| 10 | DGHS directed all government hospitals to run separate dengue wards and teams | asianews.network link in #2 | S |
-| 11 | Pirojpur: 1,159 cases 1 Jan to 16 Aug 2026 vs 477 same period 2025; WHO lists it among six districts with a marked rise; little mosquito control there | Prothom Alo, 17 Aug 2026 (PDF in project files) | Cowork finds URL |
-| 12 | Coastal districts (Barguna, Jhalokati, Pirojpur) had more Aedes larvae; rainwater stored because of salinity | BBC Bangla, 20 Aug 2026 (PDF in project files) | Cowork finds URL |
+| 1 | 84,369 admitted and 256 deaths in 2026 to 3 Oct; 64,954 admissions and 153 deaths outside city corporations; women 37.6% of admissions, 51.2% of deaths; September 43,774 admissions, 148 deaths | DGHS HEOC daily dengue press release, 3 Oct 2026: https://dashboard.dghs.gov.bd/pages/heoc_dengue_v1.php (PDF in project files) | P |
+| 2 | **In DGHS's 2025 death review, 66 of 114 reviewed deaths happened within 24 hours of admission** (18 within 24 to 48 h, 5 within 48 to 72 h, 25 after 72 h). Officials named late arrival as the main cause. **This is 2025, not 2026.** | https://www.thedailystar.net/health/disease/news/late-admission-leading-cause-dengue-deaths-3992161 (DGHS press conference, 22 Sep 2025) | S. No DGHS primary document found. bdnews24 says 124 reviewed; Daily Star's 114 matches the breakdown, so use 114. |
+| 3 | WHO: ambulatory (Group A) patients "should be reviewed daily for disease progression ... until they are out of the critical period" | WHO 2009 guideline, section 2.3.2.1, printed page 34: https://www.who.int/publications/i/item/9789241547871 · CDC Dengue Pocket Guide 2024: https://cdc.gov/dengue/media/pdfs/342849-A_Dengue_PocketGuide_UPDATE_2024.pdf | P |
+| 4 | DengueAid (Malaysia) patient self-monitoring app: 63% of approached patients refused to join (62 of 99) | Digital Health 2024, doi 10.1177/20552076241277710, PMC11378219 | P (abstract) |
+| 5 | Outpatients' knowledge of warning signs was inadequate even after physicians explained them | PLoS NTD 2023: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10168551/ | P (abstract) |
+| 6 | 98.9% of households own a mobile phone; 63.2% of men and 52.8% of women own one themselves (age 5+, BBS ICT Access and Use Survey 2025-26, Q1) | BBS report listed on https://bbs.gov.bd/pages/static-pages/6922e012933eb65569e25543 (pages 4 and 7) | P |
+| 7 | One CHCP runs each community clinic, for about 6,000 people within half an hour's walk; about 38 visits per clinic per day (older sources, 2017 and 2019) | https://ijic.org/articles/10.5334/ijic.3693 · https://unsouthsouth.org/?p=2947 | S |
+| 8 | DHIS2 used in more than 14,000 community clinics (by 2022). **Do not say "largest implementer".** | https://dhis2.org/?p=23395 | P |
+| 9 | Among patients reaching a tertiary hospital, informal providers were the most common first contact (46.2%) | JBCPS 44(3), 2026: https://banglajol.info/index.php/JBCPS/article/view/91557 | P (abstract) |
+| 10 | In September 2025, DGHS directed government hospitals to run separate dengue wards and teams | Daily Star link in #2 | S, date it 2025 |
+| 11 | Pirojpur: 1,159 cases 1 Jan to 16 Aug 2026 vs 477 same period 2025; WHO listed it among six districts with a marked rise; no Barguna-style mosquito control there | Prothom Alo, 17 Aug 2026: https://www.prothomalo.com/bangladesh/958doqb1hj | S |
+| 12 | Coastal districts (Barguna, Jhalokati, Pirojpur) had more Aedes larvae; salinity leads families to store rainwater year-round | BBC Bangla, 20 Aug 2026: https://www.bbc.com/bengali/articles/cqx7n9elw2yo | S |
 
 **Do not use:** handoff numbers 239 deaths and 73,694 cases (stale) · Khatun et al. phone ownership (old) · speech recognition word error rates (not checked) · `dataset.csv` and the Jamalpur hematology dataset (lab diagnosis data, out of bounds for the health track).
 

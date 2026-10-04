@@ -32,7 +32,7 @@ The brief asks for one 2 to 5 minute video with five parts. The three clips belo
 ### Clip 1 · Team introduction (Nasim on camera, about 115 words)
 
 > I'm Nasim Mahmud Nayan from Dhaka, and this is Aage Ke?, which means "who first?".
-> This year DGHS reviewed Bangladesh's dengue deaths. Sixty-six of those people died within a day of reaching hospital. Their danger began at home, when the fever came down.
+> Last year DGHS reviewed 114 dengue deaths in Bangladesh. Sixty-six of those people died within a day of reaching hospital. This year 256 people have died so far. The danger begins at home, when the fever comes down.
 > Because of this tool, a community health worker will know the same day which of her dengue patients at home has reported a warning sign after the fever falls, which she would otherwise learn too late. We know because WHO advises daily review of these patients, and in villages nobody does it.
 > For me, localising AI means the test data is written by the people who will use the tool, the way they really write, and you publish where it breaks.
 
