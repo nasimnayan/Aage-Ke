@@ -81,6 +81,7 @@
       referred_pending: 'Referred, check on them',
       arrived: 'Reached hospital',
       status_tested: 'Tested',
+      why_prefix: 'Why',
       status_untested: 'Fever, not tested yet',
       mark_tested: 'Tested now',
       details_needed: 'Fill in your name, clinic and phone first. The referral note needs them.',
@@ -165,6 +166,7 @@
       shared_pick: 'শেয়ার করা মেসেজ এসেছে। কোন রোগীর মেসেজ, তাঁকে চাপুন।',
       call_today: 'আজ ফোন করুন',
       status_tested: 'পরীক্ষা হয়েছে',
+      why_prefix: 'কেন',
       status_untested: 'জ্বর, পরীক্ষা হয়নি',
       mark_tested: 'পরীক্ষা হয়েছে',
       arrived: 'হাসপাতালে পৌঁছেছে'

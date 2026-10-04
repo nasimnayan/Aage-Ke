@@ -356,6 +356,7 @@
       return '<div class="chip ' + b + (d ? ' ' + d : '') + '">' +
         '<div class="chip-label">' + (b === 'sure' ? '✓ ' : '') + esc(labelName(k)) +
         '<small>' + esc(b === 'sure' ? t('suggested') : t('unsure')) + '</small>' +
+        '<small class="why-words">' + esc(t('why_prefix')) + ': ' + esc(AageModel.explain(S.model, m.text, k, 3).join(', ')) + '</small>' +
         (d ? '<small class="state">' + esc(t(d)) + '</small>' : '') + '</div>' +
         '<button class="yes" data-act="decide" data-k="' + k + '" data-v="confirmed" aria-label="' + esc(t('confirm')) + '">✓</button>' +
         '<button class="no" data-act="decide" data-k="' + k + '" data-v="rejected" aria-label="' + esc(t('reject')) + '">✗</button></div>';
