@@ -1,6 +1,6 @@
 // Service worker: caches every app file and the model on first load, then serves them offline.
 // Network first when online (so a new version shows at once), cache when offline.
-var VERSION = 'aageke-v27';
+var VERSION = 'aageke-v28';
 var FILES = [
   './', 'index.html', 'app.js', 'model.js', 'rules.js', 'i18n.js', 'store.js',
   'templates.json', 'facilities.json', 'demo_data.json', 'model_dengue.json', 'labels_dengue.json',

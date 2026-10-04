@@ -568,6 +568,7 @@
       ['p', 'It reads messy Bangla and Banglish and picks from a fixed list. It never writes advice, never sends anything, never diagnoses. Everything else is plain code. A person decides.'],
       ['h', 'How we tested it'],
       ['p', 'On real messages written by volunteers from 5 districts and on 80 real public Bangla health posts, plus a separate synthetic stress test. See the results in the README.'],
+      ['p', 'On 103 real messages and posts it never saw, it missed 20% of danger messages, against 47% for keyword search. When it says \'sure\', it is right 89% of the time.'],
       ['facts', 'Model facts: 443 KB · runs on the phone · no internet · no LLM · 12 fixed labels.']
     ],
     bn: [
@@ -576,6 +577,7 @@
       ['p', '<b>কেন বানালাম:</b> ২০২৬ সালে ৩ অক্টোবর পর্যন্ত ডেঙ্গুতে ২৫৬ জন মারা গেছেন (স্বাস্থ্য অধিদপ্তর)। ২০২৫ সালের মৃত্যু পর্যালোচনায় ১১৪ জনের মধ্যে ৬৬ জন হাসপাতালে পৌঁছানোর ২৪ ঘণ্টার মধ্যে মারা গেছেন। WHO বলে, বাসায় থাকা রোগীকে বিপদের দিনগুলো পার না হওয়া পর্যন্ত প্রতিদিন দেখতে হবে। গ্রামে এই রোজকার খোঁজ কেউ নেয় না।'],
       ['p', '<b>কার উপকার:</b> পরিবার নিজের ভাষায় SMS বা ফ্রি মিসড কল দেয়। স্বাস্থ্যকর্মী একটা সাজানো তালিকা পান, কারণসহ, আর সিদ্ধান্ত নেন নিজে। হাসপাতাল পায় রোগের দিন আর লক্ষণসহ রেফারেল নোট। আর বাসায় থাকা রোগীরাও রেকর্ডে আসেন।'],
       ['p', '<b>AI কী করে:</b> এলোমেলো বাংলা আর Banglish পড়ে, ৮টা নির্দিষ্ট সতর্কসংকেতের তালিকা থেকে বাছে। নিজে কোনো পরামর্শ লেখে না, কিছু পাঠায় না, রোগ নির্ণয় করে না। সিদ্ধান্ত মানুষের।'],
+      ['p', 'আগে কখনো দেখেনি এমন ১০৩টা আসল মেসেজ আর পোস্টে এটি বিপদের মেসেজের ২০% মিস করেছে, আর শুধু শব্দ খোঁজার পদ্ধতি মিস করেছে ৪৭%। যখন এটি \'নিশ্চিত\' বলে, ১০ বারের মধ্যে ৯ বার ঠিক হয়।'],
       ['facts', 'অন-ডিভাইস · 443 KB · ইন্টারনেট ছাড়া']
     ]
   };

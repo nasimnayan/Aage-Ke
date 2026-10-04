@@ -4,6 +4,8 @@
 
 **Try it:** https://nasimmahmudnayan.com/Aage-Ke/ (works offline after the first load)
 
+**Videos:** team intro · product demo · technical walkthrough (links added after upload)
+
 Hack-Nation × World Bank · Challenge 04a, Small AI for Development · Health
 
 > **AI reads. Code does everything else. A person decides.**
@@ -69,7 +71,7 @@ missed call       ───────►    "মিসড কল এসেছ�
                               Rina confirms or rejects each label          (person)
                               │
                               ▼
-                              red / amber / green, oldest first            (rules)
+                              red / amber / green; in red, shock or bleeding first, then oldest   (rules)
                               │
                               ├─ call now (tel:) · visit today · refer
                               ├─ pre-written SMS, Rina presses send ─────────────────► Noor
@@ -77,7 +79,7 @@ missed call       ───────►    "মিসড কল এসেছ�
 ```
 
 **Urgency uses confirmed labels only.**
-- **Red:** any confirmed warning sign → call now or refer.
+- **Red:** any confirmed warning sign → call now or refer. Within red: shock or bleeding signs first, then oldest.
 - **Amber:** a message the model did not understand, a confirmed mention of a test report, an unanswered missed call, an open referral ("রেফার করা হয়েছে — খোঁজ নিন") until Rina marks "হাসপাতালে পৌঁছেছে", or **silence**: illness day 3 to 7 (or fever confirmed down) and no message today.
 - **Green:** everyone else. Nobody is ever removed from the list, and the screen says so.
 
@@ -125,7 +127,7 @@ SMS wording sources: home care (rest, fluids, paracetamol only, no aspirin or ib
 
 ## 6. What the data does not cover
 
-- **Real patient messages.** None were used anywhere. Real follow-up messages need consent and field testing.
+- **Real patient messages.** None were used anywhere. T1 and T2 are real messages written by volunteers role-playing a family member, not by patients. Real follow-up messages need consent and field testing.
 - **People with very low literacy.** T3 comes from Facebook and YouTube users, who are more connected than Noor.
 - **Dialects we could not verify.** T1 and T2 cover Chandpur, Satkhira, Munshiganj, Pabna and Dhaka. Chittagonian and Sylheti are likely weakest; the challenge set has only 4 and 2 probes for them.
 - **Chakma, Marma and other minority languages:** not covered at all.
@@ -221,7 +223,7 @@ python model/evaluate.py --full           # T1, T2, T3, pooled; charts and resul
 - SMS costs Rina money. Missed calls cost Noor nothing.
 
 **Next steps**
-- Verify all test labels, add training sentences for ongoing fever and lethargy, retrain (about two minutes).
+- Have a native speaker verify the 580 training sentences, add training sentences for ongoing fever and lethargy, retrain (about two minutes).
 - Two weeks with five health workers in one Pirojpur union, with consented messages.
 - Use the on-phone ✓/✗ log, with consent, to retrain; refuse any training row found in a test set and reject a new model that scores worse on the test sets ([`NEXT_STEPS.md`](NEXT_STEPS.md)).
 - Connect the export to a real DHIS2 tracker programme with the DGHS team.
