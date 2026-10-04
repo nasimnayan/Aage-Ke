@@ -6,3 +6,6 @@ node_modules/
 .venv/
 data/raw/
 model/model.pkl
+# Files downloaded by browser tests of the app
+aageke_events_*.json
+aageke_learning_*.csv
