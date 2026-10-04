@@ -110,6 +110,17 @@
         return tx('patients', 'readwrite', function (s) { return s.put({ id: p.id, iv: box.iv, ct: box.ct }); });
       });
     },
+    // Any other encrypted settings record (e.g. 'learning': confirm/reject decisions).
+    getBox: function (name) {
+      return getSetting(name).then(function (box) {
+        if (!box) return null;
+        return mode === 'memory' ? clone(box) : decryptWith(key, box);
+      });
+    },
+    setBox: function (name, obj) {
+      if (mode === 'memory') return setSetting(name, clone(obj));
+      return encryptWith(key, obj).then(function (box) { return setSetting(name, box); });
+    },
     getProfile: function () {
       return getSetting('profile').then(function (box) {
         if (mode === 'memory') return box || {};

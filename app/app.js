@@ -313,7 +313,11 @@
       '<label>' + esc(t('chcp_name')) + '<input name="chcpName" required value="' + esc(s.chcpName) + '"></label>' +
       '<label>' + esc(t('clinic_name')) + '<input name="clinic" required value="' + esc(s.clinic) + '"></label>' +
       '<label>' + esc(t('my_phone')) + '<input name="myPhone" type="tel" required value="' + esc(s.myPhone) + '"></label>' +
-      '<button type="submit">' + esc(t('save')) + '</button></form></main>';
+      '<button type="submit">' + esc(t('save')) + '</button></form>' +
+      (detailsMissing() ? '' : '<h2>' + esc(t('learning_export')) + '</h2>' +
+        '<label class="radio"><input type="checkbox" id="consent"' + (S.consent ? ' checked' : '') + '> ' + esc(t('learning_consent')) + '</label>' +
+        '<button data-act="learning-export"' + (S.consent ? '' : ' disabled') + '>' + esc(t('learning_export')) + '</button>') +
+      '</main>';
   }
 
   function outcomeLine(m) {
@@ -481,6 +485,7 @@
       return go(S.sharedText ? 'add_message' : 'patient');
     }
     if (act === 'export') return exportEvents();
+    if (act === 'learning-export') return S.consent ? exportLearning() : null;
     if (act === 'log') {
       if (el.dataset.type === 'visit') { logAction('visit').then(render); return alertNote(t('visit_logged')); }
       return logAction(el.dataset.type, el.dataset.detail); // let the tel:/sms: link open
@@ -517,7 +522,7 @@
       if (d.decisions.fever_dropped === 'confirmed' && !p.feverDroppedOn) p.feverDroppedOn = isoDate(d.ts);
       if (isNew) p.messages.push(d);
       else p.messages = p.messages.map(function (x) { return x.id === d.id ? d : x; });
-      return save(p).then(function () { go('patient'); });
+      return save(p).then(function () { return recordDecisions(d); }).then(function () { go('patient'); });
     }
     if (act === 'arrived') return logAction('arrived').then(render);
     if (act === 'tested') { S.current.untested = false; return logAction('tested').then(render); }
@@ -534,6 +539,7 @@
 
   $app.addEventListener('change', function (e) {
     if (e.target.id === 'tpl') { S.smsKey = e.target.value; render(); }
+    if (e.target.id === 'consent') { S.consent = e.target.checked; render(); }
   });
 
   $app.addEventListener('submit', function (e) {
@@ -553,6 +559,33 @@
       return Store.setProfile(S.settings).then(function () { go('inbox'); });
     }
   });
+
+  // ---------- learning data (D-lite): decisions only, kept encrypted on the phone ----------
+  // One row per message and label: {text, label, decision, date}. Leaves the phone only through
+  // the consent-gated CSV export in My details.
+  function recordDecisions(m) {
+    return Store.getBox('learning').then(function (rows) {
+      rows = rows || {};
+      Object.keys(m.decisions || {}).forEach(function (k) {
+        rows[m.id + '|' + k] = { text: m.text, label: k, decision: m.decisions[k], date: isoDate(m.ts) };
+      });
+      return Store.setBox('learning', rows);
+    });
+  }
+  function csvCell(v) { return '"' + String(v).replace(/"/g, '""') + '"'; }
+  function exportLearning() {
+    return Store.getBox('learning').then(function (rows) {
+      var list = Object.keys(rows || {}).map(function (k) { return rows[k]; });
+      var csv = 'text,label,decision,date\n' + list.map(function (r) {
+        return [r.text, r.label, r.decision, r.date].map(csvCell).join(',');
+      }).join('\n') + '\n';
+      var a = document.createElement('a');
+      // The byte-order mark lets spreadsheet apps read the Bangla text as UTF-8.
+      a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' }));
+      a.download = 'aageke_learning_' + today() + '.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+  }
 
   function alertNote(msg) {
     var n = document.createElement('div');
