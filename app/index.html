@@ -156,7 +156,29 @@
     .about ul, .about ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
     .about h2 { margin-top: 16px; }
     button.pick.maybe { color: var(--muted); border: 1px solid #c3cbd3; background: transparent; font-weight: 400; }
-    .raw-score { font-size: .72rem; color: #8a949e; align-self: center; }
+    .raw-score { font-size: .72rem; color: #8a949e; align-self: center; font-weight: 400; }
+    /* Severity colours: warning suggested red, warning not sure amber, fever down / better green,
+       test report amber, fever present neutral. Rejected stays grey. */
+    .chip.sure.k-warn { border-color: #f3c3be; background: #fff8f7; }
+    .chip.unsure.k-warn { border-color: #f0cf96; background: #fffaf0; }
+    .chip.unsure.k-warn .chip-label { color: var(--amber); }
+    .chip.unsure.k-warn .band-badge { background: var(--amber); }
+    .chip.k-good { border-color: #b9dcbc; background: #f5fbf5; }
+    .chip.k-good .chip-label { color: var(--green); } .chip.k-good .band-badge { background: var(--green); }
+    .chip.k-amber { border-color: #f0cf96; background: #fffaf0; }
+    .chip.k-amber .chip-label { color: var(--amber); } .chip.k-amber .band-badge { background: var(--amber); }
+    .chip.k-neutral { border-color: var(--line); background: #f7f9fb; }
+    .chip.k-neutral .chip-label { color: var(--ink); } .chip.k-neutral .band-badge { background: #6b7580; }
+    .chip.confirmed.k-warn { border-color: var(--red); background: var(--red-bg); }
+    .chip.confirmed.k-good { border-color: var(--green); }
+    .chip.confirmed.k-amber { border-color: var(--amber); }
+    .chip.rejected { opacity: .6; border-color: var(--line); background: #f5f6f7; }
+    .pill.unsure.k-warn { background: var(--amber-bg); color: var(--amber); border: 0; }
+    .pill.sure.k-warn { background: var(--red-bg); color: var(--red); }
+    .pill.k-good { background: var(--green-bg); color: var(--green); }
+    .pill.k-amber { background: var(--amber-bg); color: var(--amber); }
+    .pill.confirmed.k-warn { background: var(--red-bg); color: var(--red); }
+    .pill.rejected { background: #eef1f4; color: var(--muted); }
     button[data-act="labels-done"] { width: 100%; margin-top: 8px; }
     .chip .yes { background: var(--brand); color: #fff; }
     .chip .no { background: var(--card); color: var(--ink); border: 1px solid var(--line); }

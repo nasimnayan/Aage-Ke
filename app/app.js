@@ -38,6 +38,12 @@
     var l = all.filter(function (x) { return x.key === k; })[0];
     return l ? (I18N.getLang() === 'bn' ? l.bn : l.en) : k;
   }
+  function labelKind(k) {
+    if (warningKeys().indexOf(k) !== -1) return 'k-warn';
+    if (k === 'fever_dropped' || k === 'feeling_better') return 'k-good';
+    if (k === 'test_result_mentioned') return 'k-amber';
+    return 'k-neutral';
+  }
   function maskPhone(n) { return n ? n.slice(0, -6) + '••••••' : n; }
   function shownPhone(n) { return S.judge ? maskPhone(n) : n; }
   function smsHref(number, body) { return 'sms:' + (number || '') + '?body=' + encodeURIComponent(body); }
@@ -335,11 +341,13 @@
     var hasLabels = Object.keys(m.bands || {}).length > 0;
     if (m.outcome === 'not_understood' && !hasLabels) return '<span class="pill amber">' + esc(t('not_understood')) + '</span>';
     if (m.outcome === 'no_warning_sign') return '<span class="pill green">' + esc(t('no_warning')) + '</span>';
+    var raw = m.text ? AageModel.predict(S.model, m.text) : {};
     return Object.keys(m.bands || {}).map(function (k) {
       var d = (m.decisions || {})[k];
       var cls = d === 'confirmed' ? 'confirmed' : d === 'rejected' ? 'rejected' : m.bands[k];
       var mark = d === 'confirmed' ? '✓ ' : d === 'rejected' ? '✗ ' : '? ';
-      return '<span class="pill ' + cls + '">' + mark + esc(labelName(k)) + '</span>';
+      var score = m.bands[k] !== 'manual' && raw[k] != null ? ' <span class="raw-score">' + raw[k].toFixed(2) + '</span>' : '';
+      return '<span class="pill ' + cls + ' ' + labelKind(k) + '">' + mark + esc(labelName(k)) + score + '</span>';
     }).join(' ');
   }
 
@@ -403,14 +411,14 @@
 
   function viewLabels() {
     var m = S.draft, keys = Object.keys(m.bands);
-    var raw = S.judge ? AageModel.predict(S.model, m.text) : null;
+    var raw = AageModel.predict(S.model, m.text);
     var chips = keys.map(function (k) {
       var d = m.decisions[k], b = m.bands[k];
       var badge = b === 'manual' ? t('added_by_you') : d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
-      return '<div class="chip ' + b + (d ? ' ' + d : '') + '">' +
+      return '<div class="chip ' + b + ' ' + labelKind(k) + (d ? ' ' + d : '') + '">' +
         '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
         '<span class="band-badge">' + esc(badge) + '</span>' +
-        (raw && b !== 'manual' ? '<span class="raw-score" title="model score (judge mode only)">' + raw[k].toFixed(2) + '</span>' : '') + '</div>' +
+        (raw && b !== 'manual' ? '<span class="raw-score" title="model score">' + raw[k].toFixed(2) + '</span>' : '') + '</div>' +
         '<div class="why-words"><span class="why-key">' + esc(t('why_prefix')) + ':</span> ' +
         esc(AageModel.explain(S.model, m.text, k, 3).map(function (w) { return '"' + w + '"'; }).join(', ')) + '</div>' +
         '<div class="chip-actions">' +
