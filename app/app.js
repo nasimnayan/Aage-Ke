@@ -73,12 +73,18 @@
       .reduce(function (m, a) { return Math.max(m, a.ts); }, 0);
   }
   function confirmedIn(m, k) { return m.decisions && m.decisions[k] === 'confirmed'; }
+  // Within red, shock signs (WHO 2009: cold clammy extremities, restlessness or lethargy, reduced
+  // urine) and bleeding come first; then oldest first.
+  var SHOCK_OR_BLEEDING = ['cold_clammy', 'lethargy_restless', 'low_urine', 'bleeding'];
   function urgency(p) {
     var since = lastHandled(p), wk = warningKeys();
     var pending = (p.messages || []).filter(function (m) { return m.ts > since; })
       .sort(function (a, b) { return a.ts - b.ts; });
     var red = pending.filter(function (m) { return wk.some(function (k) { return confirmedIn(m, k); }); });
-    if (red.length) return { tier: 'red', why: t('why_red'), ts: red[0].ts };
+    if (red.length) {
+      var shock = red.some(function (m) { return SHOCK_OR_BLEEDING.some(function (k) { return confirmedIn(m, k); }); });
+      return { tier: 'red', why: t('why_red'), ts: red[0].ts, first: shock ? 1 : 0 };
+    }
     var amber = [];
     pending.forEach(function (m) {
       if (m.type === 'sms' && m.outcome === 'not_understood') amber.push([m.ts, t('why_not_understood')]);
@@ -272,7 +278,8 @@
     var html = header(t('app_name')) + '<main>' +
       (S.sharedText ? '<p class="muted">' + esc(t('shared_pick')) + '</p><blockquote>' + esc(S.sharedText) + '</blockquote>' : '');
     ['red', 'amber', 'green'].forEach(function (tier) {
-      var list = rows.filter(function (r) { return r.u.tier === tier; }).sort(function (a, b) { return a.u.ts - b.u.ts; });
+      var list = rows.filter(function (r) { return r.u.tier === tier; })
+        .sort(function (a, b) { return ((b.u.first || 0) - (a.u.first || 0)) || (a.u.ts - b.u.ts); });
       html += '<section class="tier ' + tier + '"><h2>' + esc(t('tier_' + tier)) + ' <span class="count">' + list.length + '</span></h2>';
       list.forEach(function (r) {
         var p = r.p, day = illnessDay(p);
@@ -394,12 +401,14 @@
 
   function viewLabels() {
     var m = S.draft, keys = Object.keys(m.bands);
+    var raw = S.judge ? AageModel.predict(S.model, m.text) : null;
     var chips = keys.map(function (k) {
       var d = m.decisions[k], b = m.bands[k];
       var badge = b === 'manual' ? t('added_by_you') : d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
       return '<div class="chip ' + b + (d ? ' ' + d : '') + '">' +
         '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
-        '<span class="band-badge">' + esc(badge) + '</span></div>' +
+        '<span class="band-badge">' + esc(badge) + '</span>' +
+        (raw && b !== 'manual' ? '<span class="raw-score" title="model score (judge mode only)">' + raw[k].toFixed(2) + '</span>' : '') + '</div>' +
         '<div class="why-words"><span class="why-key">' + esc(t('why_prefix')) + ':</span> ' +
         esc(AageModel.explain(S.model, m.text, k, 3).map(function (w) { return '"' + w + '"'; }).join(', ')) + '</div>' +
         '<div class="chip-actions">' +
@@ -426,14 +435,16 @@
     var rest = all.filter(function (k) { return !m.bands[k]; });
     var maybe = rest.slice().sort(function (a, b) { return probs[b] - probs[a]; })
       .filter(function (k) { return probs[k] >= MAYBE_MIN; }).slice(0, 2);
-    var btn = function (k) {
-      return '<button class="pick" data-act="add-label" data-k="' + k + '">+ ' + esc(labelName(k)) + '</button>';
+    var btn = function (src) {
+      return function (k) {
+        return '<button class="pick ' + src + '" data-act="add-label" data-src="' + src + '" data-k="' + k + '">+ ' + esc(labelName(k)) + '</button>';
+      };
     };
     return '<div class="picker">' +
-      (maybe.length ? '<h2>' + esc(t('maybe_these')) + '</h2><div class="pick-list">' + maybe.map(btn).join('') + '</div>' : '') +
+      (maybe.length ? '<h2>' + esc(t('maybe_these')) + '</h2><div class="pick-list">' + maybe.map(btn('maybe')).join('') + '</div>' : '') +
       '<button class="ghost pick-toggle" data-act="toggle-all" aria-expanded="' + !!S.showAllLabels + '">' +
       esc(t('add_yourself')) + (S.showAllLabels ? ' ▲' : ' ▼') + '</button>' +
-      (S.showAllLabels ? '<div class="pick-list">' + rest.filter(function (k) { return maybe.indexOf(k) === -1; }).map(btn).join('') + '</div>' : '') +
+      (S.showAllLabels ? '<div class="pick-list">' + rest.filter(function (k) { return maybe.indexOf(k) === -1; }).map(btn('human')).join('') + '</div>' : '') +
       '</div>';
   }
 
@@ -578,12 +589,15 @@
     if (act === 'add-label') {
       S.draft.bands[el.dataset.k] = 'manual';
       S.draft.decisions[el.dataset.k] = 'confirmed';
+      S.draft.pickSource = S.draft.pickSource || {};
+      S.draft.pickSource[el.dataset.k] = el.dataset.src;
       return render();
     }
     if (act === 'toggle-all') { S.showAllLabels = !S.showAllLabels; return render(); }
     if (act === 'decide' && S.draft.bands[el.dataset.k] === 'manual' && el.dataset.v === 'rejected') {
       delete S.draft.bands[el.dataset.k];
       delete S.draft.decisions[el.dataset.k];
+      if (S.draft.pickSource) delete S.draft.pickSource[el.dataset.k];
       return render();
     }
     if (act === 'decide') {
@@ -642,7 +656,9 @@
     return Store.getBox('learning').then(function (rows) {
       rows = rows || {};
       Object.keys(m.decisions || {}).forEach(function (k) {
-        rows[m.id + '|' + k] = { text: m.text, label: k, decision: m.decisions[k], date: isoDate(m.ts) };
+        var src = (m.bands || {})[k] !== 'manual' ? 'model_suggested'
+          : (m.pickSource || {})[k] === 'maybe' ? 'model_maybe' : 'human_added';
+        rows[m.id + '|' + k] = { text: m.text, label: k, decision: m.decisions[k], source: src, date: isoDate(m.ts) };
       });
       return Store.setBox('learning', rows);
     });
@@ -651,8 +667,8 @@
   function exportLearning() {
     return Store.getBox('learning').then(function (rows) {
       var list = Object.keys(rows || {}).map(function (k) { return rows[k]; });
-      var csv = 'text,label,decision,date\n' + list.map(function (r) {
-        return [r.text, r.label, r.decision, r.date].map(csvCell).join(',');
+      var csv = 'text,label,decision,source,date\n' + list.map(function (r) {
+        return [r.text, r.label, r.decision, r.source || 'model_suggested', r.date].map(csvCell).join(',');
       }).join('\n') + '\n';
       var a = document.createElement('a');
       // The byte-order mark lets spreadsheet apps read the Bangla text as UTF-8.

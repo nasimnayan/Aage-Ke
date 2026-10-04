@@ -149,7 +149,7 @@ SMS wording sources: home care (rest, fluids, paracetamol only, no aspirin or ib
 
 ### Headline: missed warnings, next to micro-F1
 
-A **missed warning** is a message with at least one real warning sign where the system suggests no warning sign at all. That is the costly error for this tool, so it comes first.
+A **missed warning** is a message with at least one real warning sign where the system suggests no warning sign at all. That is the costly error for this tool, so it comes first. Only the model's own bands (p ≥ 0.45) count as predictions; labels the health worker picks from "maybe" or adds herself never do.
 
 | Test set | Missed warnings: model+rules | keyword | keyword + negation | Micro-F1: model+rules | keyword + negation |
 |---|---|---|---|---|---|
@@ -215,6 +215,7 @@ python model/evaluate.py --full           # T1, T2, T3, pooled; charts and resul
 **Limitations**
 - Trained on 580 constructed sentences. Real-world accuracy is unknown until field testing with consented messages.
 - Weaker on dialects we could not verify, and on long posts that mix several complaints.
+- Signs not on the fixed list are not detected, for example burning urination, rash, chest pain, and skin bleeding or bruising (purpura). The health worker can add any listed sign herself, and anything else needs a call.
 - Depends on someone telling the health worker about a positive test; the pre-stage status only partly covers this.
 - Straight-line distance, not travel time; rivers and night travel are not modelled.
 - SMS costs Rina money. Missed calls cost Noor nothing.
