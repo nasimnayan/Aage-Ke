@@ -87,7 +87,12 @@ def quick():
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--quick", action="store_true", help="Gate 1 on the synthetic challenge set")
+    ap.add_argument("--full", action="store_true", help="CC8: T1, T2, T3 separately and pooled")
+    ap.add_argument("--verified", action="store_true", help="test labels verified: drop the pending note")
     args = ap.parse_args()
     if args.quick:
         sys.exit(quick())
-    print("--full comes in CC8")
+    if args.full:
+        from evaluate_full import full  # noqa: E402
+        sys.exit(full(args.verified))
+    ap.print_help()

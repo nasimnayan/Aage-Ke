@@ -1,0 +1,4702 @@
+{
+  "note": "labels pending final check",
+  "model": {
+    "C": 4,
+    "train_rows": 580
+  },
+  "definitions": {
+    "missed_warning": "message with >=1 real warning sign where the system suggests no warning sign at any band",
+    "silent_missed": "missed warning that is also not routed to a call by 'did not understand'",
+    "predicted": "label at 'not sure' band (p >= 0.45) or higher",
+    "abstention": "message with any 'not sure' label or the 'did not understand' outcome"
+  },
+  "sets": {
+    "T1": {
+      "keyword": {
+        "rows": 17,
+        "micro_precision": 1.0,
+        "micro_recall": 0.4706,
+        "micro_f1": 0.64,
+        "exact_match": 0.5882,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "persistent_vomiting": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 5
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "feeling_better": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 12,
+          "missed": 5,
+          "missed_rate": 0.4167,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.5385
+        },
+        "abstention_rate": 0.5294,
+        "precision_sure_band": 1.0,
+        "labels_in_sure_band": 8,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "keyword+neg": {
+        "rows": 17,
+        "micro_precision": 1.0,
+        "micro_recall": 0.4706,
+        "micro_f1": 0.64,
+        "exact_match": 0.5882,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "persistent_vomiting": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 5
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "feeling_better": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 12,
+          "missed": 5,
+          "missed_rate": 0.4167,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.5385
+        },
+        "abstention_rate": 0.7059,
+        "precision_sure_band": 1.0,
+        "labels_in_sure_band": 5,
+        "precision_unsure_band": 1.0,
+        "labels_in_unsure_band": 3
+      },
+      "model+rules": {
+        "rows": 17,
+        "micro_precision": 0.8421,
+        "micro_recall": 0.9412,
+        "micro_f1": 0.8889,
+        "exact_match": 0.7647,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "persistent_vomiting": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 5
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.6667,
+            "f1": 0.8,
+            "support": 3
+          },
+          "cannot_drink": {
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "feeling_better": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 12,
+          "missed": 0,
+          "missed_rate": 0.0,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.9231
+        },
+        "abstention_rate": 0.7059,
+        "precision_sure_band": 1.0,
+        "labels_in_sure_band": 7,
+        "precision_unsure_band": 0.75,
+        "labels_in_unsure_band": 12
+      }
+    },
+    "T2": {
+      "keyword": {
+        "rows": 6,
+        "micro_precision": 0.0,
+        "micro_recall": 0.0,
+        "micro_f1": 0.0,
+        "exact_match": 0.5,
+        "per_label": {
+          "persistent_vomiting": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_dropped": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 1,
+          "missed": 1,
+          "missed_rate": 1.0,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.0
+        },
+        "abstention_rate": 0.8333,
+        "precision_sure_band": 0.0,
+        "labels_in_sure_band": 1,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "keyword+neg": {
+        "rows": 6,
+        "micro_precision": 0.0,
+        "micro_recall": 0.0,
+        "micro_f1": 0.0,
+        "exact_match": 0.5,
+        "per_label": {
+          "persistent_vomiting": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_dropped": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 1,
+          "missed": 1,
+          "missed_rate": 1.0,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.0
+        },
+        "abstention_rate": 0.8333,
+        "precision_sure_band": 0.0,
+        "labels_in_sure_band": 1,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "model+rules": {
+        "rows": 6,
+        "micro_precision": 0.5,
+        "micro_recall": 1.0,
+        "micro_f1": 0.6667,
+        "exact_match": 0.5,
+        "per_label": {
+          "persistent_vomiting": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "lethargy_restless": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "cannot_drink": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 1,
+          "missed": 0,
+          "missed_rate": 0.0,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 1.0
+        },
+        "abstention_rate": 0.5,
+        "precision_sure_band": 0.5,
+        "labels_in_sure_band": 4,
+        "precision_unsure_band": 0.5,
+        "labels_in_unsure_band": 2
+      }
+    },
+    "T3": {
+      "keyword": {
+        "rows": 80,
+        "micro_precision": 0.84,
+        "micro_recall": 0.2692,
+        "micro_f1": 0.4078,
+        "exact_match": 0.4875,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.7143,
+            "f1": 0.8333,
+            "support": 7
+          },
+          "persistent_vomiting": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8889,
+            "support": 8
+          },
+          "bleeding": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 12
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 0.6,
+            "recall": 0.25,
+            "f1": 0.3529,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 27
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 42,
+          "missed": 20,
+          "missed_rate": 0.4762,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.4118
+        },
+        "abstention_rate": 0.725,
+        "precision_sure_band": 0.84,
+        "labels_in_sure_band": 25,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "keyword+neg": {
+        "rows": 80,
+        "micro_precision": 0.84,
+        "micro_recall": 0.2692,
+        "micro_f1": 0.4078,
+        "exact_match": 0.4875,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.7143,
+            "f1": 0.8333,
+            "support": 7
+          },
+          "persistent_vomiting": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8889,
+            "support": 8
+          },
+          "bleeding": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 12
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 0.6,
+            "recall": 0.25,
+            "f1": 0.3529,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 27
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 42,
+          "missed": 20,
+          "missed_rate": 0.4762,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.4118
+        },
+        "abstention_rate": 0.7375,
+        "precision_sure_band": 0.8333,
+        "labels_in_sure_band": 24,
+        "precision_unsure_band": 1.0,
+        "labels_in_unsure_band": 1
+      },
+      "model+rules": {
+        "rows": 80,
+        "micro_precision": 0.6122,
+        "micro_recall": 0.3846,
+        "micro_f1": 0.4724,
+        "exact_match": 0.425,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 0.7143,
+            "recall": 0.7143,
+            "f1": 0.7143,
+            "support": 7
+          },
+          "persistent_vomiting": {
+            "precision": 1.0,
+            "recall": 0.625,
+            "f1": 0.7692,
+            "support": 8
+          },
+          "bleeding": {
+            "precision": 0.4444,
+            "recall": 1.0,
+            "f1": 0.6154,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 0.6667,
+            "recall": 0.3333,
+            "f1": 0.4444,
+            "support": 12
+          },
+          "low_urine": {
+            "precision": 0.4,
+            "recall": 1.0,
+            "f1": 0.5714,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 1.0,
+            "recall": 0.5833,
+            "f1": 0.7368,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_dropped": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 27
+          },
+          "feeling_better": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "test_result_mentioned": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 42,
+          "missed": 11,
+          "missed_rate": 0.2619,
+          "silent_missed": 1,
+          "silent_missed_rate": 0.0238,
+          "warning_label_recall": 0.5882
+        },
+        "abstention_rate": 0.825,
+        "precision_sure_band": 0.9412,
+        "labels_in_sure_band": 17,
+        "precision_unsure_band": 0.4375,
+        "labels_in_unsure_band": 32
+      }
+    },
+    "challenge": {
+      "keyword": {
+        "rows": 33,
+        "micro_precision": 0.75,
+        "micro_recall": 0.3,
+        "micro_f1": 0.4286,
+        "exact_match": 0.303,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.1667,
+            "f1": 0.2857,
+            "support": 6
+          },
+          "persistent_vomiting": {
+            "precision": 0.6667,
+            "recall": 0.6667,
+            "f1": 0.6667,
+            "support": 6
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "cold_clammy": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "breathing_difficulty": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "cannot_drink": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "feeling_better": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "test_result_mentioned": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 23,
+          "missed": 16,
+          "missed_rate": 0.6957,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.2917
+        },
+        "abstention_rate": 0.6667,
+        "precision_sure_band": 0.75,
+        "labels_in_sure_band": 12,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "keyword+neg": {
+        "rows": 33,
+        "micro_precision": 0.8182,
+        "micro_recall": 0.3,
+        "micro_f1": 0.439,
+        "exact_match": 0.3333,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.1667,
+            "f1": 0.2857,
+            "support": 6
+          },
+          "persistent_vomiting": {
+            "precision": 0.6667,
+            "recall": 0.6667,
+            "f1": 0.6667,
+            "support": 6
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "cold_clammy": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "breathing_difficulty": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "cannot_drink": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "feeling_better": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "test_result_mentioned": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 23,
+          "missed": 16,
+          "missed_rate": 0.6957,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.2917
+        },
+        "abstention_rate": 0.7576,
+        "precision_sure_band": 0.75,
+        "labels_in_sure_band": 8,
+        "precision_unsure_band": 1.0,
+        "labels_in_unsure_band": 3
+      },
+      "model+rules": {
+        "rows": 33,
+        "micro_precision": 0.8571,
+        "micro_recall": 0.8,
+        "micro_f1": 0.8276,
+        "exact_match": 0.697,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 0.75,
+            "recall": 0.5,
+            "f1": 0.6,
+            "support": 6
+          },
+          "persistent_vomiting": {
+            "precision": 0.6667,
+            "recall": 0.6667,
+            "f1": 0.6667,
+            "support": 6
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 4
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "low_urine": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "breathing_difficulty": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "cannot_drink": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "fever_dropped": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6667,
+            "support": 1
+          },
+          "fever_present": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "feeling_better": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "test_result_mentioned": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 23,
+          "missed": 4,
+          "missed_rate": 0.1739,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.7917
+        },
+        "abstention_rate": 0.5455,
+        "precision_sure_band": 1.0,
+        "labels_in_sure_band": 17,
+        "precision_unsure_band": 0.6364,
+        "labels_in_unsure_band": 11
+      }
+    },
+    "pooled": {
+      "keyword": {
+        "rows": 103,
+        "micro_precision": 0.8529,
+        "micro_recall": 0.2959,
+        "micro_f1": 0.4394,
+        "exact_match": 0.5049,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.5556,
+            "f1": 0.7143,
+            "support": 9
+          },
+          "persistent_vomiting": {
+            "precision": 0.8125,
+            "recall": 1.0,
+            "f1": 0.8966,
+            "support": 13
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 0.2,
+            "f1": 0.3333,
+            "support": 5
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 15
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 0.6,
+            "recall": 0.25,
+            "f1": 0.3529,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 28
+          },
+          "feeling_better": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 55,
+          "missed": 26,
+          "missed_rate": 0.4727,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.4308
+        },
+        "abstention_rate": 0.699,
+        "precision_sure_band": 0.8529,
+        "labels_in_sure_band": 34,
+        "precision_unsure_band": null,
+        "labels_in_unsure_band": 0
+      },
+      "keyword+neg": {
+        "rows": 103,
+        "micro_precision": 0.8529,
+        "micro_recall": 0.2959,
+        "micro_f1": 0.4394,
+        "exact_match": 0.5049,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 1.0,
+            "recall": 0.5556,
+            "f1": 0.7143,
+            "support": 9
+          },
+          "persistent_vomiting": {
+            "precision": 0.8125,
+            "recall": 1.0,
+            "f1": 0.8966,
+            "support": 13
+          },
+          "bleeding": {
+            "precision": 1.0,
+            "recall": 0.2,
+            "f1": 0.3333,
+            "support": 5
+          },
+          "lethargy_restless": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 15
+          },
+          "low_urine": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 0.6,
+            "recall": 0.25,
+            "f1": 0.3529,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 4
+          },
+          "fever_dropped": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "fever_present": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 28
+          },
+          "feeling_better": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 55,
+          "missed": 26,
+          "missed_rate": 0.4727,
+          "silent_missed": 0,
+          "silent_missed_rate": 0.0,
+          "warning_label_recall": 0.4308
+        },
+        "abstention_rate": 0.7379,
+        "precision_sure_band": 0.8333,
+        "labels_in_sure_band": 30,
+        "precision_unsure_band": 1.0,
+        "labels_in_unsure_band": 4
+      },
+      "model+rules": {
+        "rows": 103,
+        "micro_precision": 0.6622,
+        "micro_recall": 0.5,
+        "micro_f1": 0.5698,
+        "exact_match": 0.4854,
+        "per_label": {
+          "abdominal_pain": {
+            "precision": 0.7778,
+            "recall": 0.7778,
+            "f1": 0.7778,
+            "support": 9
+          },
+          "persistent_vomiting": {
+            "precision": 0.9091,
+            "recall": 0.7692,
+            "f1": 0.8333,
+            "support": 13
+          },
+          "bleeding": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6667,
+            "support": 5
+          },
+          "lethargy_restless": {
+            "precision": 0.6,
+            "recall": 0.4,
+            "f1": 0.48,
+            "support": 15
+          },
+          "low_urine": {
+            "precision": 0.4,
+            "recall": 1.0,
+            "f1": 0.5714,
+            "support": 4
+          },
+          "cold_clammy": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "breathing_difficulty": {
+            "precision": 1.0,
+            "recall": 0.5833,
+            "f1": 0.7368,
+            "support": 12
+          },
+          "cannot_drink": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "fever_dropped": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.75,
+            "support": 3
+          },
+          "fever_present": {
+            "precision": 0.3333,
+            "recall": 0.0357,
+            "f1": 0.0645,
+            "support": 28
+          },
+          "feeling_better": {
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 2
+          },
+          "test_result_mentioned": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          }
+        },
+        "missed_warnings": {
+          "messages_with_warning": 55,
+          "missed": 11,
+          "missed_rate": 0.2,
+          "silent_missed": 1,
+          "silent_missed_rate": 0.0182,
+          "warning_label_recall": 0.6615
+        },
+        "abstention_rate": 0.7864,
+        "precision_sure_band": 0.8929,
+        "labels_in_sure_band": 28,
+        "precision_unsure_band": 0.5217,
+        "labels_in_unsure_band": 46
+      }
+    }
+  },
+  "splits": {
+    "script": {
+      "T1": {
+        "banglish": {
+          "keyword": {
+            "rows": 8,
+            "micro_precision": 1.0,
+            "micro_recall": 0.5714,
+            "micro_f1": 0.7273,
+            "exact_match": 0.625,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.6
+            },
+            "abstention_rate": 0.5,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 8,
+            "micro_precision": 1.0,
+            "micro_recall": 0.5714,
+            "micro_f1": 0.7273,
+            "exact_match": 0.625,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.6
+            },
+            "abstention_rate": 0.625,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 3,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 8,
+            "micro_precision": 0.7778,
+            "micro_recall": 1.0,
+            "micro_f1": 0.875,
+            "exact_match": 0.75,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "feeling_better": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.75,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 3,
+            "precision_unsure_band": 0.6667,
+            "labels_in_unsure_band": 6
+          }
+        },
+        "bn": {
+          "keyword": {
+            "rows": 9,
+            "micro_precision": 1.0,
+            "micro_recall": 0.4,
+            "micro_f1": 0.5714,
+            "exact_match": 0.5556,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 7,
+              "missed": 3,
+              "missed_rate": 0.4286,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.5556,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 9,
+            "micro_precision": 1.0,
+            "micro_recall": 0.4,
+            "micro_f1": 0.5714,
+            "exact_match": 0.5556,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 7,
+              "missed": 3,
+              "missed_rate": 0.4286,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.7778,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 2,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 2
+          },
+          "model+rules": {
+            "rows": 9,
+            "micro_precision": 0.9,
+            "micro_recall": 0.9,
+            "micro_f1": 0.9,
+            "exact_match": 0.7778,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "support": 2
+              },
+              "cannot_drink": {
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 7,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.875
+            },
+            "abstention_rate": 0.6667,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": 0.8333,
+            "labels_in_unsure_band": 6
+          }
+        }
+      },
+      "T2": {
+        "banglish": {
+          "keyword": {
+            "rows": 6,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 0.8333,
+            "precision_sure_band": 0.0,
+            "labels_in_sure_band": 1,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 6,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 0.8333,
+            "precision_sure_band": 0.0,
+            "labels_in_sure_band": 1,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "model+rules": {
+            "rows": 6,
+            "micro_precision": 0.5,
+            "micro_recall": 1.0,
+            "micro_f1": 0.6667,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.5,
+            "precision_sure_band": 0.5,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": 0.5,
+            "labels_in_unsure_band": 2
+          }
+        }
+      },
+      "T3": {
+        "bn": {
+          "keyword": {
+            "rows": 80,
+            "micro_precision": 0.84,
+            "micro_recall": 0.2692,
+            "micro_f1": 0.4078,
+            "exact_match": 0.4875,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 0.7143,
+                "f1": 0.8333,
+                "support": 7
+              },
+              "persistent_vomiting": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1": 0.8889,
+                "support": 8
+              },
+              "bleeding": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 12
+              },
+              "low_urine": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 0.6,
+                "recall": 0.25,
+                "f1": 0.3529,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 42,
+              "missed": 20,
+              "missed_rate": 0.4762,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.4118
+            },
+            "abstention_rate": 0.725,
+            "precision_sure_band": 0.84,
+            "labels_in_sure_band": 25,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 80,
+            "micro_precision": 0.84,
+            "micro_recall": 0.2692,
+            "micro_f1": 0.4078,
+            "exact_match": 0.4875,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 0.7143,
+                "f1": 0.8333,
+                "support": 7
+              },
+              "persistent_vomiting": {
+                "precision": 0.8,
+                "recall": 1.0,
+                "f1": 0.8889,
+                "support": 8
+              },
+              "bleeding": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 12
+              },
+              "low_urine": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 0.6,
+                "recall": 0.25,
+                "f1": 0.3529,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 42,
+              "missed": 20,
+              "missed_rate": 0.4762,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.4118
+            },
+            "abstention_rate": 0.7375,
+            "precision_sure_band": 0.8333,
+            "labels_in_sure_band": 24,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 80,
+            "micro_precision": 0.6122,
+            "micro_recall": 0.3846,
+            "micro_f1": 0.4724,
+            "exact_match": 0.425,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.7143,
+                "recall": 0.7143,
+                "f1": 0.7143,
+                "support": 7
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 0.7692,
+                "support": 8
+              },
+              "bleeding": {
+                "precision": 0.4444,
+                "recall": 1.0,
+                "f1": 0.6154,
+                "support": 4
+              },
+              "lethargy_restless": {
+                "precision": 0.6667,
+                "recall": 0.3333,
+                "f1": 0.4444,
+                "support": 12
+              },
+              "low_urine": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "f1": 0.5714,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 1.0,
+                "recall": 0.5833,
+                "f1": 0.7368,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "test_result_mentioned": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 42,
+              "missed": 11,
+              "missed_rate": 0.2619,
+              "silent_missed": 1,
+              "silent_missed_rate": 0.0238,
+              "warning_label_recall": 0.5882
+            },
+            "abstention_rate": 0.825,
+            "precision_sure_band": 0.9412,
+            "labels_in_sure_band": 17,
+            "precision_unsure_band": 0.4375,
+            "labels_in_unsure_band": 32
+          }
+        }
+      },
+      "pooled": {
+        "banglish": {
+          "keyword": {
+            "rows": 14,
+            "micro_precision": 0.8,
+            "micro_recall": 0.4,
+            "micro_f1": 0.5333,
+            "exact_match": 0.5714,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 0.6667,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "support": 2
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 6,
+              "missed": 3,
+              "missed_rate": 0.5,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.6429,
+            "precision_sure_band": 0.8,
+            "labels_in_sure_band": 5,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 14,
+            "micro_precision": 0.8,
+            "micro_recall": 0.4,
+            "micro_f1": 0.5333,
+            "exact_match": 0.5714,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 0.6667,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 0.5,
+                "f1": 0.6667,
+                "support": 2
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 6,
+              "missed": 3,
+              "missed_rate": 0.5,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.7143,
+            "precision_sure_band": 0.75,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 14,
+            "micro_precision": 0.6667,
+            "micro_recall": 1.0,
+            "micro_f1": 0.8,
+            "exact_match": 0.6429,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 0.6667,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 0.3333,
+                "recall": 1.0,
+                "f1": 0.5,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "fever_present": {
+                "precision": 0.3333,
+                "recall": 1.0,
+                "f1": 0.5,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 6,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.6429,
+            "precision_sure_band": 0.7143,
+            "labels_in_sure_band": 7,
+            "precision_unsure_band": 0.625,
+            "labels_in_unsure_band": 8
+          }
+        },
+        "bn": {
+          "keyword": {
+            "rows": 89,
+            "micro_precision": 0.8621,
+            "micro_recall": 0.2841,
+            "micro_f1": 0.4274,
+            "exact_match": 0.4944,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 0.7692,
+                "support": 8
+              },
+              "persistent_vomiting": {
+                "precision": 0.8462,
+                "recall": 1.0,
+                "f1": 0.9167,
+                "support": 11
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 0.2,
+                "f1": 0.3333,
+                "support": 5
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 0.2857,
+                "f1": 0.4444,
+                "support": 14
+              },
+              "low_urine": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 0.6,
+                "recall": 0.25,
+                "f1": 0.3529,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 49,
+              "missed": 23,
+              "missed_rate": 0.4694,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.4237
+            },
+            "abstention_rate": 0.7079,
+            "precision_sure_band": 0.8621,
+            "labels_in_sure_band": 29,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 89,
+            "micro_precision": 0.8621,
+            "micro_recall": 0.2841,
+            "micro_f1": 0.4274,
+            "exact_match": 0.4944,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 0.625,
+                "f1": 0.7692,
+                "support": 8
+              },
+              "persistent_vomiting": {
+                "precision": 0.8462,
+                "recall": 1.0,
+                "f1": 0.9167,
+                "support": 11
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 0.2,
+                "f1": 0.3333,
+                "support": 5
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 0.2857,
+                "f1": 0.4444,
+                "support": 14
+              },
+              "low_urine": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 0.6,
+                "recall": 0.25,
+                "f1": 0.3529,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 49,
+              "missed": 23,
+              "missed_rate": 0.4694,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.4237
+            },
+            "abstention_rate": 0.7416,
+            "precision_sure_band": 0.8462,
+            "labels_in_sure_band": 26,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 3
+          },
+          "model+rules": {
+            "rows": 89,
+            "micro_precision": 0.661,
+            "micro_recall": 0.4432,
+            "micro_f1": 0.5306,
+            "exact_match": 0.4607,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.75,
+                "recall": 0.75,
+                "f1": 0.75,
+                "support": 8
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 0.7273,
+                "f1": 0.8421,
+                "support": 11
+              },
+              "bleeding": {
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "support": 5
+              },
+              "lethargy_restless": {
+                "precision": 0.7143,
+                "recall": 0.3571,
+                "f1": 0.4762,
+                "support": 14
+              },
+              "low_urine": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "f1": 0.5714,
+                "support": 4
+              },
+              "cold_clammy": {
+                "precision": 1.0,
+                "recall": 0.3333,
+                "f1": 0.5,
+                "support": 3
+              },
+              "breathing_difficulty": {
+                "precision": 1.0,
+                "recall": 0.5833,
+                "f1": 0.7368,
+                "support": 12
+              },
+              "cannot_drink": {
+                "precision": 0.5,
+                "recall": 0.5,
+                "f1": 0.5,
+                "support": 2
+              },
+              "fever_dropped": {
+                "precision": 0.3333,
+                "recall": 1.0,
+                "f1": 0.5,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 27
+              },
+              "feeling_better": {
+                "precision": 0.5,
+                "recall": 1.0,
+                "f1": 0.6667,
+                "support": 1
+              },
+              "test_result_mentioned": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 49,
+              "missed": 11,
+              "missed_rate": 0.2245,
+              "silent_missed": 1,
+              "silent_missed_rate": 0.0204,
+              "warning_label_recall": 0.6271
+            },
+            "abstention_rate": 0.809,
+            "precision_sure_band": 0.9524,
+            "labels_in_sure_band": 21,
+            "precision_unsure_band": 0.5,
+            "labels_in_unsure_band": 38
+          }
+        }
+      }
+    },
+    "district": {
+      "T1": {
+        "Chandpur": {
+          "keyword": {
+            "rows": 8,
+            "micro_precision": 1.0,
+            "micro_recall": 0.5714,
+            "micro_f1": 0.7273,
+            "exact_match": 0.625,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.6
+            },
+            "abstention_rate": 0.5,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 8,
+            "micro_precision": 1.0,
+            "micro_recall": 0.5714,
+            "micro_f1": 0.7273,
+            "exact_match": 0.625,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.6
+            },
+            "abstention_rate": 0.625,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 3,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 8,
+            "micro_precision": 0.7778,
+            "micro_recall": 1.0,
+            "micro_f1": 0.875,
+            "exact_match": 0.75,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "feeling_better": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.75,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 3,
+            "precision_unsure_band": 0.6667,
+            "labels_in_unsure_band": 6
+          }
+        },
+        "Munshiganj": {
+          "keyword": {
+            "rows": 1,
+            "micro_precision": 1.0,
+            "micro_recall": 1.0,
+            "micro_f1": 1.0,
+            "exact_match": 1.0,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.0,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 1,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 1,
+            "micro_precision": 1.0,
+            "micro_recall": 1.0,
+            "micro_f1": 1.0,
+            "exact_match": 1.0,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 1.0,
+            "precision_sure_band": null,
+            "labels_in_sure_band": 0,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 1,
+            "micro_precision": 1.0,
+            "micro_recall": 1.0,
+            "micro_f1": 1.0,
+            "exact_match": 1.0,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 1.0,
+            "precision_sure_band": null,
+            "labels_in_sure_band": 0,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          }
+        },
+        "Pabna": {
+          "keyword": {
+            "rows": 1,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.0,
+            "per_label": {
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 1.0,
+            "precision_sure_band": null,
+            "labels_in_sure_band": 0,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 1,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.0,
+            "per_label": {
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 1.0,
+            "precision_sure_band": null,
+            "labels_in_sure_band": 0,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "model+rules": {
+            "rows": 1,
+            "micro_precision": 0.5,
+            "micro_recall": 1.0,
+            "micro_f1": 0.6667,
+            "exact_match": 0.0,
+            "per_label": {
+              "lethargy_restless": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 1.0,
+            "precision_sure_band": null,
+            "labels_in_sure_band": 0,
+            "precision_unsure_band": 0.5,
+            "labels_in_unsure_band": 2
+          }
+        },
+        "Satkhira": {
+          "keyword": {
+            "rows": 7,
+            "micro_precision": 1.0,
+            "micro_recall": 0.375,
+            "micro_f1": 0.5455,
+            "exact_match": 0.5714,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.5714,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 3,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 7,
+            "micro_precision": 1.0,
+            "micro_recall": 0.375,
+            "micro_f1": 0.5455,
+            "exact_match": 0.5714,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 2,
+              "missed_rate": 0.4,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.5
+            },
+            "abstention_rate": 0.7143,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 2,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 1
+          },
+          "model+rules": {
+            "rows": 7,
+            "micro_precision": 1.0,
+            "micro_recall": 0.875,
+            "micro_f1": 0.9333,
+            "exact_match": 0.8571,
+            "per_label": {
+              "abdominal_pain": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "persistent_vomiting": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "bleeding": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "feeling_better": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 5,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.8333
+            },
+            "abstention_rate": 0.5714,
+            "precision_sure_band": 1.0,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": 1.0,
+            "labels_in_unsure_band": 3
+          }
+        }
+      },
+      "T2": {
+        "Dhaka": {
+          "keyword": {
+            "rows": 6,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 0.8333,
+            "precision_sure_band": 0.0,
+            "labels_in_sure_band": 1,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "keyword+neg": {
+            "rows": 6,
+            "micro_precision": 0.0,
+            "micro_recall": 0.0,
+            "micro_f1": 0.0,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 1,
+              "missed_rate": 1.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 0.0
+            },
+            "abstention_rate": 0.8333,
+            "precision_sure_band": 0.0,
+            "labels_in_sure_band": 1,
+            "precision_unsure_band": null,
+            "labels_in_unsure_band": 0
+          },
+          "model+rules": {
+            "rows": 6,
+            "micro_precision": 0.5,
+            "micro_recall": 1.0,
+            "micro_f1": 0.6667,
+            "exact_match": 0.5,
+            "per_label": {
+              "persistent_vomiting": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "lethargy_restless": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              },
+              "cannot_drink": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_dropped": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "fever_present": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              }
+            },
+            "missed_warnings": {
+              "messages_with_warning": 1,
+              "missed": 0,
+              "missed_rate": 0.0,
+              "silent_missed": 0,
+              "silent_missed_rate": 0.0,
+              "warning_label_recall": 1.0
+            },
+            "abstention_rate": 0.5,
+            "precision_sure_band": 0.5,
+            "labels_in_sure_band": 4,
+            "precision_unsure_band": 0.5,
+            "labels_in_unsure_band": 2
+          }
+        }
+      }
+    },
+    "negation": {
+      "T1": {
+        "keyword": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 0.0,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 3,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        },
+        "model+rules": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        }
+      },
+      "pooled": {
+        "keyword": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 0.0,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 3,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        },
+        "model+rules": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        }
+      }
+    },
+    "past": {
+      "T1": {
+        "keyword": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 0.0,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 3,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        },
+        "model+rules": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        }
+      },
+      "pooled": {
+        "keyword": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 0.0,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 3,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        },
+        "model+rules": {
+          "rows": 3,
+          "micro_precision": 1.0,
+          "micro_recall": 1.0,
+          "micro_f1": 1.0,
+          "exact_match": 1.0,
+          "per_label": {
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 3,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 1.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        }
+      }
+    },
+    "T1_seen_before_rule_fix": {
+      "seen (1)": {
+        "keyword": {
+          "rows": 17,
+          "micro_precision": 1.0,
+          "micro_recall": 0.4706,
+          "micro_f1": 0.64,
+          "exact_match": 0.5882,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "fever_dropped": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "feeling_better": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 12,
+            "missed": 5,
+            "missed_rate": 0.4167,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5385
+          },
+          "abstention_rate": 0.5294,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 8,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 17,
+          "micro_precision": 1.0,
+          "micro_recall": 0.4706,
+          "micro_f1": 0.64,
+          "exact_match": 0.5882,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "fever_dropped": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "feeling_better": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 12,
+            "missed": 5,
+            "missed_rate": 0.4167,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5385
+          },
+          "abstention_rate": 0.7059,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 5,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 3
+        },
+        "model+rules": {
+          "rows": 17,
+          "micro_precision": 0.8421,
+          "micro_recall": 0.9412,
+          "micro_f1": 0.8889,
+          "exact_match": 0.7647,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.6667,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "fever_dropped": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "feeling_better": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 12,
+            "missed": 0,
+            "missed_rate": 0.0,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.9231
+          },
+          "abstention_rate": 0.7059,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 7,
+          "precision_unsure_band": 0.75,
+          "labels_in_unsure_band": 12
+        }
+      },
+      "unseen (0)": {
+        "keyword": {
+          "rows": 0
+        },
+        "keyword+neg": {
+          "rows": 0
+        },
+        "model+rules": {
+          "rows": 0
+        }
+      }
+    },
+    "T3_group": {
+      "fever+sign": {
+        "keyword": {
+          "rows": 25,
+          "micro_precision": 0.7333,
+          "micro_recall": 0.234,
+          "micro_f1": 0.3548,
+          "exact_match": 0.0,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 5
+            },
+            "persistent_vomiting": {
+              "precision": 0.7143,
+              "recall": 1.0,
+              "f1": 0.8333,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 25
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 20,
+            "missed": 7,
+            "missed_rate": 0.35,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5
+          },
+          "abstention_rate": 0.48,
+          "precision_sure_band": 0.7333,
+          "labels_in_sure_band": 15,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 25,
+          "micro_precision": 0.7333,
+          "micro_recall": 0.234,
+          "micro_f1": 0.3548,
+          "exact_match": 0.0,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 5
+            },
+            "persistent_vomiting": {
+              "precision": 0.7143,
+              "recall": 1.0,
+              "f1": 0.8333,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 25
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 20,
+            "missed": 7,
+            "missed_rate": 0.35,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5
+          },
+          "abstention_rate": 0.48,
+          "precision_sure_band": 0.7333,
+          "labels_in_sure_band": 15,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "model+rules": {
+          "rows": 25,
+          "micro_precision": 0.625,
+          "micro_recall": 0.3191,
+          "micro_f1": 0.4225,
+          "exact_match": 0.0,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.6667,
+              "recall": 0.8,
+              "f1": 0.7273,
+              "support": 5
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1": 0.75,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.375,
+              "recall": 1.0,
+              "f1": 0.5455,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_dropped": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 25
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 20,
+            "missed": 4,
+            "missed_rate": 0.2,
+            "silent_missed": 1,
+            "silent_missed_rate": 0.05,
+            "warning_label_recall": 0.6818
+          },
+          "abstention_rate": 0.72,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 9,
+          "precision_unsure_band": 0.4,
+          "labels_in_unsure_band": 15
+        }
+      },
+      "sign_only": {
+        "keyword": {
+          "rows": 25,
+          "micro_precision": 1.0,
+          "micro_recall": 0.375,
+          "micro_f1": 0.5455,
+          "exact_match": 0.6,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 6
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.2857,
+              "f1": 0.4444,
+              "support": 7
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 17,
+            "missed": 9,
+            "missed_rate": 0.5294,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.375
+          },
+          "abstention_rate": 0.68,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 9,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 25,
+          "micro_precision": 1.0,
+          "micro_recall": 0.375,
+          "micro_f1": 0.5455,
+          "exact_match": 0.6,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 6
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.2857,
+              "f1": 0.4444,
+              "support": 7
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 17,
+            "missed": 9,
+            "missed_rate": 0.5294,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.375
+          },
+          "abstention_rate": 0.72,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 8,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 1
+        },
+        "model+rules": {
+          "rows": 25,
+          "micro_precision": 0.7895,
+          "micro_recall": 0.625,
+          "micro_f1": 0.6977,
+          "exact_match": 0.64,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "bleeding": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "lethargy_restless": {
+              "precision": 0.75,
+              "recall": 0.5,
+              "f1": 0.6,
+              "support": 6
+            },
+            "low_urine": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6667,
+              "support": 1
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.7143,
+              "f1": 0.8333,
+              "support": 7
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 17,
+            "missed": 3,
+            "missed_rate": 0.1765,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.625
+          },
+          "abstention_rate": 0.72,
+          "precision_sure_band": 0.875,
+          "labels_in_sure_band": 8,
+          "precision_unsure_band": 0.7273,
+          "labels_in_unsure_band": 11
+        }
+      },
+      "other": {
+        "keyword": {
+          "rows": 30,
+          "micro_precision": 1.0,
+          "micro_recall": 0.1429,
+          "micro_f1": 0.25,
+          "exact_match": 0.8,
+          "per_label": {
+            "lethargy_restless": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 5,
+            "missed": 4,
+            "missed_rate": 0.8,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.2
+          },
+          "abstention_rate": 0.9667,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 1,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 30,
+          "micro_precision": 1.0,
+          "micro_recall": 0.1429,
+          "micro_f1": 0.25,
+          "exact_match": 0.8,
+          "per_label": {
+            "lethargy_restless": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6667,
+              "support": 2
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 5,
+            "missed": 4,
+            "missed_rate": 0.8,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.2
+          },
+          "abstention_rate": 0.9667,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 1,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "model+rules": {
+          "rows": 30,
+          "micro_precision": 0.0,
+          "micro_recall": 0.0,
+          "micro_f1": 0.0,
+          "exact_match": 0.6,
+          "per_label": {
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "lethargy_restless": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "feeling_better": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "test_result_mentioned": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 5,
+            "missed": 4,
+            "missed_rate": 0.8,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.0
+          },
+          "abstention_rate": 1.0,
+          "precision_sure_band": null,
+          "labels_in_sure_band": 0,
+          "precision_unsure_band": 0.0,
+          "labels_in_unsure_band": 6
+        }
+      }
+    },
+    "T3_child": {
+      "child posts": {
+        "keyword": {
+          "rows": 11,
+          "micro_precision": 0.8571,
+          "micro_recall": 0.3529,
+          "micro_f1": 0.5,
+          "exact_match": 0.2727,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "persistent_vomiting": {
+              "precision": 0.75,
+              "recall": 1.0,
+              "f1": 0.8571,
+              "support": 3
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 6
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 10,
+            "missed": 4,
+            "missed_rate": 0.4,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5455
+          },
+          "abstention_rate": 0.4545,
+          "precision_sure_band": 0.8571,
+          "labels_in_sure_band": 7,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 11,
+          "micro_precision": 0.8571,
+          "micro_recall": 0.3529,
+          "micro_f1": 0.5,
+          "exact_match": 0.2727,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "persistent_vomiting": {
+              "precision": 0.75,
+              "recall": 1.0,
+              "f1": 0.8571,
+              "support": 3
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 6
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 10,
+            "missed": 4,
+            "missed_rate": 0.4,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5455
+          },
+          "abstention_rate": 0.4545,
+          "precision_sure_band": 0.8571,
+          "labels_in_sure_band": 7,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "model+rules": {
+          "rows": 11,
+          "micro_precision": 0.75,
+          "micro_recall": 0.3529,
+          "micro_f1": 0.48,
+          "exact_match": 0.1818,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 3
+            },
+            "low_urine": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6667,
+              "support": 1
+            },
+            "breathing_difficulty": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 2
+            },
+            "cannot_drink": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 6
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 10,
+            "missed": 3,
+            "missed_rate": 0.3,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.5455
+          },
+          "abstention_rate": 0.7273,
+          "precision_sure_band": 0.6667,
+          "labels_in_sure_band": 3,
+          "precision_unsure_band": 0.8,
+          "labels_in_unsure_band": 5
+        }
+      },
+      "other posts": {
+        "keyword": {
+          "rows": 69,
+          "micro_precision": 0.8333,
+          "micro_recall": 0.2459,
+          "micro_f1": 0.3797,
+          "exact_match": 0.5217,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 6
+            },
+            "persistent_vomiting": {
+              "precision": 0.8333,
+              "recall": 1.0,
+              "f1": 0.9091,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 4
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.2222,
+              "f1": 0.3636,
+              "support": 9
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 0.6,
+              "recall": 0.3,
+              "f1": 0.4,
+              "support": 10
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 21
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 32,
+            "missed": 16,
+            "missed_rate": 0.5,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.375
+          },
+          "abstention_rate": 0.7681,
+          "precision_sure_band": 0.8333,
+          "labels_in_sure_band": 18,
+          "precision_unsure_band": null,
+          "labels_in_unsure_band": 0
+        },
+        "keyword+neg": {
+          "rows": 69,
+          "micro_precision": 0.8333,
+          "micro_recall": 0.2459,
+          "micro_f1": 0.3797,
+          "exact_match": 0.5217,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 1.0,
+              "recall": 0.6667,
+              "f1": 0.8,
+              "support": 6
+            },
+            "persistent_vomiting": {
+              "precision": 0.8333,
+              "recall": 1.0,
+              "f1": 0.9091,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 4
+            },
+            "lethargy_restless": {
+              "precision": 1.0,
+              "recall": 0.2222,
+              "f1": 0.3636,
+              "support": 9
+            },
+            "low_urine": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 3
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 0.6,
+              "recall": 0.3,
+              "f1": 0.4,
+              "support": 10
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 21
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 32,
+            "missed": 16,
+            "missed_rate": 0.5,
+            "silent_missed": 0,
+            "silent_missed_rate": 0.0,
+            "warning_label_recall": 0.375
+          },
+          "abstention_rate": 0.7826,
+          "precision_sure_band": 0.8235,
+          "labels_in_sure_band": 17,
+          "precision_unsure_band": 1.0,
+          "labels_in_unsure_band": 1
+        },
+        "model+rules": {
+          "rows": 69,
+          "micro_precision": 0.5854,
+          "micro_recall": 0.3934,
+          "micro_f1": 0.4706,
+          "exact_match": 0.4638,
+          "per_label": {
+            "abdominal_pain": {
+              "precision": 0.7143,
+              "recall": 0.8333,
+              "f1": 0.7692,
+              "support": 6
+            },
+            "persistent_vomiting": {
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714,
+              "support": 5
+            },
+            "bleeding": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6667,
+              "support": 4
+            },
+            "lethargy_restless": {
+              "precision": 0.5,
+              "recall": 0.2222,
+              "f1": 0.3077,
+              "support": 9
+            },
+            "low_urine": {
+              "precision": 0.375,
+              "recall": 1.0,
+              "f1": 0.5455,
+              "support": 3
+            },
+            "cold_clammy": {
+              "precision": 1.0,
+              "recall": 0.3333,
+              "f1": 0.5,
+              "support": 3
+            },
+            "breathing_difficulty": {
+              "precision": 1.0,
+              "recall": 0.7,
+              "f1": 0.8235,
+              "support": 10
+            },
+            "fever_dropped": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "fever_present": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 21
+            },
+            "feeling_better": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            },
+            "test_result_mentioned": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 0
+            }
+          },
+          "missed_warnings": {
+            "messages_with_warning": 32,
+            "missed": 8,
+            "missed_rate": 0.25,
+            "silent_missed": 1,
+            "silent_missed_rate": 0.0312,
+            "warning_label_recall": 0.6
+          },
+          "abstention_rate": 0.8406,
+          "precision_sure_band": 1.0,
+          "labels_in_sure_band": 14,
+          "precision_unsure_band": 0.3704,
+          "labels_in_unsure_band": 27
+        }
+      }
+    }
+  },
+  "false_alarms_T3_other": {
+    "keyword": {
+      "rows": 30,
+      "with_confident_warning": 1,
+      "rate": 0.0333
+    },
+    "keyword+neg": {
+      "rows": 30,
+      "with_confident_warning": 1,
+      "rate": 0.0333
+    },
+    "model+rules": {
+      "rows": 30,
+      "with_confident_warning": 0,
+      "rate": 0.0
+    }
+  },
+  "false_alarms_vashantor": "not run: the Vashantor corpus is not in data/raw",
+  "descriptive_severity": {
+    "Emergency": {
+      "posts": 1353,
+      "share_with_confident_warning": 0.167
+    },
+    "General Query": {
+      "posts": 1181,
+      "share_with_confident_warning": 0.011
+    },
+    "Routine": {
+      "posts": 1268,
+      "share_with_confident_warning": 0.0229
+    },
+    "Urgent": {
+      "posts": 1461,
+      "share_with_confident_warning": 0.1437
+    }
+  }
+}

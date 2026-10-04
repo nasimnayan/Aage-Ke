@@ -1,0 +1,81 @@
+text,labels,script,dialect,is_negated,is_past,district,orig_category,src_row,group,expected_outcome,label_source,label_note,verified
+প্রচণ্ড জ্বরের সাথে রোগীর প্রস্রাব একদম বন্ধ হয়ে গেছে গত ২৪ ঘণ্টা ধরে।,fever_present|low_urine,bn,,0,0,,Emergency,125,fever+sign,red,claude_proposed_nasim_to_verify,,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাবে খুব জ্বালাপোড়া এবং তলপেটে কামড়ানো ব্যথা।,abdominal_pain|fever_present,bn,,0,0,,Urgent,151,fever+sign,red,claude_proposed_nasim_to_verify,burning urination is not on the list; lower-abdomen pain is,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাব একদম বন্ধ হয়ে গেছে গত ২৪ ঘণ্টা ধরে।,fever_present|low_urine,bn,,0,0,,Emergency,209,fever+sign,red,claude_proposed_nasim_to_verify,,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাব করার সময় তীব্র ছ্যাকা লাগার মতো অনুভূতি এবং কাঁপুনি।,fever_present,bn,,0,0,,Urgent,295,fever+sign,green,claude_proposed_nasim_to_verify,burning urination and shivering are not on the list,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাব করার সময় তীব্র জ্বালা এবং তলপেটে কামড়ানো ব্যথা।,abdominal_pain|fever_present,bn,,0,0,,Urgent,394,fever+sign,red,claude_proposed_nasim_to_verify,,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাব করার সময় তীব্র ছ্যাকা লাগার মতো অনুভূতি।,fever_present,bn,,0,0,,Urgent,517,fever+sign,green,claude_proposed_nasim_to_verify,,false
+প্রচণ্ড জ্বরের সাথে প্রস্রাব করার সময় তীব্র ছ্যাকা লাগার মতো অনুভূতি আর তলপেটে কামড়ানি ব্যথা।,abdominal_pain|fever_present,bn,,0,0,,Urgent,713,fever+sign,red,claude_proposed_nasim_to_verify,,false
+বাচ্চার ১০৫ ডিগ্রি জ্বরের সাথে শরীর শক্ত হয়া চোখ কপালে উঠে গেছে সে নিশ্বাস নিচ্ছে না।,breathing_difficulty|fever_present,bn,,0,0,,Emergency,1051,fever+sign,red,claude_proposed_nasim_to_verify,child; stiffness/seizure not on the list,false
+বাচ্চার ১০৩ ডিগ্রি জ্বরের সাথে সারা পিঠে লাল লাল বড় দানা উইঠা গেছে সে অস্থির হয়ে আছে।,fever_present|lethargy_restless,bn,,0,0,,Urgent,1063,fever+sign,red,claude_proposed_nasim_to_verify,child; rash not on the list,false
+দাঁত তোলার পর রক্ত পড়া বন্ধ হচ্ছে না আর প্রচণ্ড জ্বর এসেছে সাথে।,bleeding|fever_present,bn,,0,0,,Urgent,1601,fever+sign,red,claude_proposed_nasim_to_verify,bleeding after tooth extraction read as gum bleeding,false
+"ডান পাশের পেটে ব্যথার সাথে প্রচণ্ড জ্বর আর বমি বমি ভাব, মনে হচ্ছে ভেতরে কিছু ফেটে গেছে।",abdominal_pain|fever_present,bn,,0,0,,Emergency,1905,fever+sign,red,claude_proposed_nasim_to_verify,nausea is not vomiting,false
+প্রস্রাবের সময় প্রচণ্ড শীত করছে আর কাঁপুনি দিয়ে জ্বর আসছে সাথে পিঠের নিচে ব্যথা।,fever_present,bn,,0,0,,Urgent,2005,fever+sign,green,claude_proposed_nasim_to_verify,back pain is not abdominal pain,false
+প্রচণ্ড জ্বরের সাথে শ্বাস নিতে খুব কষ্ট হচ্ছে এবং বুক ধড়ফড় করছে।,breathing_difficulty|fever_present,bn,,0,0,,Emergency,2471,fever+sign,red,claude_proposed_nasim_to_verify,,false
+জ্বরের সাথে প্রস্রাবে খুব জ্বালাপোড়া এবং কোমরের দুই পাশে প্রচণ্ড ব্যথা।,fever_present,bn,,0,0,,Urgent,2490,fever+sign,green,claude_proposed_nasim_to_verify,flank pain is not abdominal pain,false
+জ্বরের সাথে একটানা বমি হচ্ছে আর রোগী একদম নিস্তেজ হয়ে গেছে।,fever_present|lethargy_restless|persistent_vomiting,bn,,0,0,,Urgent,2499,fever+sign,red,claude_proposed_nasim_to_verify,,false
+একটানা ১০৪ ডিগ্রি জ্বর এবং মাথায় প্রচণ্ড ব্যথার সাথে বমি হচ্ছে।,fever_present|persistent_vomiting,bn,,0,0,,Emergency,2515,fever+sign,red,claude_proposed_nasim_to_verify,headache not on the list,false
+বাচ্চার জ্বরের সাথে বারবার বমি হচ্ছে এবং সে কোনো তরল খাবার পেটে রাখতে পারছে না।,cannot_drink|fever_present|persistent_vomiting,bn,,0,0,,Urgent,2670,fever+sign,red,claude_proposed_nasim_to_verify,child,false
+জ্বরের সাথে বাচ্চার প্রস্রাব খুব কমে গেছে আর চোখ গর্তে ঢুকে গেছে।,fever_present|low_urine,bn,,0,0,,Urgent,2680,fever+sign,red,claude_proposed_nasim_to_verify,child,false
+বাচ্চার মাথায় প্রচণ্ড আঘাত পাওয়ার পর থেকে সে বমি করছে আর জ্বর এসেছে।,fever_present|persistent_vomiting,bn,,0,0,,Emergency,2697,fever+sign,red,claude_proposed_nasim_to_verify,child; head injury context,false
+বাচ্চার বমি ভাব এবং পেট ব্যথার সাথে যদি গায়ে জ্বর থাকে তবে কী করবেন?,abdominal_pain|fever_present,bn,,0,0,,Urgent,2745,fever+sign,red,claude_proposed_nasim_to_verify,child; written as a question; nausea is not vomiting,false
+"মৃদু জ্বর, মাথা ব্যথা ও দুর্বলতা আছে।",fever_present,bn,,0,0,,Routine,4569,fever+sign,green,claude_proposed_nasim_to_verify,mild weakness is not lethargy (Nasim's rule),false
+কাঁপুনি দিয়ে জ্বর আর বমি হচ্ছে।,fever_present|persistent_vomiting,bn,,0,0,,Urgent,4572,fever+sign,red,claude_proposed_nasim_to_verify,,false
+উচ্চ জ্বর ও তীব্র দুর্বলতা আছে।,fever_present|lethargy_restless,bn,,0,0,,Urgent,4573,fever+sign,red,claude_proposed_nasim_to_verify,severe weakness,false
+তীব্র জ্বর ও শ্বাস নিতে পারছে না!,breathing_difficulty|fever_present,bn,,0,0,,Emergency,4583,fever+sign,red,claude_proposed_nasim_to_verify,,false
+জ্বরের সাথে রক্ত পড়া শুরু হয়েছে!,bleeding|fever_present,bn,,0,0,,Emergency,4588,fever+sign,red,claude_proposed_nasim_to_verify,,false
+বাচ্চার প্রস্রাবের রং হঠাৎ করে ধোঁয়াটে বা গাঢ় লালচে হয়ে গেছে।,,bn,,0,0,,Urgent,464,sign_only,call,claude_proposed_nasim_to_verify,child; dark urine colour is not low urine,false
+শ্বাসকষ্ট কি মানসিক চাপ থেকেও হতে পারে?,breathing_difficulty,bn,,0,0,,General Query,1364,sign_only,red,claude_proposed_nasim_to_verify,written as a general question,false
+হঠাৎ সারা শরীর এত দুর্বল লাগছে যে কথা বলার শক্তিও পাচ্ছি না আর প্রচুর ঘামছি।,lethargy_restless,bn,,0,0,,Emergency,2424,sign_only,red,claude_proposed_nasim_to_verify,sweating without cold skin is not cold_clammy,false
+হঠাৎ প্রচণ্ড ভয় ও অস্থিরতায় স্বাভাবিকভাবে কাজ করতে পারছি না।,lethargy_restless,bn,,0,0,,Urgent,5151,sign_only,red,claude_proposed_nasim_to_verify,"restlessness from panic: wording matches, context differs",false
+শরীরের দুর্বলতার সাথে যদি বুক ধড়ফড়ানি বাড়ে তবে করণীয় কী?,,bn,,0,0,,Urgent,2496,sign_only,call,claude_proposed_nasim_to_verify,mild weakness; palpitations not on the list,false
+শ্বাস নিতে গেলে মনে হচ্ছে বন্ধ হয়ে যাবে. স্বাভাবিক লাগছে না,breathing_difficulty,bn,,0,0,,Emergency,3567,sign_only,red,claude_proposed_nasim_to_verify,,false
+মুখের একপাশের মাড়ি ফুইলা বেলুন হয়া আছে আর টিপ দিলে দুর্গন্ধযুক্ত রক্ত আর হলুদ পুঁজ বের হইতেছে। ব্যথার তীব্রতায় আমি রাতে এক ফোঁটাও ঘুমাইতে পারি নাই।,bleeding,bn,,0,0,,Urgent,4804,sign_only,red,claude_proposed_nasim_to_verify,blood from the gum (dental abscess),false
+প্যানিকের কারণে হঠাৎ শরীর কাঁপতে থাকে আর দুর্বল লাগে।,,bn,,0,0,,Urgent,5155,sign_only,call,claude_proposed_nasim_to_verify,panic; mild weakness,false
+গত দুইদিন ধরে ডান দিকের তলপেটে অসহ্য ব্যথা এবং পা সোজা করলেই বমি হচ্ছে।,abdominal_pain|persistent_vomiting,bn,,0,0,,Urgent,391,sign_only,red,claude_proposed_nasim_to_verify,,false
+"ওনার হঠাৎ কইরা পেটে প্রচণ্ড পেইন উইঠা মনে হইতেছে ভেতরের সব নাড়ী ছিঁড়ে যাইতেছে আর উনি ব্যথার চোটে অনবরত রক্ত পায়খানা করতেছেন। অতিরিক্ত যন্ত্রণার কারণে ওনার শরীর পুরো ঠাণ্ডা হয়া ঘাম দিতাছে আর উনি বিছানায় ছটফট করতে করতে অচেতন হয়া পড়ছেন, জলদি অ্যাম্বুলেন্স ডাকেন!",abdominal_pain|bleeding|cold_clammy|lethargy_restless,bn,,0,0,,Emergency,4858,sign_only,red,claude_proposed_nasim_to_verify,colloquial spelling,false
+হঠাৎ কইরা সারা শরীরে বড় বড় চাকা উইঠা চুলকায়ে লাল হয়া গেছে চুলকাইলে চামড়া ছিলে রক্ত আসে।,,bn,,0,0,,Urgent,784,sign_only,call,claude_proposed_nasim_to_verify,skin bleeding from scratching is not on the list,false
+"একটা কড়া ইনজেকশন দেওয়ার কিছুক্ষণ পর থেকে ওনার গায়ের চামড়া ফোসকা পইড়া উইঠা যাইতেছে। তীব্র এলার্জিক শকের কারণে ওনার হাত-পা ঠাণ্ডা হয়ে গেছে, নিশ্বাস নিতে পারতেছেন না আর উনি বিছানায় ছটফট করতে করতে অচেতন হয়া পড়ছেন।",breathing_difficulty|cold_clammy|lethargy_restless,bn,,0,0,,Emergency,4888,sign_only,red,claude_proposed_nasim_to_verify,allergic shock,false
+"কিছুক্ষণ আগে বুঝলাম, কিছুক্ষণ আগে বারবার বমি হচ্ছে",persistent_vomiting,bn,,0,0,,Urgent,3105,sign_only,red,claude_proposed_nasim_to_verify,,false
+শ্বাস নিতে গেলে মনে হচ্ছে বন্ধ হয়ে যাবে.,breathing_difficulty,bn,,0,0,,Emergency,3346,sign_only,red,claude_proposed_nasim_to_verify,,false
+"বাচ্চা সারাদিন ঝিমিয়ে থাকে আর একদম খেলাধুলা করতে চায় না, খুব দুর্বল লাগে।",lethargy_restless,bn,,0,0,,Routine,2723,sign_only,red,claude_proposed_nasim_to_verify,child,false
+নাভির গোড়া দিয়ে রক্ত মিশ্রিত পানি বের হচ্ছে আর প্রচণ্ড দুর্গন্ধ আসছে গত কয়েকদিন ধরে।,,bn,,0,0,,Urgent,1918,sign_only,call,claude_proposed_nasim_to_verify,umbilical discharge is not on the list,false
+"ছোট ভাই হঠাৎ অজ্ঞান হয়ে গেছে, পালস খুব দুর্বল এবং শরীর ঠান্ডা।",cold_clammy|lethargy_restless,bn,,0,0,,Emergency,4510,sign_only,red,claude_proposed_nasim_to_verify,fainted,false
+আজ শ্বাস নিতে গেলে মনে হচ্ছে বন্ধ হয়ে যাবে এবং,breathing_difficulty,bn,,0,0,,Emergency,2807,sign_only,red,claude_proposed_nasim_to_verify,truncated text,false
+বাচ্চার প্রচণ্ড কাশির সাথে বমি হয়ে যাচ্ছে আর চেহারা লাল হয়ে যাচ্ছে।,persistent_vomiting,bn,,0,0,,Urgent,2675,sign_only,red,claude_proposed_nasim_to_verify,child; vomiting with cough,false
+"বাচ্চাটার গলায় পয়সা বা ছোট খেলনা আটকে পুরো শ্বাস বন্ধ হয়ে আসার উপক্রম হয়েছে, সে নীল হয়ে ছটফট করছে!",breathing_difficulty,bn,,0,0,,Emergency,4756,sign_only,red,claude_proposed_nasim_to_verify,child; choking,false
+"৩ দিন ধরে হালকা দুর্বল লাগে, দয়া করে বলবেন",,bn,,0,0,,Routine,4235,sign_only,call,claude_proposed_nasim_to_verify,mild weakness,false
+রোগী তীব্র শ্বাসকষ্ট এবং জীবন-ঝুঁকিপূর্ণ কার্ডিয়াক কন্ডিশনের লক্ষণ প্রদর্শন করছেন।,breathing_difficulty,bn,,0,0,,Emergency,4496,sign_only,red,claude_proposed_nasim_to_verify,formal medical wording,false
+লোয়ার এক্সট্রিমিটিতে (পায়ে) ব্যাখ্যাতীত পারপুরা বা কালশিটে এবং সাবকুটেনিয়াস রক্তনালীর অস্বাভাবিকতা লক্ষ্য করা গেছে। স্থূলতার কারণে ভাস্কুলার প্রেশার বৃদ্ধির ঝুঁকি রয়েছে।,,bn,,0,0,,Urgent,4449,sign_only,call,claude_proposed_nasim_to_verify,"purpura/bruising: skin bleeding is NOT on our list. A real gap of the list, report it",false
+পায়ের পাতায় সরাসরি কামড় লাগার পর পা নীল হয়ে গেছে আর প্রস্রাব বন্ধ হয়ে গেছে।,low_urine,bn,,0,0,,Emergency,2321,sign_only,red,claude_proposed_nasim_to_verify,bite context,false
+"হাত-পায়ের তালুতে শক্ত মরা চামড়ার স্তর জমে ফেটে গেছে, নখ দিলে বা টান লাগলে খুব সহজে রক্তপাত হয়।",,bn,,0,0,,Urgent,4415,sign_only,call,claude_proposed_nasim_to_verify,skin cracks bleeding is not on the list,false
+আমার মাথার তালু এবং পিঠের নিচের অংশে এক ধরণের রূপালী রঙের গুঁড়োর মতো আস্তরণ পড়েছে। চুলকালে এগুলো খুব সহজেই খসে পড়ে।,,bn,,0,0,,Routine,4394,other,call,claude_proposed_nasim_to_verify,,false
+শরীরের ক্লান্তির সাথে হাত-পা জ্বালাপোড়া করলে কোন পরীক্ষা করা জরুরি?,,bn,,0,0,,General Query,2514,other,call,claude_proposed_nasim_to_verify,,false
+হঠাৎ করে সারা শরীরে বড় বড় ফোসকা পড়ছে এবং মুখ ও চোখের চামড়া উঠে যাচ্ছে।,,bn,,0,0,,Emergency,25,other,call,claude_proposed_nasim_to_verify,,false
+মাথার তালুতে অনেক দিন ধরে খুশকি জইমা আছে শ্যাম্পু করলেও পরিষ্কার হইতে চায় না।,,bn,,0,0,,Routine,910,other,call,claude_proposed_nasim_to_verify,,false
+শরীরের চামড়ায় মাঝেমধ্যে একটু চুলকানি হয় বিশেষ কইরা সিন্থেটিক কাপড় পরলে বেশি হয়।,,bn,,0,0,,Routine,1220,other,call,claude_proposed_nasim_to_verify,,false
+এইমাত্র হালকা চাপ অনুভব করি এবং দয়া করে বলবেন,,bn,,0,0,,Routine,2979,other,call,claude_proposed_nasim_to_verify,,false
+হঠাৎ করে হাত পায়ের আঙুলগুলা নীল হয়া গেছে আর সেখানে সুঁই ফোটানোর মতো তীব্র ব্যথা হচ্ছে।,,bn,,0,0,,Urgent,1105,other,call,claude_proposed_nasim_to_verify,,false
+তীব্র কার্ডিওরেসপিরেটরি ডিস্ট্রেস এবং সম্ভাব্য হার্ট ফেইলিউরের লক্ষণ দেখা যাচ্ছে।,breathing_difficulty,bn,,0,0,,Emergency,4503,other,red,claude_proposed_nasim_to_verify,jargon: 'cardiorespiratory distress',false
+"হঠাৎ করে বুকের মাঝখানে মনে হচ্ছে কেউ পাথর চাপা দিয়ে রেখেছে, দম বন্ধ লাগছে।",breathing_difficulty,bn,,0,0,,Emergency,111,other,red,claude_proposed_nasim_to_verify,'দম বন্ধ' phrasing,false
+পুরনো স্কাল্প ক্ষতে জ্বর এসেছে আর তীব্র ব্যথা হচ্ছে।,fever_present,bn,,0,0,,Urgent,4979,other,green,claude_proposed_nasim_to_verify,,false
+"হঠাৎ এমন হয়েছে, দাঁড়িয়ে থাকতে পারছি না, অনেক অস্বস্তি হচ্ছে",lethargy_restless,bn,,0,0,,Emergency,3218,other,red,claude_proposed_nasim_to_verify,cannot stand: read as severe weakness; borderline,false
+হাঁটু ব্যথা বা লিগামেন্টে চোট পেলে ঘরোয়াভাবে বরফ নাকি গরম পানির সেঁক দেব? সাধারণ তথ্য চাই।,,bn,,0,0,,General Query,2230,other,call,claude_proposed_nasim_to_verify,,false
+আজকে মাঝে মাঝে মাথা ব্যথা হয়,,bn,,0,0,,Routine,3994,other,call,claude_proposed_nasim_to_verify,,false
+মানসিক আঘাত বা ট্রমা কাটিয়ে ওঠার উপায় সম্পর্কে সাধারণ পরামর্শ চাই।,,bn,,0,0,,General Query,2633,other,call,claude_proposed_nasim_to_verify,,false
+"একটা বিষয় নিয়ে চিন্তায় আছি, আজকে মনে হচ্ছে জ্ঞান হারিয়ে ফেলবো",lethargy_restless,bn,,0,0,,Emergency,3530,other,red,claude_proposed_nasim_to_verify,feels about to faint; borderline,false
+এটা কি বিপজ্জনক এবং,,bn,,0,0,,General Query,3618,other,call,claude_proposed_nasim_to_verify,,false
+এটা কি স্বাভাবিক. এটা নিয়ে চিন্তা হচ্ছে,,bn,,0,0,,General Query,3797,other,call,claude_proposed_nasim_to_verify,,false
+"কোনো স্লিপ প্যাথলজি বা নিউরোলজিক্যাল মেকানিজমের বড় ইনজুরি ছাড়াই, মানবদেহের মেলাটোনিন নিঃসরণ এবং সার্কাডিয়ান রিদমের স্বাভাবিক প্রক্রিয়া সম্পর্কিত তথ্যের অনুসন্ধান করা হয়েছে। কোনো তীব্র অবসাদ বা জটিলতা ব্যতীত প্রাথমিক স্বাস্থ্য নির্দেশিকাই যথেষ্ট।",,bn,,0,0,,General Query,5235,other,call,claude_proposed_nasim_to_verify,,false
+বাচ্চাদের গরুর দুধ কত বছর বয়স থেইকা দেওয়া শুরু করা নিরাপদ?,,bn,,0,0,,General Query,871,other,call,claude_proposed_nasim_to_verify,,false
+"আজকে বুঝতে পারলাম, এই অবস্থায় কি করবো",,bn,,0,0,,General Query,3462,other,call,claude_proposed_nasim_to_verify,,false
+শরীরের চামড়া মাঝে মাঝে রোদ থেইকা ফিরলে একটু কালচে দেখা যায় কিন্তু পরে ঠিক হয়।,,bn,,0,0,,Routine,987,other,call,claude_proposed_nasim_to_verify,,false
+"একটা বিষয় নিয়ে চিন্তায় আছি, হঠাৎ শরীর অসাড় লাগছে",,bn,,0,0,,Emergency,3022,other,call,claude_proposed_nasim_to_verify,,false
+হাত-পা অবশ লাগছে. অনেক অস্বস্তি হচ্ছে,,bn,,0,0,,Emergency,2982,other,call,claude_proposed_nasim_to_verify,,false
+জ্বরের সাথে বুকে তীব্র ব্যথা!,fever_present,bn,,0,0,,Emergency,4586,other,green,claude_proposed_nasim_to_verify,chest pain not on the list,false
+নাকের সাধারণ পরিচ্ছন্নতা এবং ইনফেকশন মুক্ত রাখার উপায়গুলো সম্পর্কে সচেতনতা প্রয়োজন।,,bn,,0,0,,General Query,1508,other,call,claude_proposed_nasim_to_verify,,false
+"আজকে বুঝতে পারলাম, গত কয়েকদিন ধরে শরীর ঠিক লাগছে না, সাহায্য দরকার",,bn,,0,0,,Urgent,3173,other,call,claude_proposed_nasim_to_verify,,false
+"বাচ্চার পাতলা পায়খানা হতে হতে শরীর নিস্তেজ হয়ে গেছে, চোখ গর্তে এবং মাথার তালু দেবে গেছে।",lethargy_restless,bn,,0,0,,Emergency,278,other,red,claude_proposed_nasim_to_verify,child; diarrhoea not on the list,false
+"কোন বিভাগে দেখাবো, এটা কি স্বাভাবিক",,bn,,0,0,,General Query,3727,other,call,claude_proposed_nasim_to_verify,,false
+"কিছুক্ষণ আগে বুঝলাম, কোন বিভাগে দেখাবো,",,bn,,0,0,,General Query,3681,other,call,claude_proposed_nasim_to_verify,,false
+মাড়ি ফুলে লাল হয়ে গেছে আর চাপ দিলে পুঁজ বের হচ্ছে।,,bn,,0,0,,Urgent,4621,other,call,claude_proposed_nasim_to_verify,"gum swelling with pus, no blood",false
