@@ -2,6 +2,8 @@
 
 TF-IDF character n-grams + one-vs-rest logistic regression. C is chosen on the dev split
 by micro-F1 of model+rules. Writes model/model.pkl (for export.py) and results/train_report.json.
+
+--final: after Gate 1, refit the shipped model on all rows with the C already chosen.
 """
 import json
 import pickle
@@ -103,5 +105,20 @@ def main():
         print(f"  {k:24s} {v:.3f}")
 
 
+def final():
+    with open(HERE / "results" / "train_report.json", encoding="utf-8") as f:
+        report = json.load(f)
+    C = report["best_C"]
+    keys = label_keys(load_labels())
+    d, counts = load_train()
+    vec, clf = fit(d["text"].tolist(), to_matrix(to_sets(d["labels"]), keys), C)
+    with open(HERE / "model.pkl", "wb") as f:
+        pickle.dump({"vec": vec, "clf": clf, "keys": keys, "C": C}, f)
+    report["final_model"] = {"rows": len(d), "C": C, "vocab_size": len(vec.vocabulary_), "thresholds": "unchanged"}
+    with open(HERE / "results" / "train_report.json", "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+    print(f"Final model: {len(d)} rows, C={C}, vocab {len(vec.vocabulary_)}")
+
+
 if __name__ == "__main__":
-    main()
+    final() if "--final" in sys.argv else main()

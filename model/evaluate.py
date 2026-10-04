@@ -1,5 +1,5 @@
-"""Evaluation. --quick is Gate 1 (docs/03 CC3): first 30 rows of T1, micro-F1 for
-keyword, keyword+neg and model+rules. A label counts as predicted if it reaches the
+"""Evaluation. --quick is Gate 1 (docs/03 CC3): data/test_challenge_synthetic.csv only,
+micro-F1 for keyword, keyword+neg and model+rules, overall and per dialect. A label counts as predicted if it reaches the
 "not sure" band or higher. Test sets are only read here, never used to train or tune.
 """
 import argparse
@@ -18,6 +18,7 @@ from baseline import keyword, keyword_neg  # noqa: E402
 from train import to_sets, to_matrix, system_predict  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
+GATE1_FILE = "test_challenge_synthetic.csv"  # T1 and T2 are kept for final evaluation (CC8)
 
 
 def load_test(name):
@@ -43,25 +44,30 @@ def quick():
     keys = label_keys(labels_json)
     with open(HERE / "model.pkl", "rb") as f:
         m = pickle.load(f)
-    d = load_test("test_t1_human.csv").head(30)
-    if len(d) < 30:
-        print(f"T1 has {len(d)} rows; Gate 1 needs 30. Not run.")
-        return 2
+    d = load_test(GATE1_FILE)
     gold = to_matrix(to_sets(d["labels"]), keys)
     systems = run_systems(d["text"].astype(str).tolist(), m, labels_json)
 
-    result = {"rows": len(d), "scripts": d["script"].value_counts().to_dict(), "micro_f1": {}, "per_label_f1": {}}
+    result = {"file": GATE1_FILE, "rows": len(d), "scripts": d["script"].value_counts().to_dict(),
+              "micro_f1": {}, "micro_f1_by_dialect": {}, "per_label_f1": {}}
+    dialects = sorted(d["dialect"].replace("", "unknown").unique(), key=lambda x: (x != "standard", x))
     for name, preds in systems.items():
         pm = to_matrix([set(p) for p in preds], keys)
         result["micro_f1"][name] = round(float(f1_score(gold, pm, average="micro", zero_division=0)), 4)
         per = f1_score(gold, pm, average=None, zero_division=0)
         support = gold.sum(axis=0)
         result["per_label_f1"][name] = {k: (round(float(v), 3), int(s)) for k, v, s in zip(keys, per, support)}
+        for dia in dialects:
+            mask = (d["dialect"].replace("", "unknown") == dia).to_numpy()
+            result["micro_f1_by_dialect"].setdefault(dia, {"rows": int(mask.sum())})[name] = round(
+                float(f1_score(gold[mask], pm[mask], average="micro", zero_division=0)), 4)
 
-    print(f"Gate 1 · T1 first {len(d)} rows · scripts {result['scripts']}")
-    print(f"{'system':14s} micro-F1")
-    for name, v in result["micro_f1"].items():
-        print(f"{name:14s} {v:.3f}")
+    print(f"Gate 1 · {GATE1_FILE} · {len(d)} rows (synthetic stress test, not human evidence) · scripts {result['scripts']}")
+    names = list(systems)
+    print(f"{'micro-F1':24s}{'rows':>6s}" + "".join(f"{n:>14s}" for n in names))
+    print(f"{'all':24s}{len(d):>6d}" + "".join(f"{result['micro_f1'][n]:>14.3f}" for n in names))
+    for dia, r in result["micro_f1_by_dialect"].items():
+        print(f"{'  ' + dia:24s}{r['rows']:>6d}" + "".join(f"{r[n]:>14.3f}" for n in names))
     print("\nPer-label F1 (support):")
     print(f"{'label':24s}" + "".join(f"{n:>14s}" for n in systems))
     for k in keys:
@@ -80,7 +86,7 @@ def quick():
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--quick", action="store_true", help="Gate 1: first 30 rows of T1")
+    ap.add_argument("--quick", action="store_true", help="Gate 1 on the synthetic challenge set")
     args = ap.parse_args()
     if args.quick:
         sys.exit(quick())

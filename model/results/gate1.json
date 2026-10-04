@@ -1,0 +1,198 @@
+{
+  "file": "test_challenge_synthetic.csv",
+  "rows": 33,
+  "scripts": {
+    "banglish": 17,
+    "bn": 16
+  },
+  "micro_f1": {
+    "keyword": 0.4286,
+    "keyword+neg": 0.439,
+    "model+rules": 0.8136
+  },
+  "micro_f1_by_dialect": {
+    "standard": {
+      "rows": 25,
+      "keyword": 0.4516,
+      "keyword+neg": 0.4667,
+      "model+rules": 0.8444
+    },
+    "barishali": {
+      "rows": 1,
+      "keyword": 1.0,
+      "keyword+neg": 1.0,
+      "model+rules": 1.0
+    },
+    "chittagonian": {
+      "rows": 4,
+      "keyword": 0.0,
+      "keyword+neg": 0.0,
+      "model+rules": 0.8571
+    },
+    "noakhali": {
+      "rows": 1,
+      "keyword": 0.0,
+      "keyword+neg": 0.0,
+      "model+rules": 0.0
+    },
+    "sylheti": {
+      "rows": 2,
+      "keyword": 0.5,
+      "keyword+neg": 0.5,
+      "model+rules": 0.5
+    }
+  },
+  "per_label_f1": {
+    "keyword": {
+      "abdominal_pain": [
+        0.286,
+        6
+      ],
+      "persistent_vomiting": [
+        0.667,
+        6
+      ],
+      "bleeding": [
+        0.4,
+        4
+      ],
+      "lethargy_restless": [
+        0.0,
+        2
+      ],
+      "low_urine": [
+        0.0,
+        1
+      ],
+      "cold_clammy": [
+        0.0,
+        2
+      ],
+      "breathing_difficulty": [
+        0.0,
+        1
+      ],
+      "cannot_drink": [
+        0.667,
+        2
+      ],
+      "fever_dropped": [
+        0.0,
+        1
+      ],
+      "fever_present": [
+        0.0,
+        1
+      ],
+      "feeling_better": [
+        0.667,
+        2
+      ],
+      "test_result_mentioned": [
+        0.667,
+        2
+      ]
+    },
+    "keyword+neg": {
+      "abdominal_pain": [
+        0.286,
+        6
+      ],
+      "persistent_vomiting": [
+        0.667,
+        6
+      ],
+      "bleeding": [
+        0.4,
+        4
+      ],
+      "lethargy_restless": [
+        0.0,
+        2
+      ],
+      "low_urine": [
+        0.0,
+        1
+      ],
+      "cold_clammy": [
+        0.0,
+        2
+      ],
+      "breathing_difficulty": [
+        0.0,
+        1
+      ],
+      "cannot_drink": [
+        0.667,
+        2
+      ],
+      "fever_dropped": [
+        0.0,
+        1
+      ],
+      "fever_present": [
+        0.0,
+        1
+      ],
+      "feeling_better": [
+        0.667,
+        2
+      ],
+      "test_result_mentioned": [
+        0.667,
+        2
+      ]
+    },
+    "model+rules": {
+      "abdominal_pain": [
+        0.545,
+        6
+      ],
+      "persistent_vomiting": [
+        0.667,
+        6
+      ],
+      "bleeding": [
+        1.0,
+        4
+      ],
+      "lethargy_restless": [
+        1.0,
+        2
+      ],
+      "low_urine": [
+        1.0,
+        1
+      ],
+      "cold_clammy": [
+        1.0,
+        2
+      ],
+      "breathing_difficulty": [
+        1.0,
+        1
+      ],
+      "cannot_drink": [
+        1.0,
+        2
+      ],
+      "fever_dropped": [
+        0.667,
+        1
+      ],
+      "fever_present": [
+        1.0,
+        1
+      ],
+      "feeling_better": [
+        1.0,
+        2
+      ],
+      "test_result_mentioned": [
+        0.667,
+        2
+      ]
+    }
+  },
+  "gate1_pass": true
+}

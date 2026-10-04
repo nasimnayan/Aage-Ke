@@ -27,5 +27,11 @@
     "feeling_better": 0.9333,
     "test_result_mentioned": 1.0
   },
-  "vocab_size": 3948
+  "vocab_size": 3948,
+  "final_model": {
+    "rows": 580,
+    "C": 4,
+    "vocab_size": 3999,
+    "thresholds": "unchanged"
+  }
 }
