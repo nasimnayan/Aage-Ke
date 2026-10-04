@@ -19,7 +19,9 @@
     body { margin: 0; background: var(--bg); color: var(--ink);
       font-family: "Noto Sans Bengali", "Hind Siliguri", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
-    main { padding: 12px 16px 40px; max-width: 640px; margin: 0 auto; }
+    #app { max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--bg); }
+    @media (min-width: 520px) { body { background: #d9e1e8; } #app { box-shadow: 0 0 0 1px var(--line), 0 8px 30px rgba(16,24,40,.12); } }
+    main { padding: 12px 16px 40px; }
     h1 { font-size: 1.15rem; margin: 0; flex: 1; }
     h2 { font-size: 1rem; margin: 20px 0 8px; }
     button, .btn { font: inherit; font-weight: 600; border: 0; border-radius: 12px; padding: 12px 14px; background: var(--brand);
@@ -41,7 +43,7 @@
     .bar button.ghost { min-height: 44px; min-width: 44px; padding: 6px 10px; border: 0; font-size: 1.3rem; }
     .offline-badge { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--brand);
       background: var(--brand-soft); border: 1px solid var(--brand); border-radius: 999px; padding: 2px 10px; }
-    .lang-switch { position: fixed; top: max(10px, env(safe-area-inset-top)); right: 12px; z-index: 10; display: flex;
+    .lang-switch { position: fixed; top: max(10px, env(safe-area-inset-top)); right: max(12px, calc(50vw - 240px + 12px)); z-index: 10; display: flex;
       background: var(--brand-soft); border-radius: 999px; padding: 3px; box-shadow: var(--shadow); }
     .lang-switch button { min-height: 44px; min-width: 64px; padding: 4px 14px; border-radius: 999px; background: transparent;
       color: var(--brand); font-size: .85rem; }
@@ -149,6 +151,10 @@
     .pick-list { display: flex; flex-wrap: wrap; gap: 8px; }
     button.pick { background: var(--card); color: var(--brand); border: 1px dashed var(--brand); font-weight: 600; min-height: 44px; }
     .pick-toggle { width: 100%; }
+    .card.eval { margin-top: 12px; gap: 6px; }
+    .card.eval h2 { margin: 4px 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .tags.inline { border-top: 0; padding: 0 0 4px; }
+    .facts { white-space: normal; }
     button.link { background: transparent; color: var(--brand); text-decoration: underline; font-weight: 600; min-height: 44px; padding: 4px 8px; }
     .banner button.link { min-height: 32px; padding: 0 4px; font-size: inherit; color: #5a4a00; }
     .about { display: grid; gap: 4px; }
@@ -156,7 +162,8 @@
     .about ul, .about ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
     .about h2 { margin-top: 16px; }
     button.pick.maybe { color: var(--muted); border: 1px solid #c3cbd3; background: transparent; font-weight: 400; }
-    .raw-score { font-size: .72rem; color: #8a949e; align-self: center; font-weight: 400; }
+    .raw-score { font-size: .78rem; font-weight: 700; color: #344054; background: #fff; border: 1px solid #c3cbd3;
+      border-radius: 6px; padding: 1px 6px; align-self: center; margin-left: 4px; font-variant-numeric: tabular-nums; }
     /* Severity colours: warning suggested red, warning not sure amber, fever down / better green,
        test report amber, fever present neutral. Rejected stays grey. */
     .chip.sure.k-warn { border-color: #f3c3be; background: #fff8f7; }

@@ -390,6 +390,7 @@
       (p.untested ? '<div class="muted small">' + esc(t('suggested')) + ': ' + esc(fill('test_reminder')) + '</div>' : '') +
       '<div class="signs"><b>' + esc(t('confirmed_signs')) + ':</b> ' +
       (signs.length ? signs.map(function (k) { return esc(labelName(k)); }).join(', ') : esc(t('none_yet'))) + '</div></div>' +
+      latestEvaluation(p) +
       '<div class="actions">' + tel +
       '<button data-act="log" data-type="visit">' + esc(t('visit_today')) + '</button>' +
       '<button class="red" data-act="nav" data-to="refer">' + esc(t('refer')) + '</button>' +
@@ -409,22 +410,42 @@
       '<button class="ghost" data-act="note">' + esc(t('save_note')) + '</button></main>';
   }
 
+  function labelCard(m, k, raw, act) {
+    var d = (m.decisions || {})[k], b = m.bands[k];
+    var badge = b === 'manual' ? t('added_by_you') : d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
+    var idAttr = act === 'decide-inline' ? ' data-id="' + esc(m.id) + '"' : '';
+    return '<div class="chip ' + b + ' ' + labelKind(k) + (d ? ' ' + d : '') + '">' +
+      '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
+      '<span class="band-badge">' + esc(badge) + '</span>' +
+      (raw && b !== 'manual' ? '<span class="raw-score" title="model score">' + raw[k].toFixed(2) + '</span>' : '') + '</div>' +
+      (b !== 'manual' ? '<div class="why-words"><span class="why-key">' + esc(t('why_prefix')) + ':</span> ' +
+        esc(AageModel.explain(S.model, m.text, k, 3).map(function (w) { return '"' + w + '"'; }).join(', ')) + '</div>' : '') +
+      '<div class="chip-actions">' +
+      '<button class="yes" data-act="' + act + '"' + idAttr + ' data-k="' + k + '" data-v="confirmed" aria-pressed="' + (d === 'confirmed') + '">✓ ' + esc(t('confirm_btn')) + '</button>' +
+      '<button class="no" data-act="' + act + '"' + idAttr + ' data-k="' + k + '" data-v="rejected" aria-pressed="' + (d === 'rejected') + '">✗ ' + esc(t('reject_btn')) + '</button></div></div>';
+  }
+
+  // Patient screen: the latest family message and the model's labels for it, confirmable in place.
+  function latestEvaluation(p) {
+    var sms = (p.messages || []).filter(function (m) { return m.type === 'sms' && m.text; })
+      .sort(function (a, b) { return b.ts - a.ts; })[0];
+    if (!sms) return '';
+    var keys = Object.keys(sms.bands || {}), raw = AageModel.predict(S.model, sms.text);
+    var note = !keys.length && sms.outcome === 'not_understood' ? '<p class="pill amber big">' + esc(t('not_understood')) + '</p>'
+      : sms.outcome === 'no_warning_sign' ? '<p class="pill green big">' + esc(t('no_warning')) + '</p>' : '';
+    return '<section class="card eval"><h2>' + esc(t('incoming_sms')) + ' <span class="time">' + esc(when(sms.ts)) + '</span></h2>' +
+      '<blockquote class="bubble-quote">' + esc(sms.text) + (sms.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(sms.gloss) + '</span>' : '') + '</blockquote>' +
+      messageTags(p, sms).replace('class="tags"', 'class="tags inline"') +
+      '<h2>' + esc(t('model_evaluation')) + '</h2>' +
+      (sms.unfamiliar ? '<p class="pill amber big">' + esc(t('unfamiliar')) + '</p>' : '') + note +
+      keys.map(function (k) { return labelCard(sms, k, raw, 'decide-inline'); }).join('') +
+      '<button class="ghost" data-act="msg" data-id="' + esc(sms.id) + '">' + esc(t('add_yourself')) + '</button></section>';
+  }
+
   function viewLabels() {
     var m = S.draft, keys = Object.keys(m.bands);
     var raw = AageModel.predict(S.model, m.text);
-    var chips = keys.map(function (k) {
-      var d = m.decisions[k], b = m.bands[k];
-      var badge = b === 'manual' ? t('added_by_you') : d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
-      return '<div class="chip ' + b + ' ' + labelKind(k) + (d ? ' ' + d : '') + '">' +
-        '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
-        '<span class="band-badge">' + esc(badge) + '</span>' +
-        (raw && b !== 'manual' ? '<span class="raw-score" title="model score">' + raw[k].toFixed(2) + '</span>' : '') + '</div>' +
-        '<div class="why-words"><span class="why-key">' + esc(t('why_prefix')) + ':</span> ' +
-        esc(AageModel.explain(S.model, m.text, k, 3).map(function (w) { return '"' + w + '"'; }).join(', ')) + '</div>' +
-        '<div class="chip-actions">' +
-        '<button class="yes" data-act="decide" data-k="' + k + '" data-v="confirmed" aria-pressed="' + (d === 'confirmed') + '">✓ ' + esc(t('confirm_btn')) + '</button>' +
-        '<button class="no" data-act="decide" data-k="' + k + '" data-v="rejected" aria-pressed="' + (d === 'rejected') + '">✗ ' + esc(t('reject_btn')) + '</button></div></div>';
-    }).join('');
+    var chips = keys.map(function (k) { return labelCard(m, k, raw, 'decide'); }).join('');
     var note = m.outcome === 'not_understood' ? '<p class="pill amber big">' + esc(t('not_understood')) + '</p>'
       : m.outcome === 'no_warning_sign' ? '<p class="pill green big">' + esc(t('no_warning')) + '</p>' : '';
     return header(S.current.code, 'patient') + '<main>' +
@@ -644,6 +665,14 @@
       S.draft = JSON.parse(JSON.stringify(m));
       S.draft.decisions = S.draft.decisions || {};
       return go('labels');
+    }
+    if (act === 'decide-inline') {
+      var pi = S.current, mi = pi.messages.filter(function (x) { return x.id === el.dataset.id; })[0];
+      mi.decisions = mi.decisions || {};
+      if (mi.decisions[el.dataset.k] === el.dataset.v) delete mi.decisions[el.dataset.k];
+      else mi.decisions[el.dataset.k] = el.dataset.v;
+      if (mi.decisions.fever_dropped === 'confirmed' && !pi.feverDroppedOn) pi.feverDroppedOn = isoDate(mi.ts);
+      return save(pi).then(function () { return recordDecisions(mi); }).then(render);
     }
     if (act === 'add-label') {
       S.draft.bands[el.dataset.k] = 'manual';
