@@ -21,8 +21,9 @@ Synthetic data is allowed by the brief if labelled. Every constructed row says `
 
 | File | Rows | Who writes | Columns |
 |---|---|---|---|
-| `data/test_t1_human.csv` | 30 to 60 | Nasim, before seeing training data | `text, labels, script, dialect, is_negated, is_past, district` |
-| `data/test_t2_crowd.csv` | 60 to 90 | People from different districts via WhatsApp | same + `scenario_id`, `contributor_id` (C01, C02, no names) |
+| `data/test_t1_human.csv` | 17 | **Real messages from 4 volunteers in 4 districts** (Chandpur, Satkhira, Munshiganj, Pabna), written in their own words to the WhatsApp prompt below. Text untouched; labels proposed by Claude, checked by Nasim | `text, labels, script, dialect, is_negated, is_past, district` |
+| `data/test_t2_crowd.csv` | 0 so far | Later WhatsApp replies (same prompt), added as they arrive | same + `scenario_id`, `contributor_id` (C01, C02, no names) |
+| `data/test_challenge_synthetic.csv` | 33 | **Synthetic**, written by Claude: misspellings, mixed English, negation, past, hard negatives, 8 dialect probes (Chittagonian, Sylheti, Noakhali, Barishali; `verified=false`). Used for Gate 1 only and reported separately as a stress test, **never as human evidence** | `text, labels, script, dialect, is_negated, is_past, expected_outcome, source, verified, note` |
 | `data/test_t3_real.csv` | 80 | Bangla Healthcare Severity Dataset posts, Claude proposes labels, Nasim verifies | same + `orig_category`, `label_source` = `claude_proposed_nasim_verified` |
 
 T3 selection: Cowork found only 1 of 5,263 posts mentions dengue, 215 mention fever, 29 mention fever plus a warning sign. So: take all 29, add 21 posts that match any warning-sign cue without fever, and 30 random posts from other topics (false alarms). **README must say T3 tests general warning-sign wording in real posts, not dengue follow-up messages.** Use the XLSX-derived UTF-8 CSV; the Mendeley CSV is broken (Bangla saved as ?).
@@ -37,7 +38,7 @@ Also run the model over all 5,263 posts and report, per original severity class,
 Expected labels by scenario: 1 `abdominal_pain` · 2 `persistent_vomiting` · 3 `bleeding` · 4 `fever_dropped|feeling_better` · 5 `persistent_vomiting` with `is_past=1` (correct outcome = not sure) · 6 `lethargy_restless|cannot_drink` · 7 none (correct outcome = did not understand).
 Nasim checks every row; if a contributor wrote something different from the scenario, label what they wrote.
 Known bias: the scenario wording may prime contributors. Rows that copy the prompt wording get `primed=1`.
-**Integrity rule:** nothing from T2 or T3 goes into training data or cues. The v0.3 rule fixes were made after reading contributors C01 to C04, so their rows carry `seen_before_rule_fix=1`; report T2 twice, with and without those rows. Extra columns in T2: `primed, seen_before_rule_fix, expected_outcome, label_note, verified`.
+**Integrity rule:** nothing from T2 or T3 goes into training data or cues. The v0.3 rule fixes were made after reading contributors C01 to C04 (now in T1), so their rows carry `seen_before_rule_fix=1`; T2 rows that arrive later are fully unseen, so report T1 and T2 separately and pooled. Extra columns in T1 and T2: `primed, seen_before_rule_fix, expected_outcome, label_note, verified`.
 
 ## 3. Every number and its link
 

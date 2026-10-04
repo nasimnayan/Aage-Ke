@@ -38,8 +38,8 @@ ElevenLabs only if everything else is finished by 16:15, and only for 2 or 3 pre
 
 | Set | Who writes it | Size target |
 |---|---|---|
-| T1 human | Nasim, written before seeing any training data | 30 to 60 |
-| T2 crowd | Friends and family from different districts, via the WhatsApp prompt in `02_data_and_sources.md` | 60 to 90 |
+| T1 human | Real messages from 4 volunteers, 4 districts (collected 4 Oct) | 17 |
+| T2 crowd | Later WhatsApp replies, same prompt | as many as arrive by 15:15 |
 | T3 real | Real Bangla health posts from the Bangla Healthcare Severity Dataset. Claude proposes labels, Nasim verifies | 80 |
 
 ## Roles

@@ -68,7 +68,7 @@ Round weights to 4 decimals. Drop vocab entries whose coefficients are all below
 
 `parity_test.py`: run Python and JS (Node) inference on every T1 row. Max absolute probability difference < 1e-3.
 
-**Gate 1 script** `evaluate.py --quick`: first 30 rows of T1. Print micro-F1 for keyword, keyword+neg, model+rules.
+**Gate 1 script** `evaluate.py --quick`: run on `data/test_challenge_synthetic.csv` (not on T2, which stays clean for final reporting). Print micro-F1 for keyword, keyword+neg, model+rules.
 - If model+rules ≤ keyword+neg: stop, report which labels are weak, wait for more training sentences, retrain.
 
 **Check:** size printed, parity passes, Gate 1 table printed.

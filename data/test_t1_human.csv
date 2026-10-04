@@ -1,1 +1,18 @@
-text,labels,script,dialect,is_negated,is_past,district
+text,labels,script,dialect,is_negated,is_past,district,contributor_id,item,primed,seen_before_rule_fix,expected_outcome,label_note,verified,label_source
+Apu Jor komse agher theke ekto,fever_dropped,banglish,,0,0,Chandpur,C01,1,0,1,green,,false,volunteer_text_claude_proposed_label
+Kichu khete partese na ekhono,cannot_drink,banglish,,0,0,Chandpur,C01,2,0,1,red,,false,volunteer_text_claude_proposed_label
+Pet e betha ache ekhono,abdominal_pain,banglish,,0,0,Chandpur,C01,3,0,1,red,,false,volunteer_text_claude_proposed_label
+Ekhon ekto valo ache,feeling_better,banglish,,0,0,Chandpur,C01,4,0,1,green,,false,volunteer_text_claude_proposed_label
+Sorir onek durbol ache,lethargy_restless,banglish,,0,0,Chandpur,C01,5,0,1,red,Nasim: is 'onek durbol' lethargy? keep or clear,false,volunteer_text_claude_proposed_label
+"Gotokalke vomi hoyechilo, ajke hoi ni",persistent_vomiting,banglish,,1,1,Chandpur,C01,6,0,1,not_sure,,false,volunteer_text_claude_proposed_label
+Vomi bondho hocche na,persistent_vomiting,banglish,,0,0,Chandpur,C01,7,0,1,red,'not stopping' = still vomiting; old negation rule would wrongly drop it,false,volunteer_text_claude_proposed_label
+Sorir onek kharap hoye jacche aste aste,,banglish,,0,0,Chandpur,C01,8,0,1,call,"getting worse slowly; nothing on the list, so the right outcome is: call them",false,volunteer_text_claude_proposed_label
+পেটে খুব ব্যাথা করছে,abdominal_pain,bn,,0,0,Satkhira,C02,1,0,1,red,spelling ব্যাথা,false,volunteer_text_claude_proposed_label
+কয়েকবার বমি হয়ছে,persistent_vomiting,bn,,0,0,Satkhira,C02,2,0,1,red,,false,volunteer_text_claude_proposed_label
+মাড়ি বা নাক দিয়ে রক্ত পড়ছে,bleeding,bn,,0,0,Satkhira,C02,3,1,1,red,copied the prompt wording (primed),false,volunteer_text_claude_proposed_label
+"জ্বর কমে গেছে,এখন ভালো লাগে",feeling_better|fever_dropped,bn,,0,0,Satkhira,C02,4,0,1,green,,false,volunteer_text_claude_proposed_label
+গতকাল বমি হয়ছে আজকে হয় নাই,persistent_vomiting,bn,,1,1,Satkhira,C02,5,0,1,not_sure,,false,volunteer_text_claude_proposed_label
+"গায়ে একদম বল নাই, কিছু খেতে পারি না",cannot_drink|lethargy_restless,bn,,0,0,Satkhira,C02,6,0,1,red,first person,false,volunteer_text_claude_proposed_label
+কেমন যেন করে বুঝাতে পারছি না,,bn,,0,0,Satkhira,C02,7,0,1,call,,false,volunteer_text_claude_proposed_label
+গতকাল হালকা জ্বর ছিল ও বমি তিনবার হয়েছে । তবে আজকে দুূবল লাগছে তবে বমি নাই।,persistent_vomiting,bn,,1,1,Munshiganj,C03,free,0,1,not_sure,Nasim: is 'দুর্বল লাগছে' (feels weak) lethargy? if yes add lethargy_restless and expected=red,false,volunteer_text_claude_proposed_label
+"শরীর তুলতে পারছে না, খুবই দূর্বল। মুখেও রুচি নাই",lethargy_restless,bn,,0,0,Pabna,C04,free,0,1,red,no appetite is not 'cannot drink',false,volunteer_text_claude_proposed_label

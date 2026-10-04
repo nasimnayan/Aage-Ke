@@ -1,18 +1,7 @@
-text,labels,script,dialect,is_negated,is_past,district,contributor_id,item,primed,seen_before_rule_fix,expected_outcome,label_note,verified
-Apu Jor komse agher theke ekto,fever_dropped,banglish,,0,0,Chandpur,C01,1,0,1,green,,false
-Kichu khete partese na ekhono,cannot_drink,banglish,,0,0,Chandpur,C01,2,0,1,red,,false
-Pet e betha ache ekhono,abdominal_pain,banglish,,0,0,Chandpur,C01,3,0,1,red,,false
-Ekhon ekto valo ache,feeling_better,banglish,,0,0,Chandpur,C01,4,0,1,green,,false
-Sorir onek durbol ache,lethargy_restless,banglish,,0,0,Chandpur,C01,5,0,1,red,Nasim: is 'onek durbol' lethargy? keep or clear,false
-"Gotokalke vomi hoyechilo, ajke hoi ni",persistent_vomiting,banglish,,1,1,Chandpur,C01,6,0,1,not_sure,,false
-Vomi bondho hocche na,persistent_vomiting,banglish,,0,0,Chandpur,C01,7,0,1,red,'not stopping' = still vomiting; old negation rule would wrongly drop it,false
-Sorir onek kharap hoye jacche aste aste,,banglish,,0,0,Chandpur,C01,8,0,1,call,"getting worse slowly; nothing on the list, so the right outcome is: call them",false
-পেটে খুব ব্যাথা করছে,abdominal_pain,bn,,0,0,Satkhira,C02,1,0,1,red,spelling ব্যাথা,false
-কয়েকবার বমি হয়ছে,persistent_vomiting,bn,,0,0,Satkhira,C02,2,0,1,red,,false
-মাড়ি বা নাক দিয়ে রক্ত পড়ছে,bleeding,bn,,0,0,Satkhira,C02,3,1,1,red,copied the prompt wording (primed),false
-"জ্বর কমে গেছে,এখন ভালো লাগে",feeling_better|fever_dropped,bn,,0,0,Satkhira,C02,4,0,1,green,,false
-গতকাল বমি হয়ছে আজকে হয় নাই,persistent_vomiting,bn,,1,1,Satkhira,C02,5,0,1,not_sure,,false
-"গায়ে একদম বল নাই, কিছু খেতে পারি না",cannot_drink|lethargy_restless,bn,,0,0,Satkhira,C02,6,0,1,red,first person,false
-কেমন যেন করে বুঝাতে পারছি না,,bn,,0,0,Satkhira,C02,7,0,1,call,,false
-গতকাল হালকা জ্বর ছিল ও বমি তিনবার হয়েছে । তবে আজকে দুূবল লাগছে তবে বমি নাই।,persistent_vomiting,bn,,1,1,Munshiganj,C03,free,0,1,not_sure,Nasim: is 'দুর্বল লাগছে' (feels weak) lethargy? if yes add lethargy_restless and expected=red,false
-"শরীর তুলতে পারছে না, খুবই দূর্বল। মুখেও রুচি নাই",lethargy_restless,bn,,0,0,Pabna,C04,free,0,1,red,no appetite is not 'cannot drink',false
+text,labels,script,dialect,is_negated,is_past,district,contributor_id,item,primed,seen_before_rule_fix,expected_outcome,label_note,verified,label_source
+Jor komche.But hotat hotat jor ashe.,fever_dropped|fever_present,banglish,,0,0,Dhaka,C05,1,0,0,green,fever goes down then comes back suddenly; status labels only,false,volunteer_text_claude_proposed_label
+mukhe ruchi nai.,,banglish,,0,0,Dhaka,C05,2,0,0,call,no appetite: not on the list (same open question as T1 Pabna row),false,volunteer_text_claude_proposed_label
+Bomi bomi laghe,,banglish,,0,0,Dhaka,C05,3,0,0,call,"nausea, not vomiting: hard negative written by a real person",false,volunteer_text_claude_proposed_label
+durbol laghe.,,banglish,,0,0,Dhaka,C05,4,0,0,call,feels weak: lethargy? same open question as T1 Munshiganj row,false,volunteer_text_claude_proposed_label
+khete parchi na.,cannot_drink,banglish,,0,0,Dhaka,C05,5,0,0,red,first person,false,volunteer_text_claude_proposed_label
+purapuri shushto fill kortachi na,,banglish,,0,0,Dhaka,C05,6,0,0,call,"'not feeling fully well': vague, correct outcome is to call",false,volunteer_text_claude_proposed_label

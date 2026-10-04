@@ -1,0 +1,34 @@
+text,labels,script,dialect,is_negated,is_past,expected_outcome,source,verified,note
+apa amar ammur pete onek bethaaa korteche,abdominal_pain,banglish,standard,0,0,red,claude_challenge,false,stretched spelling
+"পেটে প্রচন্ড ব্যাথা, বসতে পারতেছে না",abdominal_pain,bn,standard,0,0,red,claude_challenge,false,"ব্যাথা misspelling; 'না' belongs to sitting, not to pain"
+sokale 4 bar vomit korse,persistent_vomiting,banglish,standard,0,0,red,claude_challenge,false,English word inside Banglish
+বমী থামতেছে না,persistent_vomiting,bn,standard,0,0,red,claude_challenge,false,বমী misspelling; stop + not = still vomiting
+maria theke blood ashtese,bleeding,banglish,standard,0,0,red,claude_challenge,false,"gum misspelt as maria, English 'blood'"
+নাক দিয়া রক্ত পরতেছে,bleeding,bn,standard,0,0,red,claude_challenge,false,"দিয়া, পরতেছে colloquial spelling"
+"ekdom weak hoye gese, uthte pare na",lethargy_restless,banglish,standard,0,0,red,claude_challenge,false,English 'weak'
+সারাদিনে একবার পেশাব করছে খালি,low_urine,bn,standard,0,0,red,claude_challenge,false,only once all day
+"haat pa thanda baraf, gham dicche",cold_clammy,banglish,standard,0,0,red,claude_challenge,false,
+nissash nite kosto hocche,breathing_difficulty,banglish,standard,0,0,red,claude_challenge,false,
+"panio khaite pare na, ja dei fele dey",cannot_drink,banglish,standard,0,0,red,claude_challenge,false,
+pet e betha nai ekhon,,banglish,standard,1,0,call,claude_challenge,false,negated only and no status word: 'call them' is acceptable
+রক্ত পড়া বন্ধ হয় নাই,bleeding,bn,standard,0,0,red,claude_challenge,false,stop + not = still bleeding
+jor kome nai ekhono,fever_present,banglish,standard,0,0,green,claude_challenge,false,fever not coming down; status only
+"শ্বাসকষ্ট নাই, ভালো আছে",feeling_better,bn,standard,1,0,green,claude_challenge,false,
+bomi ar hoy nai aj,,banglish,standard,1,0,call,claude_challenge,false,negated only: 'call them' is acceptable
+গত রাতে দুইবার বমি হইছিল,persistent_vomiting,bn,standard,0,1,not_sure,claude_challenge,false,past verb ending -ছিল
+"kal rate nak theke rokto porchilo, ekhon nai",bleeding,banglish,standard,1,1,not_sure,claude_challenge,false,past wins over negation
+porshu theke pete betha chilo,abdominal_pain,banglish,standard,0,1,not_sure,claude_challenge,false,
+mathay khub betha,,banglish,standard,0,0,call,claude_challenge,false,hard negative: headache is not on the list
+বমি বমি ভাব লাগে,,bn,standard,0,0,call,claude_challenge,false,hard negative: nausea is not vomiting
+রক্তের রিপোর্টে প্লাটিলেট ৬০ হাজার,test_result_mentioned,bn,standard,0,0,amber,claude_challenge,false,must not fire bleeding
+rokto test korate dilam,test_result_mentioned,banglish,standard,0,0,amber,claude_challenge,false,must not fire bleeding
+"jor chere gese, valo lagtese",fever_dropped|feeling_better,banglish,standard,0,0,green,claude_challenge,false,
+"chokh lal, gaye betha",,banglish,standard,0,0,call,claude_challenge,false,hard negative: body ache and red eyes are not on the list
+আঁর মা আবার বুমি গরি দিয়ে,persistent_vomiting,bn,chittagonian,0,0,red,claude_challenge,false,"বুমি গরি attested in a Chittagong dialect corpus (arXiv 2403.17407); sentence written by Claude, needs a native speaker"
+আত পা ঠান্ডা অই গেইয়ে,cold_clammy,bn,chittagonian,0,0,red,claude_challenge,false,"আত, অই attested in same corpus; sentence by Claude, needs native check"
+কিছু খাইত ন-ফারের,cannot_drink,bn,chittagonian,0,0,red,claude_challenge,false,ন-ফারি attested; ফারের form is Claude's guess
+হেতি হারাদিন শুম যার,lethargy_restless,bn,chittagonian,0,0,red,claude_challenge,false,শুম (sleep) attested; sentence is Claude's guess
+আম্মার ফেটো বিষ করের,abdominal_pain,bn,sylheti,0,0,red,claude_challenge,false,বিষ = pain in eastern varieties (Assamese পেটৰ বিষ); Sylheti form is Claude's guess
+"fet e bish korer, bomi o korer",abdominal_pain|persistent_vomiting,banglish,sylheti,0,0,red,claude_challenge,false,"Claude's guess, needs native check"
+হেটে বিষ করের,abdominal_pain,bn,noakhali,0,0,red,claude_challenge,false,"p→h shift (হেট for পেট) is Claude's guess, needs native check"
+হ্যার বমি করতে আছে বারবার,persistent_vomiting,bn,barishali,0,0,red,claude_challenge,false,"Claude's guess, needs native check"
