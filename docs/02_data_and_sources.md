@@ -59,6 +59,9 @@ Status: **P** = primary source opened · **S** = secondary (news citing the sour
 | 10 | In September 2025, DGHS directed government hospitals to run separate dengue wards and teams | Daily Star link in #2 | S, date it 2025 |
 | 11 | Pirojpur: 1,159 cases 1 Jan to 16 Aug 2026 vs 477 same period 2025; WHO listed it among six districts with a marked rise; no Barguna-style mosquito control there | Prothom Alo, 17 Aug 2026: https://www.prothomalo.com/bangladesh/958doqb1hj | S |
 | 12 | Coastal districts (Barguna, Jhalokati, Pirojpur) had more Aedes larvae; salinity leads families to store rainwater year-round | BBC Bangla, 20 Aug 2026: https://www.bbc.com/bengali/articles/cqx7n9elw2yo | S |
+| 13 | Home care: rest, fluids, paracetamol for fever or pain, no aspirin or ibuprofen, prevent mosquito bites during the first week (basis for the `home_care` SMS) | CDC "Manage Dengue": https://cdc.gov/dengue/treatment/index.html | P |
+| 14 | In September 2025 DGHS urged people with fever to get tested at the nearest hospital (basis for the `test_reminder` SMS) | Daily Star link in #2 | S, date it 2025 |
+| 15 | Water standing for more than 48 hours is a breeding risk (basis for the `water_containers` SMS) | BBC Bangla link in #12 | S |
 
 **Do not use:** handoff numbers 239 deaths and 73,694 cases (stale) · Khatun et al. phone ownership (old) · speech recognition word error rates (not checked) · `dataset.csv` and the Jamalpur hematology dataset (lab diagnosis data, out of bounds for the health track).
 

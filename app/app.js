@@ -51,7 +51,7 @@
 
   // ---------- urgency (confirmed labels only, docs/01 §6) ----------
   function lastHandled(p) {
-    return (p.actions || []).filter(function (a) { return a.type !== 'sms'; })
+    return (p.actions || []).filter(function (a) { return ['call', 'visit', 'refer', 'arrived'].indexOf(a.type) !== -1; })
       .reduce(function (m, a) { return Math.max(m, a.ts); }, 0);
   }
   function confirmedIn(m, k) { return m.decisions && m.decisions[k] === 'confirmed'; }
@@ -208,7 +208,7 @@
           id: d.code, code: d.code, union: d.union, phone: '', added: now - (d.illness_day + 1) * DAY,
           onset: isoDate(now - (d.illness_day - 1) * DAY),
           feverDroppedOn: d.fever_dropped_days_ago != null ? isoDate(now - d.fever_dropped_days_ago * DAY) : null,
-          messages: [], actions: []
+          messages: [], actions: [], untested: !!d.untested
         };
         d.messages.forEach(function (m) {
           var ts = new Date(now - m.days_ago * DAY).setHours(m.hour, 0, 0, 0);
@@ -259,7 +259,8 @@
         var p = r.p, day = illnessDay(p);
         html += '<button class="row" data-act="open" data-id="' + esc(p.id) + '">' +
           '<span class="code">' + esc(p.code) + '</span>' +
-          '<span class="meta">' + esc(p.union) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') + '</span>' +
+          '<span class="meta">' + esc(p.union) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') +
+          (p.untested ? ' · ' + esc(t('status_untested')) : '') + '</span>' +
           (r.u.why ? '<span class="why">' + esc(r.u.why) + '</span>' : '') + '</button>';
       });
       html += '</section>';
@@ -277,6 +278,8 @@
     var unions = S.fac.unions.map(function (u) { return '<option value="' + esc(u.name) + '">' + esc(u.name) + ' · ' + esc(u.name_bn) + '</option>'; }).join('');
     return header(t('add_patient'), 'inbox') + '<main><form id="f-patient" class="form">' +
       '<label>' + esc(t('code')) + '<input name="code" required autocomplete="off"></label>' +
+      '<div class="radios"><label class="radio"><input type="radio" name="status" value="tested" checked> ' + esc(t('status_tested')) + '</label>' +
+      '<label class="radio"><input type="radio" name="status" value="untested"> ' + esc(t('status_untested')) + '</label></div>' +
       '<label>' + esc(t('union')) + '<select name="union">' + unions + '</select></label>' +
       '<label>' + esc(t('phone')) + '<input name="phone" type="tel" inputmode="tel"></label>' +
       '<label>' + esc(t('onset')) + '<input name="onset" type="date" required value="' + today() + '" max="' + today() + '"></label>' +
@@ -323,6 +326,8 @@
       '<div>' + esc(p.union) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') +
       (p.feverDroppedOn ? ' · ' + esc(t('fever_dropped_badge', { d: p.feverDroppedOn })) : '') + '</div>' +
       (u.why ? '<div class="why">' + esc(u.why) + '</div>' : '') +
+      '<div>' + esc(p.untested ? t('status_untested') : t('status_tested')) + '</div>' +
+      (p.untested ? '<div class="muted small">' + esc(t('suggested')) + ': ' + esc(fill('test_reminder')) + '</div>' : '') +
       '<div class="signs"><b>' + esc(t('confirmed_signs')) + ':</b> ' +
       (signs.length ? signs.map(function (k) { return esc(labelName(k)); }).join(', ') : esc(t('none_yet'))) + '</div></div>' +
       '<div class="actions">' + tel +
@@ -330,7 +335,8 @@
       '<button class="red" data-act="nav" data-to="refer">' + esc(t('refer')) + '</button>' +
       '<button data-act="nav" data-to="sms">' + esc(t('send_sms')) + '</button>' +
       '<button data-act="nav" data-to="add_message">' + esc(t('add_message')) + '</button>' +
-      (openReferral(p) ? '<button class="green" data-act="arrived">' + esc(t('arrived')) + '</button>' : '') + '</div>' +
+      (openReferral(p) ? '<button class="green" data-act="arrived">' + esc(t('arrived')) + '</button>' : '') +
+      (p.untested ? '<button class="green" data-act="tested">' + esc(t('mark_tested')) + '</button>' : '') + '</div>' +
       '<h2>' + esc(t('messages')) + '</h2><ul class="msgs">' + msgs + '</ul></main>';
   }
 
@@ -363,7 +369,7 @@
   }
 
   function viewSms() {
-    var p = S.current, keys = ['daily', 'window', 'callback', 'not_understood', 'enrol', 'refer'];
+    var p = S.current, keys = ['daily', 'window', 'callback', 'not_understood', 'enrol', 'refer', 'test_reminder', 'home_care', 'water_containers'];
     var fac = S.smsKey === 'refer' ? nearestFacility(p).f : null;
     var body = fill(S.smsKey, null, fac);
     var number = S.judge ? '' : p.phone;
@@ -446,6 +452,7 @@
     if (act === 'judge') return startJudge();
     if (act === 'lang') { I18N.setLang(I18N.getLang() === 'bn' ? 'en' : 'bn'); return render(); }
     if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
+    if (act === 'nav' && el.dataset.to === 'sms') S.smsKey = S.current && S.current.untested ? 'test_reminder' : 'daily';
     if (act === 'back' || act === 'nav') return go(el.dataset.to);
     if (act === 'open') {
       S.current = S.patients.filter(function (p) { return p.id === el.dataset.id; })[0];
@@ -491,6 +498,7 @@
       return save(p).then(function () { go('patient'); });
     }
     if (act === 'arrived') return logAction('arrived').then(render);
+    if (act === 'tested') { S.current.untested = false; return logAction('tested').then(render); }
     if (act === 'refer-log') {
       var pt = S.current;
       return logAction('refer', el.dataset.fac, { illnessDay: illnessDay(pt), signs: confirmedSigns(pt) }).then(function () { go('patient'); });
@@ -512,7 +520,8 @@
     if (e.target.id === 'f-patient') {
       var p = {
         id: uid(), code: f.get('code').trim(), union: f.get('union'), phone: f.get('phone').trim(),
-        onset: f.get('onset'), feverDroppedOn: f.get('fever') || null, added: Date.now(), messages: [], actions: []
+        onset: f.get('onset'), feverDroppedOn: f.get('fever') || null, added: Date.now(), messages: [], actions: [],
+        untested: f.get('status') === 'untested'
       };
       S.current = p;
       return save(p).then(function () { go('patient'); });

@@ -109,6 +109,22 @@
           "confirm": []
         }
       ]
+    },
+    {
+      "code": "P-07",
+      "union": "Dirgha",
+      "illness_day": 2,
+      "fever_dropped_days_ago": null,
+      "untested": true,
+      "messages": [
+        {
+          "days_ago": 0,
+          "hour": 8,
+          "text": "jor ase 2 din dhore",
+          "gloss": "Fever for 2 days.",
+          "confirm": []
+        }
+      ]
     }
   ]
 }

@@ -32,6 +32,8 @@ Most people with dengue are cared for at home. WHO guidance says a home-managed 
 
 Known gap in our own design: if nobody tells the CHCP about a positive test (stage 2), the patient never reaches her list. State this in the README limitations.
 
+**Added 4 Oct (pre-stage):** stage 1 is now partly covered. Rina can add a person with fever who has not been tested yet, status "জ্বর, পরীক্ষা হয়নি". The same warning-sign reading and tiers apply. The app suggests the `test_reminder` SMS, and a "পরীক্ষা হয়েছে" button switches the person to the tested status. No AI change.
+
 ## 4. How it works
 
 ```
@@ -120,6 +122,14 @@ No diagnosis words. No disease name. The phone may be shared.
 
 **Referral note** (to the facility, sent by Rina):
 `রেফারেল [কোড] | [ইউনিয়ন] | জ্বরের দিন [N] | দেখা গেছে: [নিশ্চিত চিহ্ন] | পাঠিয়েছেন: [আপা], [কমিউনিটি ক্লিনিক], [নম্বর]`
+
+**Added 4 Oct (pre-stage, Nasim approved as an exception to the task list):**
+
+| Key | Text |
+|---|---|
+| `test_reminder` | জ্বর হলে কাছের সরকারি হাসপাতালে রক্ত পরীক্ষা করান। — [আপার নাম] |
+| `home_care` | বিশ্রাম নিন, বেশি করে পানি, স্যালাইন ও তরল খান। জ্বর বা ব্যথায় শুধু প্যারাসিটামল; অ্যাসপিরিন বা আইবুপ্রোফেন খাবেন না। রোগী মশারির ভেতরে থাকুন। |
+| `water_containers` | জমানো পানির পাত্র ঢেকে রাখুন। বোতল, টব, ডাবের খোসায় পানি জমতে দেবেন না; দুই দিনের বেশি জমে থাকা পানি ফেলে দিন। |
 
 ## 9. DHIS2-shaped export
 
