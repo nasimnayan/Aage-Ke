@@ -1,0 +1,15 @@
+{
+  "name": "Aage Ke? (আগে কে?)",
+  "short_name": "Aage Ke?",
+  "description": "Offline follow-up list for home-managed fever patients. Reads family SMS, suggests labels, the health worker decides.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f7",
+  "theme_color": "#1f3b4d",
+  "lang": "bn",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

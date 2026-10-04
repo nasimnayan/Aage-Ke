@@ -502,5 +502,7 @@
     })
     .then(function (pin) { S.hasPin = !!pin; render(); });
 
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+
   window.AageApp = { state: S, urgency: urgency, nearestFacility: nearestFacility, fill: fill };
 })();
