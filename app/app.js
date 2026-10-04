@@ -245,8 +245,10 @@
     return '<header class="bar">' +
       (back ? '<button class="ghost" data-act="back" data-to="' + back + '">←</button>' : '') +
       '<h1>' + esc(title) + '</h1>' +
+      (navigator.onLine ? '' : '<span class="offline-badge">OFFLINE</span>') +
       '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) + '</div>' +
-        (S.view === 'inbox' ? '<div class="facts">' + esc(factsLine()) + '</div>' : '') : '');
+        ((S.view === 'inbox' || S.view === 'patient') ? '<div class="facts">' +
+          esc(I18N.getLang() === 'en' ? factsLine() : t('facts_short', { kb: Math.round(S.modelBytes / 1024) })) + '</div>' : '') : '');
   }
 
   function viewPin() {
@@ -352,17 +354,20 @@
     var tel = p.phone ? '<a class="btn red" href="tel:' + esc(p.phone) + '" data-act="log" data-type="call">' + esc(t('call_now')) + '</a>'
       : '<button class="btn" disabled>' + esc(t('call_now')) + ' · ' + esc(t('no_phone')) + '</button>';
     var msgs = (p.messages || []).slice().sort(function (a, b) { return b.ts - a.ts; }).map(function (m) {
-      return '<li><button class="msg" data-act="msg" data-id="' + esc(m.id) + '">' +
+      return '<li class="bubble ' + (m.type || '') + '"><button class="msg" data-act="msg" data-id="' + esc(m.id) + '">' +
         '<span class="time">' + esc(when(m.ts)) + '</span>' +
         (m.text ? '<span class="text">' + esc(m.text) + '</span>' : '') +
         (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') +
         '<span class="outcome">' + outcomeLine(m) + '</span></button>' + messageTags(p, m) + '</li>';
     }).join('');
     return header(p.code, 'inbox') + '<main>' +
-      '<div class="card tier-' + u.tier + '"><div class="big">' + esc(p.code) + '</div>' +
-      '<div>' + esc(p.union) + (day ? ' · ' + esc(t('illness_day', { n: day })) : '') +
-      (p.feverDroppedOn ? ' · ' + esc(t('fever_dropped_badge', { d: p.feverDroppedOn })) : '') + '</div>' +
-      (u.why ? '<div class="why">' + esc(u.why) + '</div>' : '') +
+      '<div class="card patient-card tier-' + u.tier + '">' +
+      '<div class="pc-head"><span class="code-badge">' + esc(p.code.split(' ')[0]) + '</span>' +
+      '<div class="pc-title"><div class="big">' + esc(p.code) + '</div>' +
+      (p.feverDroppedOn ? '<div class="muted small">' + esc(t('fever_dropped_badge', { d: p.feverDroppedOn })) + '</div>' : '') + '</div>' +
+      (day ? '<span class="day-pill">' + esc(t('illness_day', { n: day })) + '</span>' : '') + '</div>' +
+      '<div class="pc-boxes"><div class="pc-box"><small>' + esc(t('union')) + '</small><b>' + esc(p.union) + '</b></div>' +
+      '<div class="pc-box tier-box ' + u.tier + '"><small>' + esc(t('tier_' + u.tier)) + '</small><b>' + esc(u.why || t('tier_' + u.tier)) + '</b></div></div>' +
       '<div>' + esc(p.untested ? t('status_untested') : t('status_tested')) + '</div>' +
       (p.untested ? '<div class="muted small">' + esc(t('suggested')) + ': ' + esc(fill('test_reminder')) + '</div>' : '') +
       '<div class="signs"><b>' + esc(t('confirmed_signs')) + ':</b> ' +
@@ -390,21 +395,23 @@
     var m = S.draft, keys = Object.keys(m.bands);
     var chips = keys.map(function (k) {
       var d = m.decisions[k], b = m.bands[k];
+      var badge = d ? t(d) : (b === 'sure' ? t('suggested') : t('unsure'));
       return '<div class="chip ' + b + (d ? ' ' + d : '') + '">' +
-        '<div class="chip-label">' + (b === 'sure' ? '✓ ' : '') + esc(labelName(k)) +
-        '<small>' + esc(b === 'sure' ? t('suggested') : t('unsure')) + '</small>' +
-        '<small class="why-words">' + esc(t('why_prefix')) + ': ' + esc(AageModel.explain(S.model, m.text, k, 3).join(', ')) + '</small>' +
-        (d ? '<small class="state">' + esc(t(d)) + '</small>' : '') + '</div>' +
-        '<button class="yes" data-act="decide" data-k="' + k + '" data-v="confirmed" aria-label="' + esc(t('confirm')) + '">✓</button>' +
-        '<button class="no" data-act="decide" data-k="' + k + '" data-v="rejected" aria-label="' + esc(t('reject')) + '">✗</button></div>';
+        '<div class="chip-head"><div class="chip-label">' + esc(labelName(k)) + '</div>' +
+        '<span class="band-badge">' + esc(badge) + '</span></div>' +
+        '<div class="why-words"><span class="why-key">' + esc(t('why_prefix')) + ':</span> ' +
+        esc(AageModel.explain(S.model, m.text, k, 3).map(function (w) { return '"' + w + '"'; }).join(', ')) + '</div>' +
+        '<div class="chip-actions">' +
+        '<button class="yes" data-act="decide" data-k="' + k + '" data-v="confirmed" aria-pressed="' + (d === 'confirmed') + '">✓ ' + esc(t('confirm_btn')) + '</button>' +
+        '<button class="no" data-act="decide" data-k="' + k + '" data-v="rejected" aria-pressed="' + (d === 'rejected') + '">✗ ' + esc(t('reject_btn')) + '</button></div></div>';
     }).join('');
     var note = m.outcome === 'not_understood' ? '<p class="pill amber big">' + esc(t('not_understood')) + '</p>'
       : m.outcome === 'no_warning_sign' ? '<p class="pill green big">' + esc(t('no_warning')) + '</p>' : '';
     return header(S.current.code, 'patient') + '<main>' +
-      '<blockquote>' + esc(m.text) + (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') + '</blockquote>' +
+      '<blockquote class="bubble-quote">' + esc(m.text) + (m.gloss && I18N.getLang() === 'en' ? '<span class="gloss">' + esc(m.gloss) + '</span>' : '') + '</blockquote>' +
       (m.unfamiliar ? '<p class="pill amber big">' + esc(t('unfamiliar')) + '</p>' : '') +
       note + (keys.length ? '<p class="muted small">' + esc(t('tap_to_confirm')) + '</p>' : '') + chips +
-      (S.judge && m.isNew && S.lastMs != null ? '<p class="facts">Read on this phone in ' + S.lastMs.toFixed(1) + ' ms</p>' : '') +
+      (S.judge && m.isNew && S.lastMs != null && I18N.getLang() === 'en' ? '<p class="facts">Read on this phone in ' + S.lastMs.toFixed(1) + ' ms</p>' : '') +
       '<button data-act="labels-done">' + esc(t('done')) + '</button></main>';
   }
 
@@ -647,6 +654,8 @@
     })
     .then(function (v) { S.hasPin = !!(v[0] || v[1]); render(); });
 
+  window.addEventListener('online', function () { if (S.model) render(); });
+  window.addEventListener('offline', function () { if (S.model) render(); });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
 
   window.AageApp = { state: S, urgency: urgency, nearestFacility: nearestFacility, fill: fill };
