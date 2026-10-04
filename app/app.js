@@ -281,10 +281,12 @@
 
   // ---------- views ----------
   function header(title, back) {
-    return '<header class="bar">' +
-      (back ? '<button class="ghost" data-act="back" data-to="' + back + '">←</button>' : '') +
-      '<h1>' + esc(title) + '</h1>' +
-      (navigator.onLine ? '' : '<span class="offline-badge">OFFLINE</span>') +
+    // "Aage Ke?" in the header is the home button on every screen. The screen title sits on its own line.
+    return '<header class="bar"><div class="bar-row">' +
+      (back ? '<button class="ghost" data-act="back" data-to="' + back + '" aria-label="' + esc(t('cancel')) + '">←</button>' : '') +
+      '<button class="home" data-act="home">⌂ ' + esc(t('app_name')) + '</button>' +
+      (navigator.onLine ? '' : '<span class="offline-badge">OFFLINE</span>') + '</div>' +
+      (title && title !== t('app_name') ? '<h1>' + esc(title) + '</h1>' : '') +
       '</header>' + (S.judge ? '<div class="banner">' + esc(t('demo_banner')) +
         (S.view !== 'about' ? ' <button class="link" data-act="about">' + esc(t('about_link')) + '</button>' : '') + '</div>' +
         ((S.view === 'inbox' || S.view === 'patient') ? '<div class="facts">' +
@@ -659,6 +661,7 @@
     var act = el.dataset.act;
     if (act === 'pin') return pinDigit(el.dataset.d);
     if (act === 'judge') return startJudge();
+    if (act === 'home') { S.current = null; return go(S.judge || Store.encrypted() ? 'inbox' : 'pin'); }
     if (act === 'about') { S.aboutFrom = S.view === 'about' ? S.aboutFrom : S.view; return go('about'); }
     if (act === 'info') { S.infoOpen = S.infoOpen === el.dataset.id ? null : el.dataset.id; return render(); }
     if (act === 'lock') { S.current = null; S.patients = []; S.settings = {}; S.judge = false; Store.use('idb'); return go('pin'); }
