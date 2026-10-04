@@ -1,0 +1,31 @@
+{
+  "rows_used": {
+    "verified": 0,
+    "claude_draft_unverified": 580
+  },
+  "train_rows": 464,
+  "dev_rows": 116,
+  "C_scores": {
+    "0.5": 0.9195,
+    "1": 0.9412,
+    "2": 0.9486,
+    "4": 0.9639
+  },
+  "best_C": 4,
+  "dev_micro_f1": 0.9639,
+  "dev_per_label_f1": {
+    "abdominal_pain": 0.9655,
+    "persistent_vomiting": 1.0,
+    "bleeding": 0.9655,
+    "lethargy_restless": 0.9524,
+    "low_urine": 1.0,
+    "cold_clammy": 1.0,
+    "breathing_difficulty": 0.9565,
+    "cannot_drink": 0.9524,
+    "fever_dropped": 0.9,
+    "fever_present": 0.9231,
+    "feeling_better": 0.9333,
+    "test_result_mentioned": 1.0
+  },
+  "vocab_size": 3948
+}

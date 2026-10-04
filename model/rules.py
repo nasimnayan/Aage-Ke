@@ -139,3 +139,43 @@ class Rules:
             else:
                 out[k] = "plain"
         return out
+
+
+def band(p, bands):
+    if p >= bands["suggest"]:
+        return "sure"
+    if p >= bands["unsure_low"]:
+        return "unsure"
+    return None
+
+
+_RANK = {None: 0, "unsure": 1, "sure": 2}
+
+
+def apply_rules(probs, status, bands):
+    """Model probabilities {label: p} + rule status {label: ...} -> {label: band}.
+
+    neg suppresses; past forces "not sure" (never dropped, ambiguity goes to a person);
+    a negated fever_present becomes fever_dropped (at least "not sure").
+    """
+    out = {}
+    for k, p in probs.items():
+        st = status.get(k)
+        if st == "neg":
+            continue
+        b = "unsure" if st == "past" else band(p, bands)
+        if b:
+            out[k] = b
+    if status.get("fever_present") == "neg":
+        b = max(out.get("fever_dropped"), band(probs["fever_present"], bands), "unsure", key=_RANK.get)
+        out["fever_dropped"] = b
+    return out
+
+
+def outcome(bands_by_label, warning_keys):
+    """Message outcome for the inbox: 'labels', 'not_understood' or 'no_warning_sign'."""
+    if not bands_by_label:
+        return "not_understood"
+    if not any(k in warning_keys for k in bands_by_label) and set(bands_by_label) <= {"feeling_better", "fever_dropped"}:
+        return "no_warning_sign"
+    return "labels"
